@@ -1,0 +1,14 @@
+※ jdk java Debelopment Kit
+	자바 개발 도구
+	자바 프로그램을 개발하기 위한 도구
+	(컴파일러)
+
+※ jre Java Runtime Environment
+	자바 실행 환경
+	자바로 만들어진 프로그램을 실행시키기 위한 	환경(소프트웨어) -> JVM
+	JDK 설치시 자동으로 설치된다.
+	
+※ JVM Java Virtual Machine
+	자바 가상 머신
+	자바 바이트 코드(.class)를 실핼할 수 있다.		
+	운영체제에 의존적이다.(운영체제마다 JVM이 		각각 따로 있다.)
