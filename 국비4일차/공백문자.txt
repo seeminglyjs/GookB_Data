@@ -1,0 +1,13 @@
+※ 공백문자, white space
+	띄어쓰기 ' ' ASCII 32
+	개행 줄바꿈 '/n' ASCII 10
+	탭 수평탭 't' ASCII 9	
+	아스키코드로 나타낸다.
+	
+
+** 개행은 운영체제에 따라서 \r 과 \n을 조합해서 사용 (\r -> Carriage Return, \n -> New Line)
+
+	윈도우 : \r , \n 두 문자를 합쳐서 사용
+	리눅스 : \n
+	맥os : \n
+
