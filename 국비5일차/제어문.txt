@@ -1,0 +1,20 @@
+※ 제어문 Control Statement
+	프로그램의 기본 진행 흐름을 제어하는 구문
+	
+
+** 프로그램의 기본진행
+	main() 메소드에서 시작하여 코드 한 줄씩 순	서대로 전부 실행하는 것
+	
+	개발자가 프로그램을 원하는 흐름으로 제어할 	수 있게 된다.
+	
+	- 조건문 condition
+	if else else if
+
+	-반복문 loop
+	for while do-while
+	
+	-선택문
+	switch
+	-기타 제어문
+	break, continue
+	
