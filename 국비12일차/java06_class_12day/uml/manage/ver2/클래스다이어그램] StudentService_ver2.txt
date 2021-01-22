@@ -1,0 +1,30 @@
+-------------------------
+class StudentService_ver2
+-------------------------
+- sc : Scanner
+- stuArr : Student[3]
+-------------------------
+<<constructor>>
++ StudentService_ver2()
+
+<<method>>
+- getIdx() : int
+
+- insertInfo(Student,int):void
++ insertInfoAll() : void
++ insertInfoIdx() : void
+
+- insertScore(Student,int):void
++ insertScoreAll() : void
++ insertSocreIdx() : void
+
++ insertStu(int idx) : void
++ insertStuAll() : void
+
+- calcSum(Student) : void
+- calcAvg(Student) : void
+
+- printStu(Student,int):void
++ printStuAll() : void
++ printStuIdx() : void
+-------------------------

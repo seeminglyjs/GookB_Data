@@ -1,0 +1,63 @@
+
+추가	- 몇번째 학생을 선택할지 입력받기
+		getIdx()
+
+	private int getIdx() {
+		int idx;
+		do {
+			System.out.print("몇번째학생? ");
+			idx = sc.nextInt();
+			if(idx<1 || idx>3)
+				System.out.println(" >> Error : 3명만 존재합니다");
+		} while(idx<1 || idx>3);
+		
+		return idx;
+	}
+	
+	
+
+
+수정	- 인적 정보 1명 입력
+		insertInfo()
+		
+추가	- 인적 정보 1명 입력(선택)
+		insertInfoIdx()
+	  예시)	insertInfoIdx() {
+		  int idx = getIdx();
+		  insertInfo(stuArr[idx], idx);
+		}
+		
+		
+		
+추가	- 인적 정보 3명 입력(순서대로)
+		insertInfoAll()
+
+
+
+수정	- 점수 1명 입력
+		insertScore()
+		
+추가	- 점수 1명 입력(선택)
+		insertScoreIdx()
+	  예시)	insertScoreIdx() {
+		  int idx = getIdx();
+		  insertScore(stuArr[idx], idx);
+		}
+		
+추가	- 점수 3명 입력(순서대로)
+		insertScoreAll()
+
+
+
+추가	- 인적+점수 1명 입력(선택)
+		insertStu()
+		
+추가	- 인적+점수 3명 입력(순서대로)
+		insertStuAll()
+
+
+
+수정	- 학생 출력 1명(선택)
+		printStuIdx()
+추가	- 학생 출력 3명(순서대로)
+		printStuAll()
