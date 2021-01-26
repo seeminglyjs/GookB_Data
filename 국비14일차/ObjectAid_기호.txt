@@ -1,0 +1,15 @@
+※ ObjectAid 기호
+
+작은 기호 : 필드
+	도형 내부가 비어있다.
+큰 기호 : 메소드
+	도형 내부가 채워져있다.
+
+c - Constructor
+
+s - static
+
+초록색 : public
+노란색 : protected
+파란색 : default
+빨간색 : private
