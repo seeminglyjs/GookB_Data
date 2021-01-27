@@ -1,0 +1,117 @@
+1. 
+
+&& : 좌변의 조건과 우변의 조건의 모두 true 일 경우에만 true 를 리턴함 하나라도 틀리면 false를 리턴함
+ex)[ 3 > 1 && 4 > 1 ] - > true
+
+|| : 좌변의 조건과 우변의 조건중 하나만 맞아도 true를 리턴함 단 좌변 우변 조건의 모두 참이 아니면 false 를 리턴 
+ex) [ 3 < 1 || 4 > 1 ] - > true 
+
+
+++ : 변수의 앞이나 뒤에 붙을 수 있으며, 조건에 따라 정수 1 씩 더해준다는 의미이다.
+ex) while(true){ int a = 0;
+		 a++; // 1, 2, 3, 4, . . . 순으로 커진다. 
+		} 
+
+
+-- : 변수의 앞이나 뒤에 붙을 수 있으며, 조건에 따라 정수 1씩 빼 준다는 의미이다.
+ex) while(true){ int a = 10;
+		 a--; // 9, 8, 7, 6, . . . 순으로 작아진다. 
+		} 
+
+///////////////////////////////////////////////////////////
+
+2. 
+
+public : 어디에서든지 필드에 접근이 가능
+protected : 같은패키지와 상속된 클래스에서 필드에 접근 가능
+default : 같은패키지 내부에서만 필드에 접근 가능
+private : 같은 클래스 내부에서만 필드에 접근 가능
+
+///////////////////////////////////////////////////////////
+
+3.
+
+while(조건){} : 주어진 조건이 만족하지 않을 때 까지 계속해서 중괄호 안에 내용을 반복한다.
+
+for(조건) {} : for은 조건 안에 총 3가지를 설정할 수 있으며, 우선 변수 / 변수의 범위조건 / 변수의 연산자 / 로 설정할 수 있으며, 주어진 변수가 연산자를 통해 범위에 도달할 때 까지 반복한다. 
+ex) for(int i = 0; i < 5; i++){} // 변수 i 가 5보다 적은 범위일때까지 반복하며, 중괄호 내용이 끝나면 하나씩 더해준다.
+
+do{}while(조건) : while문과 다른점은  while 조건이 false 라도 무조건 한번은 실행된다는 점이며 do {} 안에 실행할 구문을 적고 이후 while 조건이 만족하지 않을때 까지 반복한다
+
+///////////////////////////////////////////////////////////
+
+4. 
+
+public class 는 자바 파일내의 단 한개만 존재할 수 있다. 때문에 public 클래스를 하나의 자바파일에 2개이상 만들 수 없다. 이러한 경우에 접근 제한자를 붙이지 않은 class를 사용한다.(접근제한자는 없지만 ,자동으로 default가 붙는다.)
+
+
+///////////////////////////////////////////////////////////
+
+5.
+
+package Template;
+
+import java.util.Scanner;
+
+public class Main3 {
+
+	public static void main(String[] args) {
+		String[] colors = {"red", "yellow", "green", "blue", "orange"};
+
+		//ⓐ ; //키보드 입력용 객체 생성 구문 작성
+		Scanner scan = new Scanner(System.in);
+
+		System.out.print("검색할 색깔 : ");
+
+		String searchColor = scan.next(); //키보드로 색상문자열을 입력받음
+		//
+		for(int i = 0; i < colors.length ; i++){ //배열 안에 값들을 배교할 수 있도록 루프 실행
+			//
+			if( colors[i].equals(searchColor) ){ //입력값과 배열 색상값이 일치하는지 확인
+				//
+				System.out.println(searchColor + "색은 목록에 존재합니다.");
+				//
+				break; //일치하는 값이 있으면 루프 종료함.
+			}
+		}
+	}
+}
+
+
+///////////////////////////////////////////////////////////
+
+6.
+
+		//방법 1 :
+		Scanner sc = new Scanner(System.in);
+
+		System.out.print("나이 : ");
+
+		int num = sc.nextInt();
+
+		System.out.print("주소 : ");
+		sc.nextLine();
+		String address = sc.nextLine();
+		
+		System.out.println(num + " / " + address);
+		
+		// nextLine 으로 nextInt로 처리하지 못한 
+ 		// 공백 문자 버퍼를 처리하는 방법
+		
+
+		//방법 2 :
+		Scanner sc = new Scanner(System.in);
+
+		System.out.print("나이 : ");
+
+		String temp = sc.nextLine();
+		int num = Integer.parseInt(temp);
+
+		System.out.print("주소 : ");
+		String address = sc.nextLine();
+		
+		System.out.println(num + " / " + address);
+		
+		// 초기값을 String 임시 변수에 담고
+		// 이후 Wrapper 클래스로 형변환해 다시
+		// int형으로 변환하는 방법 
