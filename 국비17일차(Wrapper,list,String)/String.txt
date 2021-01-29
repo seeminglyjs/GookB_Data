@@ -1,0 +1,14 @@
+ ※ String 클래스
+	패키지 java.lang
+	문자열 표현하는 클래스
+	문자열의 데이터타입으로 사용된다
+	문자열을 다루는 기능을 포함하고 있다.
+	
+	문자열 리터럴 상수도 String 클래스 타입이다.
+	ex) "AAA" -> String 타입
+
+ + 문자열 객체 사용법
+	String 리터럴 상수를 대입 사용
+	
+	String 객체를 생성하여 사용하기
+	ex) String str = new String("bbb");
