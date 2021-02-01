@@ -1,0 +1,11 @@
+※ 큐, Queue
+	-FIFO  알고리즘이 적용된 자료구조
+	// 선입선출 먼저들오온게 먼저나간다
+
+-대기열 시스템을 구축할 때 사용한다
+-Queue의 구현 클래스로는 LinkedList를 사용한다
+
++ interface Queue의 주요 메소드
+	- offer() : 데이터 입력 / enqueue
+	- poll() : 데이터 출력 및 삭제 / dequeue
+	- peek() : 데이터 확인, poll() 될 데이터 확인
