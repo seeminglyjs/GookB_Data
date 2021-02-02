@@ -1,0 +1,12 @@
+※ 사용자 정의 예외 클래스 만들기
+	API 예외 클래스들 이외의 추가적인 예외 클래스를 작성할 수 있다.
+
+	예외 상황을 프로그램에 맞게 직접 정의하여 클래스로 구현한 것
+====================================================================
+	Exception 클래스를 상속받아 구현 ->Checked Exception으로 생성됨
+	ex) public class UserException extends Exception{}
+	
+====================================================================
+	RuntimeException 클래스 상속받아 구현 -> Unckecked Exception으로 생성됨
+	
+	Ex) ex) public class UserException extends RuntimeException {}
