@@ -1,0 +1,12 @@
+ try - catch - resources
+
+	try(객체 선언과 생성){
+	
+	}catch(예외클래스 객체){
+
+	}
+
+	-> try의 ()괄호 부분에서 생성한 객체를 try 구문이 끝날때 자동으로 close() 메소드를 호출해준다.
+
+	-> close() 메소드가 정의되어 있는 클래스만 사용 가능
+	-> interface AutoClosable을 상속받아야 가능 
