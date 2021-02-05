@@ -1,0 +1,40 @@
++ SQL의 용도에 따른 분류
+
+1. DDL, Data Definition Language(데이터 정의어)
+	데이터베이스의 구조[스키마]( ex - Table )를 정의, 조작하는 SQL
+
+	CREATE(생성), ALTER(변경), DROP(삭제)
+
+	조회구문은 DDL에 없다
+	DDL 구문을 수행하면 데이터베이스의 구조에 변화가 발생한다.
+	DBMS는 데이터베이스의 구조를 전부 기록하고 있다.
+	DDL 구문을 수행하면 DBMS는 그 변화를 계속 기록한다.
+	
+		-> 데이터 사전, Data Dictionary
+		-> DDL 구문이 수행되면 "데이터 사전" 이 변경된다.
+	
+	** 데이터사전(==자료사전)
+	 데이터베이스의 메타데이터(metadata)
+
+	** 메타데이터, metadata
+	 데이터의 특성을 설명하는 정보
+	 데이터에 대한 구조를 설명할 때 사용한다.
+
+
+2. DML, Data Mainipulation Language(데이터 조작어)
+	테이블 내의 데이터를 조작하는 명령어
+	데이터를 처리할 때 사용하는 SQL
+
+	SELECT(조회), INSERT(삽입), UPDATE(수정), DELETE(삭제)
+
+	어플리케이션에서 가장 많이 사용하는 SQL구문
+
+
+
+3. DCL, Data Control Language(데이터 제어어)
+
+	보안성, 데이터의 무결성, 병행 작업 등의 작업을 제어하는 SQL
+
+	권한 관련 명령어 - GRANT, REVOKE
+	트랜잭션 관련 명령어 - COMMIT, ROLLBACK
+

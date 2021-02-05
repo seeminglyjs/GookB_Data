@@ -1,0 +1,49 @@
+※ DBMS, DataBase Management System
+	-데이터베이스 관리 시스템
+
+- Oracle DB, MS-SQL, MySql, MongoDB, SQLite, CUBTID 등등
+
++ 데이터베이스, Database, DB
+	-데이터 저장소
+
+	-체계적으로 데이터를 저장하는 시스템
+	
+	-여러 클라이언트들이 공유하면서 사용할 목적으로 관리되는 데이터의 통합 정보 시스템
+	(클라이언트 : 클라이언트툴, 프로그램, 웹 어플리케이션 등등)
+
+
+	-데이터베이스 내부에 테이블(Table)들을 만들어서 데이터 관리한다
+
+	**우리가 사용하는 오라클 DB 상황
+
+	버전 : Oracle Database 11g Release 2
+	제품군 : Express Edition
+	(Standard Edition, Enterprise Edition, Standard One Edition 도 존재)
+
+** Express Edition(XE)에는 데이터베이스가 한 개만 존재한다
+	** SID(DB이름) : xe
+
+	** Standard Edition에도 DB가 한 개
+	** SID : orcl
+
+	** Enterprise Edition에는 DB를 여러 개 생성할 수 있다
+
+
+
+ + 테이블, Table, TB
+  - DB 내에서 실제 데이터를 저장하고 관리하는 단위(DB 객체 중 하나)
+
+  - 표 형식으로 데이터를 관리한다
+
+  - 행(row), 열(column)으로 이루어져 있다
+  - 행은 가로줄, 열은 세로줄
+
+  - 하나의 행이 하나의 데이터를 표현한다
+
+
+  - 테이블은 소유자(Owner)를 가지고 있다
+	** 소유자(Owner) - 해당 객체를 생성한 사용자 계정 (ex. scott)
+
+	ex)	scott.dept -> scott계정으로 생성한 dept 테이블
+
+  - 소유자는 자신이 생성한 테이블에 대한 모든 권한(privilege)을 가지고 있다

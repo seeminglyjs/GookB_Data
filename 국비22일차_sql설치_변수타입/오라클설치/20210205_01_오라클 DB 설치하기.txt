@@ -1,0 +1,21 @@
+ + 오라클 DB 설치하기
+
+  - 오라클 Database 11g R2 Express Edition 사용
+
+  - www.oracle.com 접속
+
+  - Products 메뉴 - Software항목에서 Database 클릭
+
+  - Download Database 19c 버튼 클릭
+
+  - 화면 제일 하단에서
+	Oracle Database 11g Release 2 Express Edition for Windows 64 클릭
+
+  - Oracle Database 11gR2 Express Edition for Windows x64 클릭
+
+  - 로그인 필요 (회원가입하세요!)
+
+  - 설치하면서 비밀번호 1234 로 입력할 것
+
+  ** 직접 URL
+  https://www.oracle.com/database/technologies/xe-prior-releases.html

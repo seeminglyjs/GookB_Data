@@ -1,0 +1,13 @@
+ + 오라클 DBMS 설치 확인
+
+  - 윈도우 콘솔창(cmd창) 열기
+
+  - sqlplus /nolog 입력
+
+  - conn sys as sysdba
+
+  - 1234 입력
+
+  - show user; 입력
+
+	-> USER is "SYS" 라고 출력됨

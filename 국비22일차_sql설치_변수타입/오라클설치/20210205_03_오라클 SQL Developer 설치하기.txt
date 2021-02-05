@@ -1,0 +1,19 @@
+ + 오라클 SQL Developer 설치하기
+
+  - www.oracle.com 접속
+
+  - Resources 메뉴 - Software Downloads 클릭
+
+  - Developer Tools 항목 선택
+
+  - SQL Developer 링크 찾아서 클릭
+
+  - Windows 64-bit with JDK 8 included 항목 다운로드
+
+  - 압축 해제
+
+  - sqldeveloper.exe 실행
+
+
+  ** 직접 경로
+	https://www.oracle.com/tools/downloads/sqldev-downloads.html

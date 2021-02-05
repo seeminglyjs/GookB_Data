@@ -1,0 +1,32 @@
+
+ + scott.sql 파일의 위치
+
+  C:\oraclexe\app\oracle\product\11.2.0\server\rdbms\admin
+
+ + scott.sql 적용하기
+  - scott.sql: 테스트용 데이터 파일
+
+
+  - 윈도우 콘솔창(cmd창) 열기
+
+  - sqlplus /nolog 입력
+
+  - conn system/1234;
+
+  - @ 만 타이핑 해둔 상태
+
+  - scott.sql 파일을 드래그&드랍
+	-> 파일 경로 자동 입력
+
+  **맥OS
+    @$ORACLE_HOME/rdbms/admin/scott.sql
+
+  - ALTER USER scott IDENTIFIED BY tiger; 입력
+
+  - conn scott/tiger;
+
+  - show user;
+	-> USER is "SCOTT" 라고 나오면 성공
+
+  - SELECT * FROM dept;
+	-> 테스트용 부서 정보가 나옴
