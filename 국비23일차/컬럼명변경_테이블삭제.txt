@@ -1,0 +1,12 @@
+
+
+-- 컬럼명 변경
+ALTER TABLE type_test_06
+RENAME COLUMN data TO data2;
+
+
+
+-- 테이블 삭제
+-- DROP TABLE tablename;
+DROP TABLE type_test_06;
+

@@ -1,0 +1,35 @@
+※ LOB, Large Object
+ - 가변 길이 타입
+
+ - 최대 4GB까지 저장 가능
+
+ - 테이블에 여러 컬럼으로 지정 가능하다.
+
+ - 참조형으로 동작한다
+
+ - 테이블에는 데이터의 저장 위치만 기록 한다.
+
+ - 실제 데이터는 따로 저장된다.
+
+ 
+=================================================================
+ + BLOB : Binary LOB, 바이너리 / 이진 데이터
+		이미지 , 비디오 오디오 등의 데이터
+
+ + CLOB : Character LOB, 캐릭터/ 문자 / 문자데이터
+		텍스트
+
+** LOB 데이터를 테이블에 저장할 때에는 프로그램(스트림)을 이용해야 한다.
+
+** CLOB의 데이터를 조회할 때에는 DBMS_LOB.SUBSTR() 함수 사용
+
+SELECT DBMS_LOB.SUBSTR(data, length(data), 1)
+FROM type_test_06;
+
+
+SELECT DBMS_LOB.SUBSTR( clounm, length(clounm), offset)
+FROM type_test_06;
+// offset 은 1이 시작점
+
+//참조형전체를 출력하는 SELECT 문 
+

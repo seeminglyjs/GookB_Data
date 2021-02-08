@@ -1,0 +1,19 @@
+ ※ 코멘트, Comment
+	- 테이블이나 컬럼에 설명을 적는 것
+
+ + 테이블 코멘트
+	COMMENT ON TABLE TABLENAME IS '코멘트';
+
+ + 컬럼 코멘트
+	COMMENT ON COLUMN TABLENAME.COLUMNNAME IS '코멘트';
+
+ + 코멘트 자료사전
+	USER_TAB_COMMENTS - 테이블 코멘트
+	USER_COL_COMMENTS - 컬럼 코멘트
+
+ + 코멘트 삭제
+	삭제 코드를 따로 제공하지는 않는다.
+	코멘트의 내용을 ''으로 다시 작성한다.
+
+
+

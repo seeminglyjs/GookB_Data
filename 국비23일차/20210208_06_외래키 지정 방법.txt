@@ -1,0 +1,29 @@
+ + 외래키 지정 방법
+
+  - 방법1 : 컬럼을 설정한 이후에 CONSTRAINT 키워드로 지정하는 방법(이름O)
+
+	CREATE TABLE tablename (
+	  colname1 type1
+	  , colname2 type2
+	  , CONSTRAINT cons_name
+		FOREIGN KEY ( colname1 )
+		REFERENCES r_tablename ( r_colname1 ) );
+
+
+  - 방법2 : 컬럼을 설정한 이후에 CONSTRAINT 키워드로 지정하는 방법(이름X)
+
+	CREATE TABLE tablename (
+	  colname1 type1
+	  , colname2 type2
+	  , FOREIGN KEY ( colname1 )
+		REFERENCES r_tablename ( r_colname1 ) );
+
+
+  ** ON DELETE CASCADE 옵션
+	PK키의 데이터를 삭제하면 FK키의 해당 해당 데이터도 삭제한다
+
+  ** ON DELETE SET NULL 옵션
+	PK키의 데이터를 삭제하면 FK키의 해당 해당 데이터를 NULL 로 변경한다
+
+
+  ** ON DELETE 옵션은 참조(REFERENCES절) 마지막에 적어준다

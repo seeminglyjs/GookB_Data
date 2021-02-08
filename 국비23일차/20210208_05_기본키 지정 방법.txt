@@ -1,0 +1,23 @@
+ + 기본키 지정 방법
+
+  - 방법1 : 컬럼에 제약조건 이름없이 지정하기
+	CREATE TABLE tablename (
+	  colname1 type1 PRIMARY KEY
+	  , colname2 type2 );
+
+  - 방법2 : 컬럼에 제약조건의 이름을 명시하며 지정하기
+	CREATE TABLE tablename (
+	  colname1 type1 CONSTRAINT cons_name PRIMARY KEY
+	  , colname2 type2 );
+
+  - 방법3 : 컬럼 설정 이후에 CONSTRAINT 키워드로 지정하기 (이름X)
+	CREATE TABLE tablename (
+	  colname1 type1
+	  , colname2 type2
+	  , PRIMARY KEY ( colname1 ) );
+
+  - 방법4 : 컬럼 설정 이후에 CONSTRAINT 키워드로 지정하기 (이름O)
+	CREATE TABLE tablename (
+	  colname1 type1
+	  , colname2 type2
+	  , CONSTRAINT cons_name PRIMARY KEY ( colname1 ) );
