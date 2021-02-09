@@ -1,0 +1,10 @@
+	+ + + TABLE + + +
+	report	회원신고
+
+	+ + + COLUMNS + + +
+	report	신고코드
+	report_dat	신고일
+	report_reason	신고사유
+
+	** PK - report
+	** NOT NULL - report_dat, report_reason

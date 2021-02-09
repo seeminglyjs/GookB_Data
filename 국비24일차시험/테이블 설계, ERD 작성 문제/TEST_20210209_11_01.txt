@@ -1,0 +1,228 @@
+﻿-- 테이블 순서는 관계를 고려하여 한 번에 실행해도 에러가 발생하지 않게 정렬되었습니다.
+
+-- grade Table Create SQL
+CREATE TABLE grade
+(
+    grade        NUMBER          NOT NULL, 
+    gradename    VARCHAR2(20)    NULL, 
+    CONSTRAINT GRADE_PK PRIMARY KEY (grade)
+)
+/
+
+COMMENT ON COLUMN grade.grade IS '등급코드'
+/
+
+COMMENT ON COLUMN grade.gradename IS '등급명'
+/
+
+
+-- grade Table Create SQL
+CREATE TABLE report
+(
+    report           NUMBER          NOT NULL, 
+    report_dat       VARCHAR2(20)    NULL, 
+    report_reason    VARCHAR2(20)    NULL, 
+    CONSTRAINT REPORT_PK PRIMARY KEY (report)
+)
+/
+
+COMMENT ON COLUMN report.report IS '신고코드'
+/
+
+COMMENT ON COLUMN report.report_dat IS '신고일'
+/
+
+COMMENT ON COLUMN report.report_reason IS '신고사유'
+/
+
+
+-- grade Table Create SQL
+CREATE TABLE UserTb
+(
+    userno    NUMBER          NOT NULL, 
+    userid    VARCHAR2(20)    NULL, 
+    userpw    VARCHAR2(20)    NULL, 
+    gender    VARCHAR2(20)    NOT NULL, 
+    email     VARCHAR2(20)    NOT NULL, 
+    phone     VARCHAR2(20)    NOT NULL, 
+    grade     NUMBER          NOT NULL, 
+    report    NUMBER          NOT NULL, 
+    CONSTRAINT USERTB_PK PRIMARY KEY (userno)
+)
+/
+
+COMMENT ON COLUMN UserTb.userno IS '회원번호'
+/
+
+COMMENT ON COLUMN UserTb.userid IS '회원아이디'
+/
+
+COMMENT ON COLUMN UserTb.userpw IS '회원비밀번호'
+/
+
+COMMENT ON COLUMN UserTb.gender IS '성별'
+/
+
+COMMENT ON COLUMN UserTb.email IS '이메일'
+/
+
+COMMENT ON COLUMN UserTb.phone IS '전화번호'
+/
+
+COMMENT ON COLUMN UserTb.grade IS '등급코드'
+/
+
+COMMENT ON COLUMN UserTb.report IS '신고코드'
+/
+
+ALTER TABLE UserTb
+    ADD CONSTRAINT FK_UserTb_grade_grade_grade FOREIGN KEY (grade)
+        REFERENCES grade (grade)
+/
+
+ALTER TABLE UserTb
+    ADD CONSTRAINT FK_UserTb_report_report_report FOREIGN KEY (report)
+        REFERENCES report (report)
+/
+
+
+-- grade Table Create SQL
+CREATE TABLE board
+(
+    boardno       VARCHAR2(20)    NOT NULL, 
+    cateno        VARCHAR2(20)    NULL, 
+    title         VARCHAR2(20)    NULL, 
+    content       VARCHAR2(20)    NULL, 
+    insert_dat    DATE            NULL, 
+    update_dat    DATE            NULL, 
+    hit           NUMBER          NULL, 
+    userno        NUMBER          NULL, 
+    CONSTRAINT BOARD_PK PRIMARY KEY (boardno)
+)
+/
+
+COMMENT ON COLUMN board.boardno IS '게시글코드'
+/
+
+COMMENT ON COLUMN board.cateno IS '게시판코드'
+/
+
+COMMENT ON COLUMN board.title IS '글제목'
+/
+
+COMMENT ON COLUMN board.content IS '글내용'
+/
+
+COMMENT ON COLUMN board.insert_dat IS '작성일'
+/
+
+COMMENT ON COLUMN board.update_dat IS '수정일'
+/
+
+COMMENT ON COLUMN board.hit IS '조회수'
+/
+
+COMMENT ON COLUMN board.userno IS '작성자'
+/
+
+ALTER TABLE board
+    ADD CONSTRAINT FK_board_userno_UserTb_userno FOREIGN KEY (userno)
+        REFERENCES UserTb (userno)
+/
+
+
+-- grade Table Create SQL
+CREATE TABLE board_cate
+(
+    cateno       NUMBER          NOT NULL, 
+    cate_name    VARCHAR2(20)    NULL, 
+    cate_dat     DATE            NULL, 
+    CONSTRAINT BOARD_CATE_PK PRIMARY KEY (cateno)
+)
+/
+
+COMMENT ON COLUMN board_cate.cateno IS '게시판코드'
+/
+
+COMMENT ON COLUMN board_cate.cate_name IS '게시판이름'
+/
+
+COMMENT ON COLUMN board_cate.cate_dat IS '게시판등록일'
+/
+
+
+-- grade Table Create SQL
+CREATE TABLE filetb
+(
+    fileno      NUMBER          NOT NULL, 
+    boardno     VARCHAR2(20)    NULL, 
+    filename    VARCHAR2(20)    NULL, 
+    filepath    VARCHAR2(20)    NULL, 
+    filesize    NUMBER          NULL, 
+    filetype    VARCHAR2(20)    NULL, 
+    CONSTRAINT FILETB_PK PRIMARY KEY (fileno)
+)
+/
+
+COMMENT ON COLUMN filetb.fileno IS '파일번호'
+/
+
+COMMENT ON COLUMN filetb.boardno IS '게시글코드'
+/
+
+COMMENT ON COLUMN filetb.filename IS '파일이름'
+/
+
+COMMENT ON COLUMN filetb.filepath IS '파일저장경로'
+/
+
+COMMENT ON COLUMN filetb.filesize IS '파일크기'
+/
+
+COMMENT ON COLUMN filetb.filetype IS '파일타입'
+/
+
+ALTER TABLE filetb
+    ADD CONSTRAINT FK_filetb_boardno_board_boardn FOREIGN KEY (boardno)
+        REFERENCES board (boardno)
+/
+
+
+-- grade Table Create SQL
+CREATE TABLE commenttb
+(
+    commentno     NUMBER          NOT NULL, 
+    boardno       VARCHAR2(20)    NULL, 
+    userno        NUMBER          NULL, 
+    content       VARCHAR2(20)    NULL, 
+    insert_dat    DATE            NULL, 
+    CONSTRAINT COMMENTTB_PK PRIMARY KEY (commentno)
+)
+/
+
+COMMENT ON COLUMN commenttb.commentno IS '댓글번호'
+/
+
+COMMENT ON COLUMN commenttb.boardno IS '게시글코드'
+/
+
+COMMENT ON COLUMN commenttb.userno IS '댓글작성자'
+/
+
+COMMENT ON COLUMN commenttb.content IS '댓글글내용'
+/
+
+COMMENT ON COLUMN commenttb.insert_dat IS '작성일'
+/
+
+ALTER TABLE commenttb
+    ADD CONSTRAINT FK_commenttb_boardno_board_boa FOREIGN KEY (boardno)
+        REFERENCES board (boardno)
+/
+
+ALTER TABLE commenttb
+    ADD CONSTRAINT FK_commenttb_userno_UserTb_use FOREIGN KEY (userno)
+        REFERENCES UserTb (userno)
+/
+
+

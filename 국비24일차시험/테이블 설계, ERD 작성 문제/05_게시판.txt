@@ -1,0 +1,19 @@
+	+ + + TABLE + + +
+	board	게시판
+
+	+ + + COLUMNS + + +
+	boardno	게시글코드	(PK)
+	cateno	게시판코드	(FK)
+	title	글제목
+	content	글내용
+	insert_dat	작성일
+	update_dat	수정일
+	hit	조회수
+	userno	작성자	(FK)
+
+	** hit - NUMBER
+	** 나머지 VARCHAR2
+
+	** insert_dat, update_dat - DATE
+
+	
