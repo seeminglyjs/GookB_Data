@@ -1,0 +1,7 @@
+DML - 테이블의 데이터를 관리하는 SQL, 데이터 조작어
+	(CRUD)
+
+	SELECT
+	INSERT
+	UPDATE
+	DELETE

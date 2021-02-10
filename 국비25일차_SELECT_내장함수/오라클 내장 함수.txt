@@ -1,0 +1,11 @@
++ 오라클 내장 함수, SQL Functions
+
+- 오라클 SQL API Function
+
+- 단일 행 함수 Single Row function
+	함수의 기능이 모든 행에 각각 반영되는 것
+
+
+- 그룹 함수, Group Function
+	함수의 기능이 전체를 그룹지어 하나의 결과로 도출하는 것
+
