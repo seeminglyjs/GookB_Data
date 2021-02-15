@@ -1,0 +1,30 @@
++ CASE 구문
+
+ - DECODE 함수와 비슷한 동작을 하는 조건 구문
+
+	- CASE 	~WHEN THEN ~END를 구문으로 추가 할 수 있다.
+
+	-WHEN THEN의 마지막에 ELSE 구문을 추가할 수 있다.
+
+형식
+
+	CASE 기준값
+
+	WHEN 비교값1  THEN 반환값1
+	WHEN 비교값2  THEN 반환값2
+	WHEN 비교값3  THEN 반환값3
+
+	ELSE DEFAULT 반환
+	END/////
+
+
+-------------------------------------------------------------------
+	
+	CASE 
+
+	WHEN 조건식1  THEN 반환값1
+	WHEN 조건식2  THEN 반환값2
+	WHEN 조건식3  THEN 반환값3
+
+	ELSE DEFAULT 반환
+	END/////

@@ -1,0 +1,67 @@
+-- 문자 함수 문제
+
+-- 'hELlo' 모두 대문자로 변환 -> HELLO
+SELECT NLS_UPPER('hELlo') FROM DUAL;
+
+-- 'hELlo' 모두 소문자로 변환 -> hello
+SELECT NLS_LOWER('hELlo') FROM DUAL;
+
+-- 'hELlo' 이니셜(첫글자) 대문자 -> Hello
+SELECT INITCAP('hELlo') FROM DUAL;
+
+-- 'Alice Bob'의 문자열 길이 -> 9
+SELECT LENGTH('Alice Bob') FROM DUAL;
+-- '안녕하세요'의 문자열 길이 -> 5
+SELECT LENGTH('안녕하세요') FROM DUAL;
+
+-- 'Alice Bob' 문자열 바이트 수 -> 9
+SELECT LENGTHB('Alice Bob') FROM DUAL;
+
+-- 'ACE 안녕하세요'문자열 바이트 수 -> 19
+-- (오라클은 한글 인코딩을 UTF-8을 기본으로 하며
+--  UTF-8은 한글 한글자에 3바이트가 필요하다)
+SELECT LENGTHB('ACE 안녕하세요') FROM DUAL;
+
+
+-- 'ABCDEFGHI'에서 'D' 의 위치 -> 4
+SELECT INSTR('ABCDEFGHI', 'D') FROM DUAL;
+
+-- 'ABCDEFGHI'에서 'DEF'문자열의 위치 -> 4
+SELECT INSTR('ABCDEFGHI', 'DEF') FROM DUAL;
+
+-- 'ABCDEFGHI'에서 'DF'문자열의 위치 -> 0 (없을 경우 0)
+SELECT INSTR('ABCDEFGHI', 'DF') FROM DUAL;
+
+-- '안녕하세요'에서 '하'문자열의 위치 -> 3
+SELECT INSTR('안녕하세요', '하') FROM DUAL;
+--intrb는 바이트 기준 안(3)녕(3)하(1~3) 이기 때문에 7이 나옴
+
+-- 'ABCABCDDD'에서 'C'문자열의 위치 -> 3
+SELECT INSTR('ABCABCDDD', 'C') FROM DUAL;
+
+--'Oracle SQL Developer'에서 5번째 인덱스 이후의 문자열로 자르기
+SELECT SUBSTR('Oracle SQL Developer', 6) FROM DUAL;
+
+--'Oracle SQL Developer'에서 5번째 인덱스부터 5글자로 자르기
+SELECT 
+SUBSTR('Oracle SQL Developer', 1, 5), 
+SUBSTR('Oracle SQL Developer', 6, 11), 
+SUBSTR('Oracle SQL Developer', 12, 17) 
+FROM DUAL;
+
+--'오라클 SQL'에서 2번째 인덱스부터 5글자로 자르기
+SELECT 
+SUBSTR('Oracle SQL Developer', 2, 6), 
+SUBSTR('Oracle SQL Developer', 7, 12), 
+SUBSTR('Oracle SQL Developer', 13, 18) 
+FROM DUAL;
+
+select SUBSTR ('오라클 SQL', 3, 5) FROM DUAL; --클 SQL
+select SUBSTRB ('오라클 SQL', 1, 6) FROM DUAL; -- 오라
+select SUBSTRB ('오라클 SQL', 1, 5) FROM DUAL; -- 오만 출력 한글자의 3바이트 이기 떄문
+
+
+--'안녕하세요오라클'에서 3번째 부터 자르기
+SELECT 
+SUBSTR('안녕하세요오라클', 3)
+FROM DUAL;

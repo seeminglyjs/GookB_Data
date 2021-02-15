@@ -1,0 +1,19 @@
++ 조인, JOIN
+ - 두 개 이상의 테이블을 한번에 SELECT(조회) 하는 방법
+ - 조인되는 테이블의 모든 조합을 조회한다.
+
+	모든 행들의 조합
+	모든 컬럼들의 조합
+ 
+	
+
+- PRIMARY KEY 와 FOREIGN KEY를 이용하여 조인조건을 설정한다.
+
+** 조인조건 : 조인되는 테이블들의 관께를 설정하는 조건문(WHERE절 이용)
+   
+EX)	SELECT * FROM EMP, DEPT
+	WHERE EMP.DEPTNO = DEPT.DEPTNO; -- 두개의 테이블을 같이 본다.
+
+-- 테이블명의 별칭을 사용하여 조건설정하면 편하다.
+SELECT * FROM EMP E, DEPT D
+WHERE E.DEPTNO = D.DEPTNO AND E.DEPTNO = 30; -- 두개의 테이블을 같이 본다.
