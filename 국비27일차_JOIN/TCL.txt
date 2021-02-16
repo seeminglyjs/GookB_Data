@@ -1,0 +1,15 @@
+TCL(TRANSACTION CONTROL LANGUAGE)
+- 트랜잭션 제어(관리) SQL
+	COMMIT
+	ROLLBACK
+
+* 트랜잭션, TRANSACTION
+- 클라이언트 별로 작업한 내역을 보관하고 있는 것
+- 데이터베이스 작업 단위
+- DML의 INSERT, UPDATE, DELETE 내역만 보관한다.
+- SELECT는 보관하지 않는다.
+	
+	COMMIT - 영구 반영(물리적으로 영구 반영됨)
+
+	ROLLBACK - 원상복구(작업한 내역만 되돌리기)
+

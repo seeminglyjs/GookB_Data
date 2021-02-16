@@ -1,0 +1,3 @@
++ NON - EQUI JOIN, 비등가 조인
+ - EQUI-JOIN과 문법은 같으난 조인조건의 비교 연산자가 = (EQUAL) 이 아닌 경우
+
