@@ -1,0 +1,37 @@
+0. SELECT : 테이블에서 원하는 정보를 찾고자 할 때 사용
+
+
+1. DML : 테이블의 정보를 조회/ 삭제 / 갱신 / 추가 한다.
+	SELECT : 테이블에서 원하는 정보를 찾고자 할 때 사용
+	UPDATE : 테이블의 행의 정보를 최신화(변경)할 때 사용
+	INSERT : 테이블의 새로운 행을 삽입할 때 사용
+	DELETE : 테이블의 행을 삭제할 때 사용
+
+2. DDL : 스키마의 구조를 정의하며, 생성 삭제 변경함
+	CREATE : 테이블을 생성할 때 사용
+	ALTER : 테이블의 컬럼(속성)을 변경 추가하고자 할때 사용
+	DROP : 테이블 자체를 삭제하고자 할 때 사용
+
+3. TCL : 트랜잭션을 관리하며 제어한다.
+	COMMIT : 기존의 작성된 쿼리문을 영구 반영 한다.
+	ROOLBACK : 작업된 쿼리문을 되돌린다.
+===============================================================
+SELECT ENAME AS "이름"
+, ENO AS "주민번호"
+, TO_CHAR(SYSDATE, 'YYYY') -('1900'+ SUBSTR(TO_CHAR(ENO),1, 2)) AS "나이"
+, HDATE AS "입사일"
+, TO_CHAR(SYSDATE, 'YYYY') - TO_CHAR(HDATE, 'YYYY') AS "근속년수"
+FROM EMP;
+===============================================================
+
+
+===============================================================
+SELECT MERIT_RATING
+    , SALARY,
+    CASE MERIT_RATING
+    WHEN 'A'  THEN SALARY * 0.2
+    WHEN 'B'  THEN SALARY * 0.15
+    WHEN 'C'  THEN SALARY * 0.1
+    ELSE SALARY
+    END BONUS
+FROM EMPLOYEE;​
