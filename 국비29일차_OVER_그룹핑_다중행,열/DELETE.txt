@@ -1,0 +1,9 @@
++ 데이터 삭제 - DELETE
+ - 테이블의 행을 삭제할 때 사용하는 구문
+
+ - 구문 형식
+	DELETE [FROM] TABLENAME
+	WHER 조건;
+	
+	**FROM키워드 생략가능
+	**WHERE절 없이 사용하면 테이블 전체 삭제

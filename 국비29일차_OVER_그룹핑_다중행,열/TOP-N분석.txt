@@ -1,0 +1,14 @@
++ TOP-N 분석 쿼리
+ - 조회 결과에 순위를 매겨 상위 또는 하위 데이터를 차자애는 것
+
++ 서브쿼리를 이용한 TOP_N 분석
+ - 인라인뷰, ROWNUM, ORDERY BY, WHERE를 적절히 섞어 구현해야 한다.
+
+	SELECT * FROM (
+		SELECT ROWNUM RNUM, DATA. * FROM ( -- 순위를 매긴다
+			-- 원하는 데이터를 조회하는 쿼리
+		) DATA
+	) R
+	WHERE RANK BETWEEN ? AND ? -- 조회하려는 순위를 지정한다. 
+
+

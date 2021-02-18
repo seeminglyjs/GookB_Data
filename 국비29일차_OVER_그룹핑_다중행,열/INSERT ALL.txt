@@ -1,0 +1,17 @@
++ INSERT ALL
+ - 한번에 여러 행을 삽입할 수 있게 해주는 SQL 구문
+ - SELECT 구문의 결과를 조건에 따라 INSERT되도록 작성한다.
+
+
+ - 구문 형식
+	INSERT ALL
+
+	WHEN 조건절
+	 THEN INTO 테이블이름(컬럼)
+	 VALUES(데이터리스트)
+	[WHEN 절 여러번 작성가능]
+
+	SELECT절;
+
+	** THEN INTO 절에서 컬럼명,VALUES절 생략 가능
+	-> SELECT절에서 조회한 모든 데이터 삽입

@@ -1,0 +1,14 @@
+-- INSERT ALL QUIZ
+
+-- 테이블 생성하기
+--테이블명 : emp_hire
+--컬럼 : empno, ename, hiredate
+
+--테이블명 : emp_sal
+--컬럼 : empno, ename, sal
+
+    
+-- INSERT ALL 사용해서 해결하기
+
+-- emp_hire 테이블, '1981/06/01' 이전 사원
+-- emp_sal 테이블, 2000보다 많은 사원
