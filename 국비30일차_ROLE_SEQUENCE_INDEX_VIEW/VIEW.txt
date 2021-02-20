@@ -1,0 +1,32 @@
++ 뷰, VIEW
+ - 목적 : 복잡한 쿼리를 간단한 이름으로 지정해서 사용하는 것
+ - VIEW 객체에는 SELEECT 쿼리를 저장하고 있다.
+ - 뷰를 아요해서 조회구문을 사용하면 서브쿼리처럼 동작한다.
+
+ - 부가 효과
+	조회가능한 컬럼을 제한할 수 있다.
+
+ - 자료사전들은 대부분 VIEW이다.
+
+ - VIEW를 통해서 원본 테이블에 조회, 삽입, 수정, 삭제 가능하다.
+	(기본키가 있어야 수정가능)	
+
++ 뷰 생성 구문
+	CREATE [OR RELACE] VIEW 뷰이름
+	AS (서브쿼리)
+	[WITH CHECK OPTION [CONSTRAINT 제약조건]]
+	[WITH READ ONLY]
+
+	- CREATE VIEW : 뷰 생성
+	- CREATE OR REPLACE VIEW : 뷰 생성 또는 서브쿼리 수정
+	 -> 존재하는 뷰라면 쿼리수정, 없는 뷰라면 생성
+	- WITH CHECK OPTION : 설정되어 있는 제약조건에 맞는 데이터만
+	삽입 수정 가능하도록 설정하는 옵션
+	
+
+	-CONSTRAINT를 적용하면 지정한 제약조건에 맞는 데이터만 가능
+	-CONSTRAINT를 적용하지 않으면 서브쿼리의 WHERE조건에 맞는 데이터만 가능
+	-WITH READ ONLY : 조회 전용 뷰로 설정하는 옵션
+
++ 뷰 자료 사전
+	USER_VIEWS	
