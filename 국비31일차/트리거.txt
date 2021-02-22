@@ -1,0 +1,39 @@
++ 트리거, Trigger
+ - 테이블의 변화를 감지해서 PL/SQL블럭을 실행하는 객체
+ - INSERT, UPDATE, DELETE 이벤트가 발생하면 자동으로 실행된다.
+ - 테이블, 뷰, 데이터베이스 작업을 대상으로 정의할 수 있다.
+
+
++ 트리거 생성 구문
+	CREATE OR REPLACE TRIGGER 트리거이름
+	BEFORE | AFTER
+	INSERT | UPDATE | DELETE
+	[ OR INSERT | UPDATE | DELETE]
+	. . .
+	ON 테이블이름
+	[FOR EACH ROW]
+	BEGIN
+	-- 수행 구문
+	END;
+	/
+
+	-BEFORE | AFTER
+	이벤트가 발생하기 전, 후에 트리거가 동작하도록 설정
+	
+	- INSERT | UPDATE | DELETE
+	트리거가 발동할 이벤트 DML코드를 설정한다.
+	한 개 이상 설정해서 사용한다.
+	OR를 이용해서 세 개까지 설정가능하다
+	EX) INSERT OR UPDATE OR DELETE -- 세가지 코드 모두에 반응
+
+	- ON
+	트리거가 이벤트를 감지할 테이블을 지정한다.
+
+	-FOR EACH ROW
+	이벤트가 발생한 행의 수만큼 트리거가 반복적으로 수행하도록 하는 옵션
+	
+	**FOR EACH ROW 옵션을 적용하지 않으면 이벤트에 영향받은 행의 수에 상관없이 테이블 당 한번만 트리거가 발동한다.
+
+
+	
+

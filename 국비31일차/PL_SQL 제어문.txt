@@ -1,0 +1,44 @@
++ PL/SQL 제어문
+
+ - 조건문
+	IF 조건문 THEN
+	ELSIF
+	ELSE
+	END IF
+
+ - 반복문, LOOP
+	1. 무한 루프
+		LOOP
+		 반복구문
+		END LOOP;
+
+	2. 인덱스 값을 지정하며 반복
+		FOR 인덱스변수 IN [REVERSE] 시작값 .. 종료값
+		LOOP
+		  반복구문
+		END LOOP;
+		
+	EX) FOR I IN 1..10
+	    LOOP
+		-- I 변수가 1~ 100으로 1씩 증가하면 반복한다.
+	    END LOOP;
+	** REVERSE를 추가하면 종료값 -> 시작값으로 반복한다.
+
+
+	3. SELECT 구문의 결과를 이용한 반복(FROEACH구문과 비슷)
+		FOR인덱스 변수 IN (SELECT 구문)
+		LOOP 
+		-- 반복구문
+		END LOOP;
+
+	4. 조건을 지정한 반복
+		WHILE 조건
+		LOOP
+		-- 반복구문
+		END LOOP;
+
+
+ - 기타 제어문
+	EXIT WHEN 조건
+	-> 조건을 만족하면  LOOP문을 중단시킨다.
+	-> 자바의 BREAK; 를 IF문과 함께 사용한 것과 비슷

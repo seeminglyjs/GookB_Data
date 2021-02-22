@@ -1,0 +1,19 @@
++ 함수, FUNCTION
+ - SQL Function을 만들기 위해 작성하는 PL/SQL 구문
+ - SQL 구문에서도 사용할 수 있다.
+ - 단일 행 함수(Single Row Function)처럼 호출하여 사용할 수 있다.
+
++ 함수 생성 구문
+	CREATE OR REPLACE FUNCTION 함수이름
+	[(매개변수)]
+	RETURN 리턴데이터 타입
+	IS
+	 [변수선언]
+	BEGIN
+	 [수행구문]
+	END;
+	/
+
+	** 매개변수 생략 가능, () 괄호까지 전부 생략한다.
+	** RETURN 생략 가능
+
