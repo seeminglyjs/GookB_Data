@@ -1,0 +1,9 @@
+
+-- emp테이블에 삽입(INSERTING), 수정(UPDATING), 삭제(DELETING)이 발생하면
+--bonus테이블에도 자동으로 반영되도록 TRIGGER를 만든다
+-- -> 1개의 트리거로 처리한다
+
+-- emp테이블의 컬럼과 bonus테이블의 컬럼을 비교하여
+--emp테이블의 데이터와 bonus테이블의 데이터가 일치하도록 작성한다
+
+--  트리거이름 : emp_to_bonus_trg

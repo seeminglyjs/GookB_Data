@@ -1,0 +1,67 @@
+
+---------------------------------------------------------------
+1. PL/SQL은 코드내용을 스크립트 및 모니터 출력기능을 활성시키지 않았기 때문에 출력문장이 표시되지 않으며, 이를 위해 서버출력을 온시켜주여 한다.
+
+2.SET SERVEROUTPUT ON;
+/
+
+SHOW ERRORS;
+/
+
+DECLARE
+    V_COMM EMP.COMM%TYPE;
+    V_EMPNO EMP.EMPNO%TYPE;
+    V_ENAME EMP.ENAME%TYPE;
+    
+BEGIN
+    SELECT COMM, EMPNO, ENAME
+    INTO V_COMM, V_EMPNO, V_ENAME
+    FROM EMP
+    WHERE EMPNO = '&DATA';
+    
+    IF V_COMM IS NULL THEN
+        DBMS_OUTPUT.PUT_LINE
+        ('사번 ' ||V_EMPNO || ' 은 ' || V_ENAME  ||' 사원이고 커미션을 받지 않습니다.');
+    ELSIF V_COMM >0 THEN 
+        DBMS_OUTPUT.PUT_LINE
+        ('사번 ' ||V_EMPNO || ' 은 ' || V_ENAME  ||' 사원이고 커미션을 '|| V_COMM || '받습니다.');
+    END IF;
+
+END;
+/
+---------------------------------------------------------------
+2 - 1
+-- 유저생성
+CREATE USER MYMY IDENTIFIED BY 1234;
+-- ROLE 생성
+CREATE ROLE MYROLE;
+-- ROLE에게 권한부여
+GRANT CREATE SESSION, CREATE TABLE, CREATE VIEW
+TO MYROLE;
+-- 유저에게 권한부여
+GRANT MYROLE
+TO MYMY;
+
+
+
+2 - 2
+
+1. RANK () 이용
+
+SELECT RANK.* FROM(
+    SELECT N.*
+        , RANK () OVER( ORDER BY NOTICEDATE DESC) RANK_NO 
+    FROM NOTICE N) RANK
+WHERE RANK_NO < 6;
+
+2.ROWNUM 이용
+SELECT ROW_NO.* FROM
+    (SELECT ROWNUM RNUM, ORDER_NO.* FROM
+        (SELECT * FROM NOTICE
+        ORDER BY NOTICEDATE DESC) ORDER_NO
+        ) ROW_NO
+WHERE RNUM < 6;
+
+
+
+
