@@ -1,0 +1,13 @@
++ 정의 목록 태그
+
+- <dl>, <dt>, <dd>
+
+- dl :Description List, 정의 목록
+
+- dt :Description Terms, 정의 용어의 이름
+
+- dd :Description Descripe, 정의 용어의 설명
+
+- 용어에 대한 설명, 정의에 대한 목록을 구성하는 태그
+
+- <dt> 와 <dd>가 한 쌍으로 하나의 용어를 설명한다.

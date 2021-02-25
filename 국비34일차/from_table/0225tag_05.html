@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1> a tag -> link </h1>
+<hr>
+
+<!--html 태그의 속성은 반드시
+ 속성이름 = "" 로 적어주야 한다.  -->	
+<!-- html 문서에서의 문자열은 "" 또는 ''로 나타낸다 -->
+
+<a href = "https://finance.naver.com">네이버 증권</a>
+<br><!--새창  -->
+<a href = "https://finance.naver.com" target = "_blank">네이버 증권</a>
+<br><!--현재창  -->
+<a href = "https://finance.naver.com" target = "_self">네이버 증권</a>
+
+
+<!-- id속성 - 해당 html 문서에서 특정 태그에 붙이는 이름 -->
+<!-- #top - #을 붙이고 id속성값을 써주면 id가 top인 태그를 지칭한다. -->
+<div id = "top">this is top</div>
+<a href ="#bottom"> 밑으로 </a>
+
+
+<hr>
+<!-- 도메인주소를 포함한 url을 절대경로url 이라고 한다.  -->
+<a href = "https://naver.com" target = "_self">네이버 증권</a>
+
+<!-- 도메인주소를 생략한 url을 상대경로url이라고 한다. -->
+<!-- 현재 도메인주소를 기준점으로 url경로가 지정된다. -->
+<!-- 상대경로 url은 같은 사이트 내에서 페이지 이동할 떄 사용한다.  -->
+<ul>
+	<li><a href = "/tag/tag_01.html"> one </a></li>
+	
+	<li><a href = "./0225tag_02.html"> two </a></li><!--./ 현재 작업중인 디렉토리(파일) -->
+	<li><a href = "0225tag_03.html"> three </a></li>
+	<li><a href = "../file/tim.jpg"> four </a></li>
+	
+	
+	<!--상대경로 지정문자  -->
+	<!-- / : 루트 디렉토리 WebContent 폴더  -->
+	<!--./ 현재 디렉토리  -->
+	<!-- 파일명으로 시작하면 ./ 와 같은 -->
+	<!--../ : 부모 디렉토리  -->
+
+</ul>
+
+<br>
+<br>
+<br>
+
+<hr>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> 
+<p>Nam congue tristique magna, vel ultricies velit congue faucibus.</p> 
+<p>Vivamus rhoncus consectetur urna, eget sollicitudin mi sagittis non.</p> 
+<p>Integer quis aliquet libero. </p>
+<p>Duis a ligula tincidunt, ornare ligula at, tempus nulla.</p>
+<hr>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<a href = "#top">--top move--</a>
+<div id = "bottom">this is top</div>
+
+<a href ="#">자기 자신 페이지</a>
+
+
+	
+</body>
+</html>
