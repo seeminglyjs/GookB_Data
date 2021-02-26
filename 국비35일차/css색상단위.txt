@@ -1,0 +1,32 @@
++ css 색상 단위
+
+ - 색상 이름, color name
+	black, white, red, blue, gray,green,tomato, . . .
+
+ -RGB(red,green,blue) 조합을 이용하여 표현하는 방법
+ 	rgb(R,G,B) 형식으로 표기한다.
+	각 자리에 0~255 또는 0% ~ 100%로 표현한다.
+
+ -RGBA
+	RGB+Alpha(투명도)
+	투명도는 0.0(투명) 부터 1.0(불투명)수치로 표현한다.
+	rgba(r,g,b,a)형식으로 표현한다.
+	rgb(r,g,b,a)형식으로 표현한다.	
+	
+	
+
+ -16진수 hex
+	rgb에 해당하는 각 수치를 16진수로 이어서 한번에 표현한 것
+	#RRGGBB형식으로 표현된다.
+	(10진수 0 -> 16진수 0x00)
+	(10진수 255 -> 16진수 0xFF)
+
+	** #RRGGBB -> #RGB 형식으로 축약표현가능
+	** 같은 숫자(16진수) 두자리를 한개로 표현한다.
+	ex) rgb(255,255,0) -> #FF0000 -> yellow -> #FF0
+
+ -HSL
+
+ -HSLA
+
+[Eclipse] 이클립스 Web Browser 변경 방법
