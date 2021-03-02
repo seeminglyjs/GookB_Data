@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+
+h1 + p {background : yellow; }
+h1 + h1 {background : green; } /* 선택대상이 없음  */
+
+/* h1태그를 뒤따르는 모든 p태그 형제 요소들  */
+h1 ~ p{border: 1px solid red;}
+
+/* h1태그의 인접항 형재 .choco 선택 */
+h1 + .choco {color: chocolate;}
+
+/* h1태그의 일반 형제 .choco 선택 */
+h1 ~.choco{background: chocolate;}
+.choco + .choco { color:blue;}
+
+p + p{ font-style: italic;}
+
+
+</style>
+</head>
+<body>
+
+<h1> 복합선택자</h1>
+<h2> 일반형제</h2>
+<hr>
+
+<p>111</p>
+<h1>222</h1>
+<p>333</p>
+<p class="choco">444</p>
+<p class="choco">555</p>
+<h1>666</h1>
+<p>777</p>
+<p>888</p>
+
+
+</body>
+</html>

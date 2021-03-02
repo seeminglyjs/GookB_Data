@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+
+/* 뛰어쓰기 없이 
+	연달아 있는 선택자는 뒤에서 부터 읽어라 */
+div#myDiv{
+	color : tomato;
+}
+
+/* div태그의 자손인 id가 myDiv로 설정된 태그  */
+div #myDiv{
+	background: red;
+	/*선택되는 애가 없다.  */
+}
+
+/* 모든 div들의 하위요소가 ul인 것들  */
+/* div ul{
+	background: #ccc;
+} */
+
+
+div#myDiv ul{
+	border: 1px solid #808;
+}
+
+/* id가 myDiv인 요소의 자식요소인 모든 ul */
+div#myDiv > ul{
+	border: 1px dotted tomato;
+}
+/* 자식, 자손 선택자의 우선순위가 같다
+	때문에 나중에 작성한 선택자코드가 적용된다. */
+
+</style>
+
+</head>
+<body>
+
+<h1> 복합선택자</h1>
+<h1> 자식 자손선택자</h1>
+
+<hr>
+
+<div id="myDiv">
+<ul>
+	<li>1</li>
+	<ul>
+		<li>2</li>
+		<ul>
+			<li>3-1</li>
+			<li>3-2</li>
+		</ul>	
+	</ul>
+</ul>
+</div>
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+*{
+	/* 모든 태그에 기본 설정을 넣을 때 사용  */
+	/*  브라우저의 기본 css를 없앨 때 사용*/
+	/* 기본 폰트을 적용할 때에도 사용 */
+	
+	
+	/* 크기속성 값으로 0을 넣으면 속성이 없어진다. */
+	padding: 0;/*내부여백 없애기  */
+	margin: 0;/* 외부여백 없애긴 */
+}
+
+
+p{
+	padding : 100px;	
+	margin: 5px 20px 30px;
+	/* background: url(https://images.unsplash.com/photo-1614609953905-baeff400aab3?ixid=MXwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60); */
+	/* 내부여백까지 백그라운드가 적용된다.  */
+}
+
+
+body{
+
+	background : url("https://images.unsplash.com/photo-1614598632980-35ee54daa5b9?ixid=MXwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw5fHx8ZW58MHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60");
+	/* background : cover; */
+	background : contain;
+	
+	/* 배경 크기 단위  */
+	/* contain : 배경 이미지의 높이를 요소의 높이에 맞게 설정
+		(너비는 이미지의 비율에 맞게 조절) */
+
+	/* cover : 배경이미지의 너비를 요소의 너비로 맞춤
+		(높이는 이미즹 비율에 맞게 조절) */
+	
+	
+	/* background-repeat: repeat; */
+	/* 배경 이미지의 반복 패턴 설정 */
+	
+	/* background-repeat: no-repeat; */
+	/* 배경 이미지의 반복 패턴 설정  반복 x*/
+	
+	/* background-repeat: repeat-x; */
+	/* 배경 이미지의 반복 패턴 설정  반복 가로로만*/
+	
+	background-repeat: repeat-y;
+	/* 배경 이미지의 반복 패턴 설정  반복 세로로만x*/
+
+}
+
+span{
+	/* inline 요소는 상하 margin이 없다 */
+	/* 화면에 반영되지 않는다  */
+	margin: 30px;
+	
+	/* inline 요소는 너비, 높이 둘다
+		화면에 반영되지 않는다.  */
+	/* width: 200px;
+	height: 200px;
+	 */
+	 
+	 
+	 
+}
+
+div{
+
+	border : 3px dotted black;
+	margin: 5px 20px 30px;
+	background-color: #ccc;
+
+}
+
+
+
+</style>
+
+</head>
+<body>
+
+<h1> 선택자</h1>
+<hr>
+
+
+<p>p</p>
+<span>span</span>
+<div>div
+	<p>div in p</p>
+	div
+</div>
+
+</body>
+</html>

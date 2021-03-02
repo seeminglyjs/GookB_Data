@@ -1,0 +1,24 @@
++ HSL
+	Hue, Satulation, Lightness
+	색조 / 채도 / 명도
+	
+	hsl(h, s, l) 형식으로 표현한다.
+
+
+	색조, hue : 0 ~ 360, 색 각도
+		0 또는 360 : Red
+		120 : Green
+		240 : Blue
+
+	채도, satulation : 0% ~ 100%
+		0% : 무채색, 회색 빛
+		100% : 유채색, 본연의 빛
+
+	명도, lightness : 0% ~ 100%
+		0% :어두운 black
+		100% : 밝은, white
+		** 50%가 적당한 명도
+
+
++ HSLA
+	HSL + 투명도
