@@ -1,0 +1,16 @@
++ overflow 속성
+
+ - 블록 요소 내의 내용물이 컨텐츠영역보다 커서 넘친 부분에 대한 표현 방법을 설정하는 속성
+
+ - 설정값
+	visible - 넘친 부분을 보여주기
+	hidden - 넘친 부분을 감추기(잘라내기)
+	scroll - 상하, 좌우 스크롤바 생성하기
+		(상하 스크롤 == 수직 스크롤 
+		== vscroll == vertical scroll)
+		(좌우 스크롤 == 수평 스크롤 
+		== hscroll == horizontal scroll == scroll-x)
+	
+
+
+	auto - 내용물이 넘친 방향에만 스크롤 생성하기

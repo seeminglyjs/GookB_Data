@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+
+.box{
+
+	width: 150px;
+	height: 50px;
+	color: #999;
+	border: 1px solid red;
+}
+/*---------------------------------------------------------------------  */
+
+.absolute{
+		position: absolute;
+}
+
+
+#a1{
+	/* 왼쪽을 기준으로 위아래가 정렬된다. */
+	top: 100px; 
+	
+	left: 100px;
+}
+
+
+#a2{
+	bottom: 0;
+	right : 100px;
+}
+
+#a3{ /* position 이 부여된 부모 요소 */
+	width: 300px;
+	height: 300px;
+
+	background: yellow;
+}
+
+
+#a4{ /*position 이 부여된 부모 요소  */
+	bottom: 20px;
+	right:10px;
+	background: blue;
+	
+	/* 요소의 z축 위치를 설정 */
+	/* 모니터 평면을 0으로 표현  */
+	/* 앞쪽은 양수, 뒤쪽은 음수로 표현 */
+	/* z축은 다른 요소들과의 상대적인 거리를 표현한다 */
+	z-index: 13333;
+}
+
+/*---------------------------------------------------------------------  */
+.relative{
+	position: relative; 
+}
+/*---------------------------------------------------------------------  */
+
+#r1{
+	top:0;
+	left:0;
+}
+/*---------------------------------------------------------------------  */
+.fixed{
+	position: fixed;
+	bottom: 200px;
+	right: 300px;
+}
+
+
+</style>
+
+</head>
+<body>
+
+	<div id="a1" class="box absolute">절대위치 박스1</div>
+	<div id="a2" class="box absolute">절대위치 박스2</div>
+	<div id="a3" class="box absolute">
+		<div id="a4" class="box absolute">절대위치 박스4</div>
+	</div>
+
+<p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ac erat vitae lacus vestibulum egestas. Nunc placerat, lectus id tincidunt molestie, ipsum dui fermentum lectus, sed sodales turpis libero ac libero. Vestibulum tincidunt metus eu turpis fringilla ultrices. Sed efficitur orci vitae elit faucibus pretium. Fusce a arcu efficitur, lacinia tortor ut, commodo lacus. Donec velit turpis, tincidunt vitae ullamcorper vel, venenatis a nibh. Morbi imperdiet lacus in finibus accumsan. Nulla quis metus eget massa finibus molestie nec quis odio. Nulla a volutpat augue.
+
+Etiam imperdiet ex eget lectus hendrerit iaculis. Morbi eleifend leo eget nibh dictum, a viverra erat condimentum. Pellentesque ultrices enim quis lobortis eleifend. Quisque vel velit arcu. Etiam rutrum euismod efficitur. Aenean vitae risus at eros egestas mattis. Vestibulum nec magna ac sapien sodales tempor.
+
+Quisque bibendum quam eget massa lacinia, non lacinia leo porta. In auctor ex eget mi gravida fringilla at ac lacus. Aliquam pharetra turpis sit amet mauris semper consequat. Proin eget ante est. Aenean varius ut ipsum eu posuere. Pellentesque volutpat, felis eget rutrum faucibus, magna ante lobortis ligula, ac interdum urna arcu vel urna. Vestibulum lorem magna, congue ac suscipit id, posuere sed nulla. Donec vehicula nunc non orci molestie, sit amet fringilla orci lacinia. Sed gravida porta odio, a auctor ipsum ullamcorper at. Vestibulum a posuere mi. Suspendisse eget risus in dolor malesuada vehicula. Quisque placerat semper sem, quis cursus mauris hendrerit non. Nam ultrices libero ut augue sagittis lacinia. Suspendisse enim tellus, tincidunt ut suscipit nec, tincidunt id arcu. Phasellus commodo libero nec lacus interdum, sit amet facilisis ipsum fringilla.
+
+In maximus dictum sapien et posuere. Nulla ut arcu a ex fermentum luctus. Ut ultricies nulla ultricies sem egestas dignissim. Aliquam vitae turpis consequat, condimentum est et, venenatis massa. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque imperdiet felis id rutrum dictum. Curabitur dapibus, nisi quis fringilla scelerisque, erat justo convallis magna, sit amet vehicula dui eros et justo. Pellentesque lacus massa, laoreet vel augue ac, egestas dictum tortor.
+</p>
+<div id="r1" class="box relative">상대위치 박스</div>
+<p>
+Sed vel odio sed sem luctus sodales et eu elit. Ut sit amet mi in urna facilisis molestie sed quis tellus. Duis eu neque justo. Mauris hendrerit dolor sed nulla maximus, eget tincidunt quam blandit. Aenean dapibus ultrices ornare. Nam sed imperdiet turpis. Nullam faucibus rhoncus eros rhoncus congue. Phasellus eget consectetur ex, non vehicula libero. Praesent vitae ex sed mauris pulvinar egestas. Duis vitae tempus lorem, vitae consectetur enim. Morbi ac sem in erat efficitur lacinia id quis dolor. Proin id sem a risus semper aliquet ut id turpis. Nulla mattis dui sit amet efficitur rhoncus.
+
+Generated 5 paragraphs, 433 words, 2869 bytes of Lorem Ipsum
+</p>
+
+
+<div class="relative">
+	<div class="box absolute">
+		상대(relative)위치 부모태그 안의 절대(absolute)위치 박스
+	</div>
+</div>
+
+
+<div class="box fixed">고정위치 박스</div>
+
+</body>
+</html>

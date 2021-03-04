@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+
+#wrap div:nth-child(1){background: #f00;}
+#wrap div:nth-child(2){background: #0f0;}
+#wrap div:nth-child(3){background: #00f;}
+#wrap div:nth-child(4){background: #ff0;}
+#wrap div:nth-child(5){background: #f0f;}
+#wrap div:nth-child(6){background: #0ff;}
+
+
+#wrap{
+	width: 980px;
+	border: 1px solid #ccc;
+	/* 테이블 태그처럼 표현되도록 설정 */
+	display: table;
+	
+	/* 외부 정렬  */
+	margin: 0 auto;
+
+	/* 테이블셀의 너비를 일정하게 만든다 */
+	table-layout: fixed;
+	
+}
+
+#wrap div{
+	/* th나 td 처럼 표현되도록 바꾼다. */
+	display: table-cell;
+	
+	text-align: center;
+	
+	height:150px;
+	
+	font-size: 45px;
+	
+	/* 수직 정렬
+		테이블 셀의 수직정렬 */
+	vertical-align: middle;
+	
+	
+	
+}
+
+</style>
+
+</head>
+<body>
+
+<div id="wrap">
+
+	<div>A</div>
+	<div>B</div>
+	<div>C</div>
+	<div>D</div>
+	<div>E</div>
+	<div>F</div>
+
+</div>
+	
+</body>
+</html>

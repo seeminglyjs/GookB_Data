@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+
+div:hover{
+	color: red;
+}
+
+span:hover{
+
+	background-color: green;
+}
+
+/*span요소에 마우스 눌림이 발생했을때 선택  */
+span:active{
+	color:orange;
+	font-size: 30px;
+
+}
+/* button 태그에 마우스 놀림이 발생하면 선택 */
+/* <input type="bitton> 해당되지 않는다. */
+/* disabled속성을 가진 button 해당하지 않음 */
+button:active{
+	color:blue;
+}
+
+input[type="button"]:active{
+	color:tomato;
+}
+
+
+/*  ctrl + shift + del  인터넷 사용 기록 삭제*/
+
+/* 방문전 상태의 a 태그 */
+a:link{
+	color: green;
+}
+
+/* 방문 후 상태의 a 태그 */
+a:visited{
+	color: red;
+}
+
+/* 비활성화 상태 */
+:disabled{
+	fonst-size: 8px;
+}
+
+/* 활성화 상태 */
+:enabled{
+	font-style: italic;
+}
+
+:checked{
+	width: 50px;
+	height: 50px;
+}
+
+/* checked된 check 의 인접형제 label 선택 */
+input[type="checkbox"]:checked + label{
+	color:blue;
+}
+
+/* checked된 #chk의 인접 형제 label 선택  */
+#chk:checked + label {
+	background: tomato;
+}
+
+
+/* 포커스를 얻는 요소 선택 */
+:focus{
+	color: maroon;
+}
+
+/* 자식이 없는 요소  */
+div:empty{
+	height: 100px;
+	background:yellow;
+}
+
+</style>
+</head>
+<div>
+<span>span태그 안쪽</span>span 태그 바깥
+<input type="button" value="확인"/><br>
+<a href="http://www.naver.com">네이버</a>
+<a href="http://www.daum.net">다음</a>
+<a href="http://www.daum.net">다음</a>
+<hr>
+<label><input type="checkbox"/>확인</label>
+<label><input type="radio"/>라디오</label>
+<hr>
+<input type="checkbox" id="chk"/>
+<label for="chk">체크</label>
+
+<button disabled="disabled">버튼</button>
+<div></div>
+
+</div>
+</body>
+</html>

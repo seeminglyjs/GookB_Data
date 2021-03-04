@@ -1,0 +1,48 @@
++ 가상 선택자 Pseudo Selector, 의사 선택자
+	HTML 문서에서 실제 요소로 존재하지 않는 대상을 선택
+	
+	이벤트 기반, 순서 기반 선택자가 있다.
+
+	
+
+	1. 가상 클래스 선택자(이벤트 기반)
+	:hover -> onmouseover, onmouseout 이벤트에 반응하여 요소 선탠
+	(mouseover - 마우스 올림)
+	(mouseout - 마우스 내림)
+
+	:active -> onmousedown에 반응
+	(마우스 눌림)
+		
+	:link -> <a> 태그의 방문 전 상태
+
+	:visited -> <a> 태그의 방문 후 상태
+	
+	:checked -> checked상태인 요소 선택(checkbox, radio)
+
+	:focus -> onfocus상태인 요소 선택
+	(사용자의 입력이 가능한 상태)
+
+	:empty - 컨텐츠가 비어있는 요소 선택, 자식요소가 없는 요소를 선택
+
+	2. 가상 클래스 선택자(순서 기반)
+
+	:root -> 최상위 태그, <html> 태그
+
+	:nth-child(n) -> 앞에서부터 n번째 요소
+
+	:nth-lats-child(n) -> 뒤에서부터 n 번째 요소
+
+	:first-child - > 첫번째 요소
+	:last-child -> 마지막 요소
+
+	:only-child - 유일한 자식 요소(형제요소가 없을 때 선택)
+	:only-of-type -> 유일한 태그 타입(형제요소가 있어도 단독 타입일 때 선택)
+
+
+	3. 가상 요소 선택자
+	
+	::before -> 태그의 앞에 가상 요소를 추가
+	::after -> 태그의 뒤에 가상 요소를 추가
+	
+	::first-line -> 요소의 첫번째 줄
+	::first-letter -> 요소의 첫번째 글자

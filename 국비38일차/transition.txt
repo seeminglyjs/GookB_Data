@@ -1,0 +1,40 @@
++ transition 속성
+ - css 속성이 변화하는 과정을 주어진 시간동안 진행되도록 설정하는 속성
+	ex) transition: background-color 3s;
+	(배경 색상이 3초에 걸쳐서 변화한다)
+
+- 설정값 지정 방법
+	transition: property duration delay timing;
+
++ transition 상세 속성
+ - transition-property
+	transition속성이 적용될 css속성을 지정한다.
+	none: 적용안함
+	all: 모든 속성에 반응
+	css property: 해당 속성에 반응	
+	
+
+ - tansition-duration
+	속성의 변화가 진행되는 시간
+	시간단위로 s 또는 ms 를 사용한다(s->초 ms->밀리초)
+
+ - tansition-delay
+	속성의 변화가 시작되는 시점을 지연시키는 시간
+		
+	시간단위로 s 또는 ms를 사용한다.
+
+ - tansition-timing-function
+	속성의 변화가 진행되는 속도를 조절하는 속성
+	ease(기본값)
+		천천히 시작해서 빠른 진행 후에 천천히 마무리
+	linear
+		항상 일정한 속도	
+
+	ease-in
+		천천히 시작 후에 정상 진행 
+	ease-out
+		정상 진행 후 천천히 마무리
+	ease-in-out
+		천천히 시작해서 보통 진행 후에 천천히 마무리
+
+	

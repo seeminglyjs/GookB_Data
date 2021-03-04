@@ -1,0 +1,27 @@
++ inline-block 모델
+ - block 모델과 inline 모델의 표현방식이 혼합된 것
+
+ - 내부 동작은 block모델
+	요소의 자체 레이아웃 설정이 block모델처럼 동작한다
+	width, height, border, padding, margin 모두 적용가능
+
+ - 외부 동작은  inline모델
+	외부 요소와의 관계에 대한 설정이 inline 모델처럼 동작한다
+
+	인라인요소처럼 한 줄에 여러 개의 요소를 배치할 수 있다
+	
+
++ 인라인블록모델의 자체 레이아웃 특성
+
+- width, height 속성
+	설정 가능
+	높이를 내용물의 크기에 맞추려면 auto로 설정 (height기본값)
+	너비를 부모요소에 맞추려면 100%로 설정(width 기본값)
+
+
+ - margin- top, margin-bottom 속성
+	설정 가능
+
+ - margin-left, margin-right 속성
+	외부 요소와의 간격
+	인라인모델처럼 동작한다

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+
+<style type="text/css">
+
+div{
+	width: 200px;
+	height: 100px;
+	margin: 5px;
+}
+
+#div1{border: 1px solid red;}
+#div2{border: 1px solid green;}
+#div3{border: 1px solid blue;}
+
+#div1{float: left;}
+#div2{float: right;}
+
+/*  클리어 전용 스타일 시트 */
+.clearfox{
+	clear: both;
+	witdth: 0;
+	height: 0;
+
+	/* 내용물이 흘러넘치는걸 보이지 않게함  */
+	overflow: hidden;
+}
+
+</style>
+
+</head>
+<body>
+	<div id="div1">div1 요소</div>
+	<div id="div2">div2 요소</div>
+	
+	<div class="clearfox"></div>
+	
+	<div id="div3">div3 요소</div>
+	
+</body>
+</html>
