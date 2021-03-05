@@ -1,0 +1,26 @@
++js 데이터 타입
+
+- Number: 숫자 (보라색)
+
+- String : 문자
+
+- Boolean : 논리
+
+- Object : 객체 {객체} {ket:value, ket:value,ket:value . .. }
+
+- Array : 배열 [배열] [value, value, value . . .]
+
+- null : 참조 대상이 없음을 나타내는 키워드
+
+- undefined : 값이 정의되지 않은 상태를 표현
+	(변수도 만들어 지지 않음, 값이 생성되지 않음)
+	
+- NaN : not a number의 약자
+	Number 타입의 특수 키워드
+	Number 타입으로 값이 사용되어야 할 때 Number가 아닌 데이터를 사용하면 반환하는 키워드
+	
+- Infinity : 무한대
+	Number타입의 특수 키워드
+	특정 숫자를 0으로 나누었을 때 표현되는 특수 데이터
+	Infinity(양의무한대)
+	-Infinity(음의무한대)

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<!-- 자바스크립트 코드  -->
+<script type="text/javascript">
+
+// 변수 선언
+var data;
+console.log(data) //undefined
+//console.log(ddd); //아예 변수 조차 없으면 에러가 발생
+
+console.log("----------------------")
+
+if(data == undefined){
+	console.log("data 변수가 초기화되지 않았음")
+}
+
+if(data == null){
+	console.log("data변수가 null이다")	
+	console.log("참조대상이 없다")
+}
+
+console.log("----------------------")
+if(!data){//true
+	console.log("!undefined")
+}
+if(!undefined){//true
+	console.log("!undefined")
+}
+console.log("----------------------")
+
+if( undefined == false){ //false
+	console.log(undefined == false)
+}
+
+// 논리연산에서 false취급받는 데이터들
+console.log("----------------------")
+console.log(!undefined)
+console.log(!null)
+console.log(!false)
+console.log(!NaN)
+console.log(!0)
+console.log(!"")
+
+
+console.log("----------------------")
+
+if(data === undefined){ //true
+	console.log("data === undefined");
+}
+
+if(data== null){//true
+	console.log("data==null")
+}
+
+if(data === null){ //false
+	console.log("data==null")
+}else{
+	console.log("data==null is false")
+}
+//=== 연산자
+// 데이터 타입이 같은 때에만 값을 비교하는 연산자
+
+</script>
+
+</head>
+<body>
+	<h3>자바스크립트를 이용한 출력</h3>
+
+</body>
+</html>

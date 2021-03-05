@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+
+//함수, function
+
+//함수 정의 코드
+function func(){
+	//동작하는 코드
+	console.log("Function~~~~~~~~~~")
+}
+
+//함수호출코드
+func()
+func()
+func()
+
+
+console.log('------------------------------')
+//변수 선언
+var func2;
+
+//이름없는 함수를 변수에 대입해서 사용한다
+//변수의 이름이 함수의 이름이 된다
+func2 = function(){
+	console.log("var Function2~~~~~~~~~~")
+}
+
+func2()
+
+//함수를 변수에 대입하여 사용하기
+
+var func3 = func;
+var func4 = func2;
+
+
+func3()
+func4()
+
+
+console.log("---------------------")
+//함수의 데이터타입은 function
+console.log(typeof(func))
+console.log(typeof(func2))
+console.log(typeof(func3))
+console.log(typeof(func4))
+
+
+console.log("---------------------")
+console.log(func)
+console.log(func2)
+
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

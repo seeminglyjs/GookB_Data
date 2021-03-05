@@ -1,0 +1,35 @@
++ js 형변환
+
+- 자동 형변환
+	String 타입과 + 연산을 하면 문자열로 변환 된다.
+	Number + String -> String
+	String + Number -> String
+
+	Boolean + String -> String
+	String + Boolean -> String
+
+
+Boolean 타입을 Number 타입과 + 연산을 하면 Boolean타입을 숫자로 취급
+
+	true == 1, false == 0
+
+	Boolean + Number -> Number
+	Number + Boolean -> Number
+
+- 강제 형변환
+	
+	문자 -> 숫자
+	parseInt(숫자 형식 문자)	- 정수값 반환	
+	parseFloat(숫자 형식 문자)	- 실수값 반환
+	Number(숫자 형식 문자)		- 정수, 실수 가능
+
+	숫자 -> 문자
+
+	숫자데이터.toString(n) - 정수를 진법을 지정하여 문자로 변환
+
+	숫자데이터.toFixed(n) - 소수점 자리수를 지정하여 문자로 변환
+
+	String(숫자)
+
+
+	

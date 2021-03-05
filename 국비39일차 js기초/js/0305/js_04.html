@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<!-- 자바스크립트 코드  -->
+<script type="text/javascript">
+
+console.log(parseInt("50")) // 문자열이 50이라는 숫자로 변환
+console.log(parseInt("50gg")) // 숫자만 꺼내서 변환을 해준 50
+console.log(parseInt("gg50")) // NaN
+console.log(parseInt("123h1")) // 앞쪽에 있는것만 숫자로 변환 123
+
+console.log("--------------------")
+
+console.log(parseFloat("34.56")) // 실수형 변환
+console.log(parseInt("34.56")) // 정수형 변환 34
+console.log("--------------------")
+console.log(Number("34.45"))// 실수형 변환
+
+
+console.log("--------------------")
+//js변수 선언
+// 데이터타입을 명시하지 않고 var 키워드 사용
+var n1;
+
+//변수값 대입
+// 데이터타입에 상관없이 값을 대입할 수 있다
+n1 = "Apple";
+n1 = true
+n1 = 123;
+console.log(n1)
+console.log("--------------------")
+
+var n2 = "34.567";
+console.log(n2);
+console.log("n1 -> ", typeof(n1),"n2 -> ", typeof(n2))
+
+
+console.log("--------------------")
+// 문자열로 변환되어 콘솔창에 색깔로 타입 구분이됨
+console.log("n1: " + n1)
+console.log("n2: " + n2)
+
+
+console.log("---------n1------")
+console.log(n1)
+console.log("---------n2------")
+console.log(n2)
+
+console.log("n1: " , n1)
+console.log("n2: " , n2)
+
+
+console.log("--------------------")
+
+n1 = 567.89;
+n2 = "34.556";
+
+console.log(n1 = Number(n1))
+console.log(n2 = Number(n2))
+console.log("n1: " , n1)
+console.log("n2: " , n2)
+
+console.log("--------------------")
+
+console.log(n1.toString())
+console.log("-------진법 지정------")
+console.log(n1.toString(2))
+console.log(n1.toString(8))
+console.log(n1.toString(16))
+
+console.log(String(123))
+console.log(String(1.23소수점 2자리 유지23))
+
+console.log("-------자릿수 지정------")
+console.log(n1.toFixed(2)) //소수점 2자리 유지
+console.log(n2.toFixed(4)) //소수점 4자리 유지
+
+
+
+</script>
+
+</head>
+<body>
+	<h3>자바스크립트를 이용한 출력</h3>
+
+</body>
+</html>
