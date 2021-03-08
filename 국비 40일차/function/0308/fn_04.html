@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+//q변수의 스코프, scope
+// 변수의 유효범위
+// 변수가 인식되고 사용될 수 있는 범위
+
+//선언되지 않은 변수 사용시 에러가 남
+// console.log(data)
+
+//-------------------------------------------------------------
+
+//에러나지 않음
+// -> 변수 선언 코드보다 이전에 변수를 사용해도
+// 에러가 나지 않음
+
+console.log(num)
+var num = 10;
+console.log(num)
+
+//js 엔진은 코드를 시행하기 전(정적인 시점)에
+// 선언된 변수를 전부 생성해둔다
+// 단, 초기화는 하지 않는다,(undefined 상태가 됨)
+
+// -> 호이스팅(Hoisting) 현상
+
+
+//-------------------------------------------------------------
+
+
+//글로벌 변수, 전역 변수
+//Global Scope, 전역 스코프에 선언된 변수
+// <script> 태그에서 곧바로 사용하는 영역
+var value = 11122310;
+
+//-------------------------------------------------------------
+
+function func(){
+	// 함수 지역 스코프, function scope
+
+	// 전역 변수 사용 가능
+	console.log(value)
+
+	//-------------------------------------------------------------
+	
+	// 에러나지 않음, 호이스팅
+	// -> function scope에서 호이스팅
+	console.log(func_var)
+	
+	//지역변수  local Variable
+	var func_var = 20;
+	
+	// 지역 변수 출력
+	console.log(func_var)
+}
+
+
+//함수 호출
+func();
+
+// 에러 func() 함수 스크포를 벗어나서 사용 불가
+//console.log(func_var)
+
+
+//-------------------------------------------------------------
+
+// {} 중괄호 블록
+// Block Local Scope, 블록 지역 스코프
+{
+	var block_var = 30;
+	console.log(block_var)
+
+}
+
+//출력됨, 블록지역스코프는 무시된다
+console.log(block_var)
+
+//-------------------------------------------------------------
+
+// var 선언된 변수명을 이용해서 다시 선언해도
+// 에러없이 만들어짐
+// -> 이전에 만들어진 변수를 가져와서 사용함
+var data1 = "Alice"
+console.log( data1 )
+
+var data1 = "Bob"
+console.log(data1)
+
+//----------let 알아보기------------------------------------------------
+
+// 호이스팅은 발생함
+// 에러 변수 선언 전에 사용불가
+let data2 = "Clare"
+console.log( data2 )
+
+//에러 변수이름 중복 선언 불가
+//let data2 = "Dave"
+
+
+let data3
+console.log(data3) // undefined
+
+//{} 중괄호 블록
+
+{
+	//블록 지역 스코프	
+	let block_let = 40;
+	console.log(block_let)
+	// 40 이라고 잘나옴
+}
+
+// 에러, let변수는 블록스코프 영향받음
+// -> 블록스코프 밖에서 사용 불가
+//console.log(block_let);
+
+//-----------------------------------------------------------------
+for(var i=0; i<5; i++){ // i, 0 ~ 4
+}
+// 출력됨 var변수는 function 스코프에만 적용됨
+console.log( i )
+
+for(let j =0; j <5; j ++){
+}
+// 에러, let 변수는 block 스코프에도 적용됨
+//console.log(j)
+
+// Global > block > function
+
+//----------const 알아보기------------------------------------------------
+
+//const data4; 상수 생성 키워드
+//에러 선언과 동시에 초기화를 필수로 적용해야함
+
+const data5 = 50;
+console.log( data5)
+
+//에러
+//data5 =60;
+
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

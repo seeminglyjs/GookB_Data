@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+
+	var result
+
+function add(n1, n2){
+	result = n1 + n2;// 전역 변수에 결과 저장	
+}
+	
+function print(){
+	console.log(result); // 전역 변수의 값 출력
+}	
+
+//덧셈
+add(100,200)
+//출력
+print()
+
+console.log("---------------------")
+//콜백 함수, Callback Function
+// 직접 호출해서 실행하는 함수가 아닌
+// 외부의 동작에 의해서 실행되는 함수
+// -> 다른 시스템이나 함수 등이 호출해주는 함수
+
+
+function sum(n1, n2, callback){
+	var res = n1 + n2;
+	
+	callback(res); // 
+}
+
+// 결과값을 console로 출력하는 함수
+function display(data){
+	console.log("결과값 -> ", data)
+}
+
+//sum 함수 호출
+sum(11,22, display)
+
+//결과값을 alert로 출력하는 함수
+function alertResult(data){
+	alert("결과값 -> "+  data)
+}
+
+//sum 함수 호출
+sum(555,666, alertResult)
+//-------------------------------------------------------------
+
+
+// 콜백으로 사용되는 함수를 다르게 적용하여
+// sum함수의 결과출력 동작을 매번 다르게 지정한다
+
+var f = function(){
+	
+}
+
+
+//sum함수 호출
+sum(777, 888, function ( data ){
+	document.write("<h1>" + data + "</h1>")
+})
+
+
+
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+
+	var cnt = 0; // 전역변수
+	function countUp(){
+		return ++cnt;
+	}
+	
+console.log(countUp())
+console.log(countUp())
+console.log(countUp())
+
+// 전역변수는 제약없이 값을 변경할 수 있다.
+cnt = 111;
+
+console.log("---------------")
+
+function countUp2(){
+	var cnt2 = 0;
+	return ++cnt2;
+}
+
+console.log( countUp2())
+console.log( countUp2())
+console.log( countUp2())
+console.log( countUp2())
+console.log( countUp2())
+
+//값이 바뀌지 안혹 1만 계속 나온다
+// -> 함수가 호출될 떄 Function scope를 생성하고
+// 지역변수를 저장한다
+// -> 함수가 종료되면 Function Scope가 제거된다
+// -> 지역변수도 함께 지워짐
+console.log("---------------")
+
+
+function countUp3(){
+	var cnt3 = 0; // 지역변수
+	
+	return function(){
+		return ++cnt3;
+	}
+}
+
+const f = countUp3();
+
+console.log(f())
+console.log(f())
+console.log(f())
+console.log(f())
+
+console.log(f)
+
+//----------------------------------------------------------------------
+
+// 클로저, Closure
+
+// 특정 함수의 내부함수가 외부로 반환되었을 때
+// 함수의 선언 & 정의 환경(스코프의 상태)을
+// 기억하고 있는 것
+
+// 내부함수가 return 코드를 통해서 외부함수의 반환
+// 반환값으로 사용될 상황를 클로저라고 하고
+// 반환됨  내부함수를 클로저 함수라고 한다
+
+// 외부함수가 종료되었더라도 클로저함수를 호출하면
+// 클로저함수가 정의되었을 당시의 스코프에
+// 접근할 수 있다
+// -> 외부함수의 지역변수에 접근할 수 있다
+
+// 클로저함수를 이용해 접근할 수 있는 지역변수를
+// 자유변수(Free Variable)라고 한다
+
+
+// 자유변수는 최초 함수의 스코프(변수 공간)를
+// 계속 유지하고, 값의 변화가 적용된다
+
+
+
+
+
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

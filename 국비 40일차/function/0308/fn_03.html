@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+
+function hello(){
+	console.log("hello")
+}
+
+function thanks(){
+	console.log("thanks")
+}
+//--------------------------------------------------------------------------------
+
+function action(fn){
+	fn(); // 매개변수로 전달받느 값으로 함수 호출
+	
+	return fn;
+}
+
+//에러, 함수호출코드에 number가 사용됨
+//action(123)
+
+action(hello);
+action(thanks);
+
+console.log("--------------------------------")
+//action 함수를 이용하여 hello함수를 호출하고
+//다시 hello함수를 리턴하여 f 변수에 저장
+var f = action(hello);
+	
+f();
+console.log("--------------------------------")
+
+action(thanks)();
+
+console.log("--------------------------------")
+
+action(action(thanks))();
+
+
+
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

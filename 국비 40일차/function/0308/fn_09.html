@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+// 현재 시간을 1초마다 출력
+// console로 출력
+// 시간 : 분 : 초 로 출려
+
+
+/* function out(){
+	var now = new Date();
+	console.log(now.getHours() + " : " + now.getMinutes() + " : " + now.getSeconds())	
+}
+var tid = setInterval(out, 1000);	
+console.log(tid) 
+ */
+		
+//-----------------------------------------------------------------------
+
+
+/* function out(){
+	var now = new Date();
+	
+	var h = now.getHours() 
+	var m =	now.getMinutes()
+	var s = now.getSeconds()	
+	// 시분초가 한자리 숫자인지 판단
+	if(h< 10){h = "0" + h};
+	if(m< 10){m = "0" + m};
+	if(s< 10){s = "0" + s};
+
+	console.log(h + " : " + m  + " : " + s)
+}
+var tid = setInterval(out, 1000);	
+console.log(tid) */
+
+//-----------------------------------------------------------------------
+
+// 익명함수로 만들어 보기
+var tid = setInterval(
+	function{
+		var now = new Date();
+		
+		var h = now.getHours() 
+		var m =	now.getMinutes()
+		var s = now.getSeconds()	
+		// 시분초가 한자리 숫자인지 판단
+		if(h< 10){h = "0" + h};
+		if(m< 10){m = "0" + m};
+		if(s< 10){s = "0" + s};
+		console.log(h + " : " + m  + " : " + s)
+	
+		time.innerHTML = now;
+		
+	}, 1000);	
+
+</script>
+
+</head>
+<body>
+	<h1 id="time"></h1>
+</body>
+</html>

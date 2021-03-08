@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+
+function hello(){
+	console.log("hello")
+}
+
+hello();
+
+// 1000밀리초(1초) 마다 hello함수 호출하는 기능
+var tid = setInterval( hello, 1000)
+//------------------------------------------------------
+
+// 3000밀리초 이후에 주어진 함수를 한 번 실행
+setTimeout( function(){
+	alert("hihi")
+}, 3000)
+//------------------------------------------------------
+
+
+//tid타이머 종료시키는 함수
+function stop(){
+	clearInterval(tid)
+}
+
+
+setTimeout(stop, 5500) // 5.5 초 후에 뒤에 stop 호출
+
+
+
+
+</script>
+
+</head>
+<body>
+
+</body>
+</html>
