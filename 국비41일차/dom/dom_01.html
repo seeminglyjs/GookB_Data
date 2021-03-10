@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+// -- 잘못된 DOM 객체 사용법---
+// 문서 객체는 브라우저 해석한 이후에 DOM트리로 구성된다
+
+//DOM 트리가 구성되기 전에 document 객체를
+// 이용하여 노등 접근할 수 없다
+//id가 "header1"인 요소 노드를 얻어오기
+// -> document객체는DOM트리를 보면서 동작한다
+
+//document 객체를 이용하려면 DOM트리가 완성된 이후에
+//코드가 실행되도록 해야한다
+
+var h1 = document.getElementById("header1")
+
+//요소노드(DOM Object) 출력하기
+console.log(h1) // null 값 나옴
+//------------------------------
+</script>
+
+
+<script type="text/javascript">
+//window.onload - DOM트리 구성이 완료되었을 때 발생하는 이벤트 처리 코드
+window.onload = function(){
+	//콜백함수 이용
+	console.log("----window.onload 콜백함수-----")
+	//id 가 header1인 요소 노드를 얻어오기
+	var h1 = document.getElementById("header1")
+	//요소노드(DOM Object) 출력하기
+	console.log(h1) // null 값 나옴
+	
+	h1.style.color ="blue";
+	//h1 변수(object) -> h1#header1 요소
+	// h1.style -> 요소의 style 속성(attribute)
+	// h1.style.color
+	// -> 요소의 style 속성 중 color 스타일 시트
+}
+
+</script>
+
+<script type="text/javascript">
+
+function chgBgYellow(){
+	console.log("#header2 mouseenter")	
+	var y = document.getElementById("header2")
+	y.style.backgroundColor= "yellow";
+}
+
+
+function chgBgNone(){
+	console.log("#header2 mouseleave")
+	var n = document.getElementById("header2")
+	n.style.background= "none";
+}
+
+
+</script>
+
+
+
+
+</head>
+<body>
+<!-- 이벤트 속성  -->
+<!-- 태그에 특정 이벤트가 발생하면 실행될 자바스크립트 코드를
+	작성해두는 속성 -->
+	
+<!-- onmouseenter : 요소에 마우스가 올라갔을 때 반응하는 속성  -->
+<h1 id="header1" 
+	onmouseenter="console.log('enter')"
+	onmouseleave="console.log('leave')"> header text</h1>
+
+<h1 id="header2"
+	onmouseenter="chgBgYellow();"
+	onmouseleave="chgBgNone();"
+> 헤더 text</h1>
+
+
+<script type="text/javascript">
+console.log("</body> 태그 직전에 수행")
+var h1 = document.getElementById("header1")
+//요소노드(DOM Object) 출력하기
+console.log(h1) // null 값 나옴
+</script>
+</body>
+</html>

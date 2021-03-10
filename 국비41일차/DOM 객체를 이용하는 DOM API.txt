@@ -1,0 +1,76 @@
++ DOM 객체를 이용하는 함수 DOM API
+
+ - documnet 객체를 이용하여 DOM 객체를 사용하는 내장 함수
+
+ - html태그 요소들을 관리할 수 있는 API함수들
+
+
++ 노드 (Node) 생성
+
+- document.createElement("tagName")
+	요소노드 생성
+	**html표준태그가 아니어드 생성할 수 있음
+
+- document.createTextNode("Text)
+	테스트노드생성
+
+ - 노드(Node) 추가하기
+
+ - DOM 객체.appendChild(대상객체)
+	DOM객체의 자식으로 대상객체를 추가한다
+
++ 요소노드의 속성(attribute) 다루기
+
+ - 표준속성의 값 가져오기
+	DOM객체.표준속성
+
+ - 표존 속성에 값 설정하기
+	DOM객체.표준속성="속성값"
+
+- 일반속성의 값 가져오기
+	DOM객체.getAttribute("속성명")
+
+- 일반속성에 값 설정하기
+	DOM객체.setAttribute("속성명", "속성값")
+
+** 속성의 값은 항상 String 타입으로 정의 한다
+
+
+
++ innerHTML 속성
+	- DOM객체.innerHTML
+	요소노드의 컨텐츠를 String으로 반환한다
+
+	- DOM객체.innerHTML = "HTML양식의 문장"
+	요소노드의 컨텐츠를 주어진 문장으로 치환한다
+
++ innerText 속성
+	-DOM객체.innerText
+	
+	-DOM객체.innerText = "텍스트 문장"
+
+	-innerHTML과 사용방법은 같다
+
+	** 컨텐츠를 불러올 때
+		innerHTML - 태그까지 포함해서 꺼내온다
+		innerText - 태그를 제거하고 텍스트만 꺼내온다
+
+	** 컨텐츠를 적용할 때
+
+		innerHTML - 태그를 반영해서 적용한다
+		innerText - 태그를 단순 텍스트로 적용한다(태그가 적용되지 않는다(
+
+
+
+
++ DOM 객체 얻어오기
+
++ 노드 제거하기
+
+
+
+
+
+
+
+
