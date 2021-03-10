@@ -1,0 +1,15 @@
+ + UI 디자인 사례연구 유형
+
+네이버 회원가입 양식에 사용된 HTML 태그의 종류와 CSS 속성 종류를 제시하는 사항에 맞추어 분석한 문서를
+수강생이름.zip 압축파일로 제출하시오.
+
+1. 사용자 입력을 위해 사용된 HTML 요소의 종류와 해당 요소를 사용한 이유를 분석하시오.(input 요소는 type 종류를 작성.)
+
+2. 1번에서 분석한 HTML 요소에 적용된 입력 제한 속성의 종류와 해당 속성을 사용한 이유를 분석하시오.
+
+3. 회원가입 화면 디자인을 위해 사용된 CSS 속성의 종류가 어떤 것이 있는지 분석하시오.
+
+**이미지가 아닌 네이버 홈페이지를 통해 회원가입 페이지를 방문해서 보고 분석하세요
+(URL은 변동되거나 접속되지 않을 수 있음)
+
+https://nid.naver.com/user2/V2Join.nhn?token_sjoin=jxfsb8EsO49h4zT0&langSelect=ko_KR&chk_all=on&termsService=on&termsPrivacy=on&termsLocation=Y&termsEmail=Y

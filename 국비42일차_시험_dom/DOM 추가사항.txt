@@ -1,0 +1,27 @@
++ DOM 객체 얻어오기
+
+-document.getElementById("id속성값)
+	지정된 id를 가진 요소노드를 반환
+
+- document.getElementsByName("name속성값")
+	지정된 name속성값 가진 요소노드들을 반환	
+
+- document.getElementsByTagName("tag이름")
+	지정된 태그들을 반환
+
+** id는 html문서에서 유일한 값으로 지정된다
+	-> getElementById()는 객체 한 개만 반환한다
+
+** name속성값이나 태그이름은 중복 가느아다
+	-> 객체를 여러 개 반환한다(배열)
+
+
++ 노드 제거하기
+
+-DOM객체.remove()
+	DOM객체를 DOM트리에서 제거한다
+
+-DOM 객체.removeChild(대상노드)
+	DOM객체의 자식노드 중에서 대상노드를 제거한다
+
+** 둘 다 화면에서 제거된다

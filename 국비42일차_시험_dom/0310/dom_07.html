@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+onload = function(){
+	
+	//h3 태그요소들을 dom 객체로 반환하기(배열)
+	var h3 = document.getElementsByTagName("h3")
+	console.log(h3)
+	
+	h3[0].innerHTML = "Hi"
+	h3[1].innerHTML = "Hiffffff"
+	h3[2].style.color="blue"
+	
+	
+	var h1 = document.getElementsByTagName("h1")
+	console.log(h1)
+
+	//적용되지 않는다
+	// -> h1 변수는 배열이다.
+	// -> 배열에 innerHTML속성은 없다
+	// h1.innerHTML = "AHAHAHAH"
+	
+	h1[0].innerHTML = "KKDSKDKSDK"
+	//----------------------------------------------------
+	
+	//비효울적인 코드
+	// -> DOM API 가 매번 실행되고 있다
+	document.getElementsByTagName("h1")[0].style.color="red"
+	document.getElementsByTagName("h1")[0].style.border="1px solid #ccc"
+	document.getElementsByTagName("h1")[0].style.background="blue"
+	//----------------------------------------------------
+
+	//DOM api의 결과를 변수에 저장하고 사용하는 것이 좋다.
+	
+	var h1 = document.getElementsByTagName("h1")
+	
+	h1[0].style.color ="red"
+	h1[0].style.border ="1px solid tomato"
+	h1[0].style.background ="skyblue"
+	
+	//----------------------------------------------------
+	
+	//h3배열의 0번째 요소를 DOM트리에서 제거
+	h3[0].remove();
+	//*remove()롤 제거된 객체는
+	//다시 사용할 수 없게 된다.
+	var test = document.getElementById("test")
+	console.log(test)//null
+	
+	
+	var content = document.getElementById("content")
+	content.innerHTML = "<div></div>"
+	document.ge
+}
+</script>
+
+</head>
+<body>
+
+<h1> Title </h1>
+<hr>
+
+<h3 id="test">Javascript</h3>
+<h3>dom</h3>
+<h3>getElementsByTagName</h3>
+
+
+<div id="content">Hello World</div>
+
+</body>
+</html>
