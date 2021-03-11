@@ -1,0 +1,16 @@
+------ 키보드 이벤트 ------
+
+- keydown 키보드가 눌렸을 때
+ 
+- keyup 키보드에서 손을 뗏을 때
+
+- keypress 키보드가 눌렸을 때
+
+ ** 한번의 키 입력에서 이벤트 발생 순서
+	1. keydown
+	2. keypress
+	3. keyup
+
+** keypress는 alt, ctrl, shift, esc 같은 가상키에 반응하지 않는다
+
+**keydown은 모든 키에 반응한다

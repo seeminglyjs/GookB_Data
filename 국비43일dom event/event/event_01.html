@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+
+<style type="text/css">
+	div{
+		border: 1px solid #ccc
+	}
+</style>
+
+<script type="text/javascript">
+
+	function func(){
+		var data = 10;
+		var result = data + 10;
+		
+		console.log("연산 결과-----------")
+		console.log(result)
+		alert("이벤트 속성의 값으로 작성할 코드가 너무 길어지면 함수로 따로 호출하자")
+	}
+
+</script>
+
+
+</head>
+<body>
+<!-- click 이벤트가 발생하면 실행한 코드 작성
+	->onclick 이벤트 속성 이용 -->
+<div onclick="alert('sdsdsd');"> 하하</div>
+
+<!-- mousemove 이벤트가 발생하면 실행할 코드 -->
+<!-- -> onclick이벤트 속성 이용 -->
+<!-- -> 외부함수 호출 -->
+<div onmousemove="func();">호호</div>
+
+
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+	function x() {
+		var resX = parseInt(Math.random() * 10 + 1)
+		return resX
+	} // 좌항 랜덤값 생성함수
+
+	function y() {
+		var resY = parseInt(Math.random() * 10 + 1)
+		return resY
+	}// 우항 랜덤값 생성함수
+
+	onload = function() {
+
+		function newNum() { // 랜덤값 계산함수
+			var resX = x()
+			var resY = y()
+			document.getElementById("x").value = resX
+			document.getElementById("y").value = resY
+			// 좌항과 우항값 input value 값으로 삽입
+			var res = resX * resY
+			//곱셈결과 리턴
+			return res
+		}
+
+		var zero = 0
+		document.getElementById("correct").value = zero
+		document.getElementById("wrong").value = zero
+		// 정답체크 input은 숫자값으로 하나씩 늘어나야하기 때문에 0을 넣어줌
+
+		var sum = newNum() // 램덤함수 곱셈을 리턴값으로 받음
+		console.log("sum-> ", sum)
+
+		var inputData = inD.addEventListener("click", function() {
+			var data = parseInt(document.getElementById("data1").value)
+			console.log(data)
+			// 사용자에게 입력받은 값을 숫자형으로 받아서 저장
+			
+			if (data == sum) { 
+				var a = parseInt(document.getElementById("correct").value)
+				a = a + 1;
+				document.getElementById("correct").value = a
+				var temp = newNum()
+				sum = temp
+				data1.value = ""
+				//사용자가 맞을때마다 값을 더해주고
+				//맞으면 랜덤값 초기화해줌
+				
+			} else {
+				var b = parseInt(document.getElementById("wrong").value)
+				b = b + 1;
+				document.getElementById("wrong").value = b
+				data1.value = ""
+				//사용자가 틀릴때마다 값을 더해주고
+				//사용자 입력창 공백문자로 초기화
+
+			}
+		})
+	}
+</script>
+
+
+</head>
+<body>
+
+	<!--Math.random() 함수 이용하여 숫자 2개 생성  -->
+
+	<!-- 사용자 입력 받기 -->
+
+	<!--  -->
+
+	<h1>구구단 퀴즈</h1>
+	<hr>
+
+	<input type="text" id="x" /> x
+	<input type="text" id="y" />
+	<br>
+	<br> =
+	<input type="text" id="data1" />
+	<input type="button" value="결과 확인" id="inD" />
+	<br>
+	<br> 정답 횟수 :
+	<input type="text" id="correct" />
+	<br> 틀린 횟수 :
+	<input type="text" id="wrong" />
+	<br>
+
+
+</body>
+</html>

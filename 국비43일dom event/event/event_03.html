@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+
+onload = function(){
+	
+	//이벤트리스너 등록: addEventListener
+	//이벤트리스너 헤제: removeEventListener
+	
+/* 	var event = btnOk.addEventListener("click",function(){
+		alert("확인 버튼 클릭!!!")
+	})
+	
+	btnOk.removeEventListener("click",function(){
+		alert("확인 버튼 클릭!!!")
+	})
+ */
+
+ //익명함수로 작성하면 코드내용이 같더라도
+ //같은 함수로 인식되지 않는다.
+ 
+ //익명함수가 따로 정의된 함수를 사용해야
+ //이벤트 리스너 등록/해제 연동이 된다.
+ //------------------------------------------------------------------------
+
+
+ //#btnOk에 click이벤트 리스너 등록
+ 	btnOk.addEventListener("click", clicked)
+ 	
+ 	//#btnTest에 click이벤트 리스너 등록
+ 	btnTest.addEventListener("click",function(){
+ 		//#btnOk에 click이벤트 리스너 제거
+ 		btnOk.removeEventListener("click", clicked)
+ 	})
+
+ 	//btnTest에 마우스를 올리면 글자색을 빨강으로 변경
+ 	
+ 	btnTest.addEventListener("mouseenter", on)
+ 	
+ 	//btnTest 마우스를 올리면 글자색을 검정으로 변경
+ 	btnTest.addEventListener("mouseleave", off)
+ 	
+ 	function on(){
+ 		btnTest.style.color ="red"
+ 	}
+
+ 	function off(){
+ 		btnTest.style.color ="black"
+ 	} 	
+
+} //onload 종료
+
+
+function clicked(){
+	alert("확인버튼이 클릭되었습니다.")
+}
+
+function changeColorRed(){
+	btnTest.style.color ="red"
+}
+
+
+function changeColorBlack(){
+	btnTest.style.color ="black"
+}
+
+
+</script>
+
+
+</head>
+<body>
+<button id="btnOk"> 확인 버튼</button>
+<button id="btnTest"> 테스트 버튼</button>
+<input type="text" id="inputTest"/>
+
+</body>
+</html>
