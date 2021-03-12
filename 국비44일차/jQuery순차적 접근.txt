@@ -1,0 +1,59 @@
++ 순차적으로 노드 접근하기(반복문API)
+
+ -$(객체).each(function(idx, element){
+	//요소마다 각각 반복될 코드
+	
+	})
+
+	** idx 객체의 인덱스가 저장된다
+	** element 해당 반복되는 js DOM 객체가 저장된다
+	
+	** function은 콜백함수로 사용되고, idx와 element는 	each()가 알아서 넣어준다
+	
+
++ 객체 비교하기
+
+ - $(객체1).is($(객체2))
+	객체 1과 객체 2가 같은 객체인지 비교한다
+	리턴값은 boolean
+
++ 하위노드 중에서 특정 노드 찾기(반환)
+ -$(객체).find("selector")
+	객체의 하위 노드 중에서 selector에 해당하는 객체를 반환한다
+
+
++ 자식 노드 찾기
+ - $(객체).children()
+	자식노드들을 전부 반환한다
+
+ - $(객체).children("selector")
+	자식노드들 중에서 selector에 해당하는 객체를 반환한다
+
++ 부모 노드 찾기
+ - $(객체).parent()
+	부모노드를 반환한다
+
+ - $(객체).parent("selector")
+	부모노드가 selector에 해당하는 객체를 반환한다
+
++ 조상 노드 찾기
+ - $(객체).parents()
+ - $(객체).parents("selector")
+
++ 이전 인접 형제 노드 찾기
+ - $(객체).prev()
+ - $(객체).prev("selector")
+
++ 이전 모든 형제 노드 찾기
+ - $(객체).prevAll()
+ - $(객체).prevAll("selector")
+
+
++ 다음 인접 형제 노드 찾기
+ - $(객체).next()
+ - $(객체).next("selector")
+
++ 다음 모든 형제 노드 찾기
+ - $(객체).nextAll()
+ - $(객체).nextAll("selector")
+

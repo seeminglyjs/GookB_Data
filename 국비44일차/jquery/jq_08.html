@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!--cdn을 이용한 jquery 라이브러리 설치  -->
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" ></script>
+<script type="text/javascript">
+$(document).ready(function(){
+
+		//#myDiv의 첫번째 자식으로 <h1>태그를 생성한다
+		$("#myDiv").prepend($("<h1>").html("prepend"))
+	
+		//-------------------------------------------------------------------
+		
+		//#myDiv인 요소의 자식들 - <h1>, <ul>
+		console.log($("#myDiv").children())
+		
+		
+		
+		//#myDiv의 자식노드가 두 개인 상황
+		// -> 생성한 노드를 추가할 위치가
+		// 2곳 이상일 경우 노드를 각각 추가한다
+		// -> 사본이 자동으로 만들어진다.
+		//$("<li>").html("0").prependTo($("#myDiv").children())
+
+		$("<li>").html("0").prependTo($("#myDiv").children("ul"))
+})
+
+</script>
+
+
+</head>
+<body>
+<div id="myDiv">
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li id="third">3</li>
+		<li>4</li>
+		<li>5</li>
+	</ul>
+</div>
+</body>
+</html>

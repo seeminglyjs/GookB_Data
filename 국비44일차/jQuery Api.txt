@@ -1,0 +1,36 @@
++ jQuery API
+
++ jQuery Core
+ - jQuery 문법이 적용되었음을 알리는 키워드
+ - $
+
+ - jQuery스타일의 DOM객체 이용 코드
+	$(document).ready(function(){
+	});
+
+
++ jQuery 노드 객체를 얻어오기(찾기)
+ - jQuery API 중에서 가장 중요
+
+ - $("CSS셀렉터")
+
+ - $(jsDom객체)
+	-> jsDOM객체를 jqDOM객체로 변환한다
+
+** 순수 JS DOM API를 적용할 수 있는 객체를 "jsDOM"객체 라고 부른다
+
+** jQuery DOM API를 적용할 수 있는 객체를 "jqDOM"객체 라고 부른다
+
+** jsDOM객체와 jqDOM객체는 객체의 형식이 다르다
+
+
++ n번째 노드에 접근하기
+
+ - $(객체).eq(idx) idx번째 노드를 jQuery DOM 객체로 반환
+
+ - $(객체).get(idx) idx번째 노드를 js DOM 객체로 반환
+
+** jQuery DOM객체에 [idx]를 적용하면 JS DOM 객체로 반환
+	ex) $("p").get(2) ==$("p")[2]
+
+

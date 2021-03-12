@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!--cdn을 이용한 jquery 라이브러리 설치  -->
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" ></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	//새로운 <div> 객체 생성하기
+	var $div = $("<div>")
+	console.log($div)
+	
+	var $myDiv = $("#myDiv")
+	console.log($myDiv)
+	
+	//#myDiv의 자식으로 새로운 <div> 노드 추가
+	$myDiv.append($div)
+	
+	//.html() -> .innerHTML 속성 지정
+	$div.html("새로 만든 DIV")
+	
+	//------------------------------------------------------------------
+	
+	var $newDiv = $("<div>")
+		.append($("<ul>")
+				.append($("<li>").html("HI 1"))
+				.append($("<li>").html("HI HI 1")))
+		.append($("<ul>")
+				.append($("<li>").html("HI 2"))
+				.append($("<li>").html("HI HI 2")))	
+	
+	console.log("---$newDiv----")
+	console.log($newDiv)
+	console.log($newDiv.children())
+	console.log($newDiv.children().children())
+	
+	//#myDiv에 새로운 $newDiv노드 추가
+	$myDiv.append($newDiv)
+	//------------------------------------------------------------------
+
+	
+	//$newDiv의 복사본 생성
+	var $cloneDiv = $newDiv.clone()
+	console.log($cloneDiv)
+	
+	
+	//#myDiv에 복사된 $cloneDiv 추가하기
+	$myDiv.append($cloneDiv)
+	
+	//------------------------------------------------------------------
+	
+	$("<div>").append($("<p>").html("gogogogogogo")).appendTo($("#myDiv"))
+	
+	//------------------------------------------------------------------
+
+	//document.body
+	//<body> 태그를 jsDom객체로 표현한 것
+	
+	//$(document.body)
+	//<body>태그를 jQuery DOM객체로 표현한 것
+
+	
+	// 이미 DOM Tree에 존재하는 $cloneDiv를
+	//<body> 태그에 append한 코드
+	// -> <body>태그의 마지막 노드로 이동된다
+	$(document.body).append($cloneDiv)
+	
+	
+})
+
+</script>
+
+
+</head>
+<body>
+<div id="myDiv">
+	<p>Hello!</p>
+</div>
+</body>
+</html>

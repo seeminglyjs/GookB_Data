@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!--cdn을 이용한 jquery 라이브러리 설치  -->
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" ></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	//p 태그들 선택
+	var $p = $("p")
+	console.log($p)
+	
+	//-------------------------------------------
+	//jQuery 객체 반환하기
+	console.log("-------$p.eq(1)----------------")
+	console.log($p.eq(1)) // 1번쨰 인덱스를 가져온다
+	
+	//js 객체 반환하기
+	console.log("-------------$p.get(1)")
+	console.log($p.get(1)) // 1번쨰 인덱스를 가져온다
+	
+	//js객체 반환하기
+	console.log("-----------------$p[1]")
+	console.log($p[1])
+	
+	//-------------------------------------------
+
+	//js DOm 객체
+	var p = document.getElementsByTagName("p")
+	
+	console.log("-----p 태그 jsDOM 배열")
+	console.log(p)
+
+	p[2].style.color = "red"
+
+	var $p2 = $(p[2])
+	
+	$p2.css("border", "1px solid tomato")
+
+	//-------------------------------------------
+
+	for(var i = 0; i<$("p").length; i++){
+		$("p").eq(i).css("background","gray")
+	}
+	
+
+	// 인덱스 i 와 / 엘리먼트 e
+	$("p").each(function(i, e){
+		console.log("---",i,"---")
+		
+		console.log(e) //js DOM	
+		console.log($(e)) //jQuery DOM	
+		
+		console.log("this -> ", this) //js dom
+		console.log("this -> ",  $(this)) //jQuery DOm
+		
+		//콜백함수에서 사용된 this 키워드는
+		// 기본적으로 콜백함수를 호출한 객체를
+		// 지칭한다
+		
+		// -> each() 함수에서는 반복에 사용된
+		// jsDOM 객체를 반환한다
+		
+	})
+	
+	//------------------------------------------------------
+	
+	$("p").each(function(){
+		$(this).css("font-style", "italic")
+	})
+	
+	$("p").css("color", "blue")
+	
+})
+
+
+
+</script>
+
+
+</head>
+<body>
+<div>
+	<span>하나</span>
+	<p>둘</p>
+	<pre>셋</pre>
+	<p>넷</p>
+	<p>다섯</p>
+</div>
+</body>
+</html>
