@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!--cdn을 이용한 jquery 라이브러리 설치  -->
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" ></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	//class 속성값 출력
+	console.log($("div").attr("class"))
+	
+	//class속성값 지정하기
+	$("div").attr("class","str4")
+	console.log($("div").attr("class")) //str4
+	//-> 속성의 값 전부를 변경한다
+	// -> 단어마다 의미를 가지는 class 속성을
+	// attr()함수로 변경할 땐 주의해야 한다
+	
+	//---------------------------------------------------------------
+	// id속성 부여하기
+	$("div").attr("id","myDiv")
+	console.log($("div").attr("id"))
+	//---------------------------------------------------------------
+	$("div").attr("style","width: 200px; height:300px !important; ")
+	// -> style.속성의 값이 전부 변경된다.
+	// -> 스타일 적용에는 attr()보다 css()함수를 사용하는 것이 좋다
+	
+	// -> !important를 적용하려면 attr()함수를 사용해야 한다.
+	//---------------------------------------------------------------
+
+	//backgournd가 일반 속성으로 적용된다
+	//->background는 스타일 속성이므로
+	//style=""안에 적용되어야 한다
+	//$("p").eq(2).attr("background", "tomato;")
+
+	$("p").eq(2).attr("style", "background:tomato;")
+	//---------------------------------------------------------------
+	
+	//PlaneObject를 이용하여 여러 개 속성 지정하기
+	$("p").eq(1).attr({
+		"a":"1"
+		,"b":"2"
+		,"c":"3"
+		,"title":"테스트"
+	})
+	
+	//attr()함수를 이용해 여러 개의 속성을
+	// 한번에 불러올 수 없음
+	//var info = $("p").eq(1).attr(["a","b","title"])
+	//---------------------------------------------------------------
+	//모든 p태그에 "red"클래스 추가
+	$("p").addClass("red")	
+	
+	//첫번째 p태그에 "blue" 클래스 추가
+	$("p").eq(0).addClass("blue")
+	
+	//두번째 p태그의 "red"클래스 제거
+	$("p").eq(1).removeClass("red")
+	
+	//-----------------------------------------------------------------
+	
+	//임베디드 방식으로 스타일 시트적용
+	// ->class 속성값 추가
+	$("div").addClass("borderGray")
+	
+	//인라인 방식으로 스타일 시트 적용
+	// -> style 속성값 추가
+	$("div").css("background","skyblue")
+	
+	//class속성을 가지고 있는 모든 p태그
+	//-> 밑줄 적용
+	$("p[class]").css("text-decoration","underline")
+	
+	//class속성을 가지고 있는 모든 p태그들
+	// -> 모든 class 항목값 제거
+	// -> class 속성은 남아있고 속성값만 제거됨
+	$("p[class]").removeClass()
+	
+})
+</script>
+
+
+<style type="text/css">
+.red{ color: red;}
+.blue{ color: blue;}
+.borderGray {border: 1px solid #ccc}
+</style>
+
+</head>
+<body>
+<div class="st1 st2 st3"
+	style="width: 300px; height:200px; border:1px solid red;">
+	<p>1</p>
+	<p>2</p>
+	<p>3</p>
+</div>
+
+
+</body>
+</html>

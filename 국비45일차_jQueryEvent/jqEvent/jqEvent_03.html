@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" ></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	//$("#btnOk").on("click",function(){}))
+	$("#btnOk").click(function(){
+		alert("확인")
+		console.log(this)
+		console.log($(this))
+		
+		//이벤트 리스너 함수에서
+		// this - 이벤트가 발생한 js객체
+		// $(this) - 이벤트가 발생한 jQuery객체
+		
+	})
+
+	//-----------------------------------------------------------
+	//이벤트리스너 콜백함수의 첫번째 인자는
+	//발생한 이벤트 객체jQuery Event 객체
+	$("#btnAlert").click(function(e){
+		console.log(e)
+		//이벤트 객체의 target 속성(property)
+		//->이벤트가 발생한 객체
+		// -> this 키워드
+		console.log(e.target)
+		
+		//js Dom
+		//e.target.innerHTML="<h1 style='color:red;'>click</h1>"
+		
+		//jQuery Dom
+		$(e.target).html("<h1 style='color:red;'>click</h1>")
+		
+		//js Dom
+		//this.innerHTML="<h1 style='color:red;'>click</h1>"
+		
+		//jQuery Dom
+		//$(this).html("<h1 style='color:red;'>click</h1>")
+	})
+	//#btnOk에 mouseover이벤트 리스너 등록
+	$("#btnOk").mouseover(function(){
+		console.log("mouseover")
+		
+		//#btnAlert객체에 click이벤트 발생시키기
+		//$("#btnAlert").trigger("click")
+		$("#btnAlert").click()
+
+	})
+		
+		
+	
+	
+	
+	
+	
+})
+</script>
+
+	
+</head>
+<body>
+
+<div>
+	<button id="btnOk">확인</button>
+	<button id="btnAlert">알림</button>
+</div>
+
+</body>
+</html>

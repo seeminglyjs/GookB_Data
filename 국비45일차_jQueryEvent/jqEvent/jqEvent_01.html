@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" ></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	//#btnOk버튼 생성
+	// -> DOM트리에 추가되지 않는 상태
+	var $btnOk = $("<button id='btnOk'>확인</button>")
+	
+	$("#btnAlert").on("click",function(){
+		console.log("Hello World")
+		//<div>태그의 첫번째 자식으로 #btnOk추가
+		$btnOk.prependTo($("div"))
+		
+		//#btnOk에 클릭 이벤트 처리코드 등록
+//		$("#btnOk").on("click",function(){
+//			alert("btnOk Hello")
+//		})
+		// 이벤트 리스너 코드에서 다른 객체의
+		// 이벤트리스너를 등록하는 코드를 적으면
+		//코드가 중첩돼서 등록된다
+		// -> 한 번의 이벤트에 여러 번
+		// 콜백함수가 실행된다	
+	})
+	
+	//----------------------------------------------------------------------------
+	//#btnOk에 클릭 이벤트 처리코드 등록
+	// -> 이벤터 처리코드 등록 안됨
+	$("#btnOk").on("click",function(){
+		alert("btnOk Hello")
+	})
+
+	//n,fn.init이라고 출력되지만 내용물이 비어있다.
+	// ->DOM Tree에 등록되어 있지 않아서
+	// jQuery DOM API로 찾을 수 없는 상태
+	console.log($("#btnOk"))
+	
+	
+	//이벤트리스너와 요소노드가 bind되는 시점에
+	//#btnOk 요소가 DOM트리가 존재하지 않는다ㅏ
+	// -> 나중에 DOM트리에 추가되는 요소에는
+	// 이벤트리스너가 자동으로 연결되지 않는다
+	//---------------------------------------------------------------------------
+	
+	//동적(Dynamic)으로 생성된 요소에는
+	//이벤트리스너를 곧바로 등록할 수 없다
+	// -> 이벤트리스너의 동적바인딩이 필요하다
+	//-------------------------------------------------------------------------
+	
+	//**이벤트리스너 동적바인딩 방법
+	//처음부터(정적) 존재하는 부모 요소에
+	// 이벤트 리스너코드를 등록한다
+	// 이벤트가 동작할 실제 요소(자식 요소)를
+	//추가로 작성한다
+	//-------------------------------------------------------------------------
+	
+	//div 태그에 click이벤트리스너를 등록하고
+	//실제 이벤트는 "div #btnOk"에서 실행되도록
+	//설정한다
+	$("div").on("click","#btnOk",function(){
+		alert("hello")
+		//#btnAlert의 click 이벤트리스너 제거
+		$("#btnAlert").off("click")
+		// #btnAlert의 모든 이벤트리스너 제거
+		$("#btnAlert").off()
+	})
+	//-------------------------------------------------------------------------
+
+	$("#btnCancel").on("click",function(){
+		console.log("cancel button")
+		//#btnOl의 click 이벤트 리스너 제거
+		// -> 제거되지 않음
+		$("#btnOk").off("click")
+		
+		//div태그요소의 click이벤트 리스너 제거
+//		$("div").off("click") // 아래가 더 좋은 문법
+		
+		//"div #btnOk"요소에 걸린 click 제거
+		$("div").off("click","#btnOk")
+	})
+	
+	
+	
+	
+})
+</script>
+
+
+	
+</head>
+<body>
+
+<div>
+	<button id="btnAlert">알림</button>
+	<button id="btnCancel">확인 이벤트 제거</button>
+</div>
+
+</body>
+</html>

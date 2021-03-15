@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!--cdn을 이용한 jquery 라이브러리 설치  -->
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" ></script>
+<script type="text/javascript">
+$(document).ready(function(){
+
+	var $p = $("<p>2</p>")
+	$p.insertBefore($("p").eq(1));
+	
+	//jQuery DOM API를 최대한 활용
+	//$("<p>").text("둘").insertBefore($("div").find("p").eq(!))
+	
+	//셀렉터 활용
+	//$("<p>2</p>").insertBefore($("div:nth-child(2)"))
+	
+	
+
+})
+</script>
+
+</head>
+<body>
+<div>
+	<p>1</p>
+<!-- 	<p>2</p> -->
+	<p>3</p>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" ></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	$("input[name=msg]").focus()
+	
+	$("#btnSend").click(function(){
+		//클릭이벤트 확인
+		console.log("btnSend clicked")
+		//jQuery Dom 객체에 .val()함수를 사용하면
+		// value 값을 가져온다.
+		var msg = $("input[name=msg]")
+		alert(msg.val())
+		//문자입력후 입력박스 빈문자로 초기화
+		msg.val("")
+	})
+	
+	//이벤트 발생 객체의 계층구조(형제노드)를 이용하기
+/* 	alert($(this).prev().val())
+	$(this).prev().val("")
+	$(this).prev().focus() */
+	//선생풀이 확인해보기
+	
+	
+	$("input[name=msg]").keydown(function(key){
+		// ente키 확인과 함께 빈문자열 여부 체크
+		if(key.keyCode == 13 && $(this).val() !=''){
+			$("#btnSend").click()
+		}
+	})
+
+	//#btnSend 버튼 비활성화
+	$("#btnSend").prop("disabled",true)
+	
+	//키보드가 떼어질때마다 반응
+	$("input[name=msg]").keyup(function(){
+		console.log("keyup", $(this).val())
+		
+		//내용이 적혀있으면 버튼 활성화
+		//내용이 적혀있지 않으면 버튼 비활성화
+		if($(this).val()==''){
+			$(this).next().prop("disabled",true)
+		}else{
+			$(this).next().prop("disabled",false)
+			
+		}
+	})
+	
+	
+
+})
+
+
+
+</script>
+
+	
+</head>
+<body>
+
+<div>
+	<input type="text" name="msg"/>
+	<button id="btnSend">전송</button>
+</div>
+
+</body>
+</html>

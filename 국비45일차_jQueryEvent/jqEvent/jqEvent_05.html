@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" ></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	//키보드 이벤트 확인
+	//keydown, keypress, keyup
+	
+	
+	//keydown, keyup
+	// 가상키를 포함한 모든 키보드 키를 감지함
+	//(ctrl, shift, alt 등을 포함한다)
+	//키보듸 키에 매핑한 keyCode값을 가진다	
+	
+	
+	//keypress
+	// 문자가 존재하는 키만 감지함
+	// 입력된 문자를 표현하는 아스키코드로
+	// keycode 값을 가진다
+	
+	
+	//-------------------------------------------\\\
+	
+	$("input").keydown(function(e){
+		console.log("-----keydown------")
+		console.log(e.key)
+		console.log(e.keyCode)
+	
+	})
+	
+	
+	$("input").keypress(function(e){
+		console.log("-----keypress------")
+		console.log(e.key)
+		console.log(e.keyCode)
+	
+	})
+	
+	$("input").keyup(function(e){
+		console.log("-----keyup------")
+		console.log(e.key)
+		console.log(e.keyCode)
+	
+	})
+	
+	$("input").keyup(function(){
+		$("#len").val($(this).val().length)
+	})
+	
+	
+})
+
+</script>
+
+	
+</head>
+<body>
+	<input type="text"/>
+	<input type="text" id="len" readonly/>
+
+</body>
+</html>

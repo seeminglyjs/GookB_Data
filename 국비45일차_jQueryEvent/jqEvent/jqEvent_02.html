@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" ></script>
+<script type="text/javascript">
+$(document).ready(function(){
+/* 	$("#btnOk").on("click",sayHi)
+	$("#btnOk").on("mouseenter",red)
+	$("#btnOk").on("mouseleave",blue)
+*/
+//----------------------------------------------------------
+
+	$("#btnOk").on({ 
+		"click":sayHi
+		,"mouseenter":red
+		,"mouseleave":blue
+	})
+//----------------------------------------------------------
+	
+	//one()함수는 한 번만 동작하는
+	//이벤트리스너를 등록한다
+	$("#btnAlert").one({ 
+		"click":sayHi
+		,"mouseenter":red
+		,"mouseleave":blue
+	})
+
+//----------------------------------------------------------
+
+	//모든 버튼들의 모든 click이벤트리스너 제거
+	// on / off 둘다 제거된다
+	$("button").off("click")
+	
+	//click 이벤트리스너 다시 등록하기
+	$("div>button#btnAlert").on("click",sayhi)
+
+
+
+
+
+
+
+
+
+})
+
+function sayHi(){
+	console.log("hi")
+}
+
+function red(){
+	console.log(this)
+	$(this).css("color","red")
+}
+function blue(){
+	console.log(this)
+	$(this).css("color","blue")
+}
+
+</script>
+
+	
+</head>
+<body>
+
+<div>
+	<button id="btnOk">확인</button>
+	<button id="btnAlert">알림</button>
+</div>
+
+</body>
+</html>
