@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" ></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+
+	//이름 -한글로 2글자 이상
+	//아이디 - 첫글자는 대문자, 영어 대소문자 숫자로 구성, 6글자 이상
+	// 패스워드 - 영어대소문자, 숫자로 구성. 8글자 이상
+	
+/* 	//키보드 키를 눌렀다가 뗄 때 발생
+	$("#uname").keyup(function(){
+		console.log("keyup")
+	})
+	
+	//<input type="text">에서
+	//blur 가 발생하거나 엔터키를 누르면
+	// vlaue 바뀌었는지 확인하고 변경되었으면 발생
+	$("#uid").change(function(){
+		console.log("change")
+
+	}) */
+	
+	//포커스를 잃었을때
+	$("#uname").blur(function(){
+		var regexN = /^[가-힣]{2,}$/
+			if(regexN.test($(this).val())){
+				$("div").remove()
+				$("#uname").after("<div>정규식이 맞음</div>")
+				$("div").css("color", "blue")
+			}else{	
+				$("div").remove()
+				$("#uname").after("<div>정규식이 아님</div>")	
+				$("div").css("color", "red")
+			}
+		
+	})
+	
+//--------------------------------------------------------------------	
+// 	if(regexN.test($(this).val())){
+//		
+//	}else{	
+//		$("<span id='unameMsg'></span>")
+//		.addClass("red")
+//		.html("한글만 2자이상으로 입력하세요")
+//		.insertAfter($(this).next())
+//	} */
+//--------------------------------------------------------------------
+//	 if(regexN.test($(this).val())){
+//		$("#unameMsg").html("") // 메시지 지우기
+//	}else{	
+//		$("#unameMsg").html("한글만 2자 이상으로 입력하세요")
+//	} 
+//--------------------------------------------------------------------	
+	
+	
+	
+	$("#uid").blur(function(){
+		var regexI = /^[A-Z][A-Za-z0-9]{5,}$/
+			
+		
+		if($(this).val()==''||$(this).val() ==null){
+			$("div").remove()
+			$("#uid").after("<div>아이디를 입력하세요</div>")
+		}
+		//첫글자가 대문자인지 검증
+		if(!/^[A-Z]/.test($(this).val())){
+			$("div").remove()
+			$("#uid").after("<div>첫글자는 대문자</div>")
+			//이벤트 리스너 중단시키기
+			return false;
+		}
+			if(regexI.test($(this).val())){
+				$("div").remove()
+				$("#uid").after("<div>정규식이 맞음</div>")
+				$("div").css("color", "blue")
+			}else{	
+				$("div").remove()
+				$("#uid").after("<div>정규식이 아님</div>")	
+				$("div").css("color", "red")
+			}
+		
+	})
+	
+	$("#upw").blur(function(){
+		var regexP = /^[A-Za-z0-9]{8,}$/
+			if(regexP.test($(this).val())){
+				$("div").remove()
+				$("#upw").after("<div>정규식이 맞음</div>")
+				$("div").css("color", "blue")
+			}else{	
+				$("div").remove()
+				$("#upw").after("<div>정규식이 아님</div>")	
+				$("div").css("color", "red")
+			}	
+	})	
+})
+
+</script>
+<style type="text/css">
+input{
+line-height: 1.35em;
+}
+</style>
+</head>
+<body>
+	이름<input type="text" name="uname" id="uname"/><br>
+	<span id='unameMsg'></span><br>
+	아이디<input type="text" name="uid" id="uid"/><br>
+	<span id='uidMsg'></span><br>
+	패스워드<input type="text" name="upw" id="upw"/><br>
+	<span id='upwMsg'></span><br>
+	
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" ></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	//---submit 이벤트 리스너 등록----
+/* 	$("#myform").on("submit",function(){})
+	$("#myform").submit(function(){})
+	////////////////////////////////////////////////
+	myform.addEventListener("submit", function(){})
+	myform.onsubmit = function(){}
+ */	
+ 
+ 	//#myform에 submit 이벤트 리스너 등록하기
+ 	// -> <form>가 서버로 submit하기 직전에 실행된다
+	$("#myForm").submit(function(){
+		console.log("submit 이벤트 발생")
+		
+		//이벤트 리스너 중단
+		//return false;
+		// -> <form> 태그의 submit 동작이 중단된다
+		
+		//#uid 검증
+		var uidReg = /^[A-Z][A-Za-z0-9]{5,}$/
+		if(!uidReg.test($("#uid").val())){
+			alert("아이디를 잘 입력하세요")
+			$("#uid").val("") //작성된 내용 지우기
+			$("#uid").focus()
+			//submit 중단
+			return false
+		}
+	//------------------------------------------------------
+	
+		//#upw 검증
+		var upwReg =/^[A-Za-z0-9]{6,}$/
+		if(!upwReg.test($("#upw").val())){
+			console.log(upw)
+			alert("비밀번호를 잘 입력하세요")
+			$("#upw").val("") //작성된 내용 지우기
+			$("#upw").focus()
+			//submit 중단
+			return false
+		}
+		
+	
+	//------------------------------------------------------		
+	// 패스워드 확인입력이 일치하는지 검증
+		if($("#upw").val() != $("#upw_chk").val()){
+			alert("패스워드가 다르네요!")
+			//두 입력 다 지우고 비밀번호 다시 입력시키기
+	//		$("#upw").val("")
+	//		$("#upw").focus()
+			$("#upw").select()
+			//<input>태그에 select 이벤트가 발생하면
+			// 작성된 내용을 선택한 채로 focus가 넘어간다
+			
+			$("#upw_chk").val("")	
+			return false;
+		}
+	})//$(#myform) 종료 지점
+	//--------------------------------------------------------
+	
+	//#btnComment 버튼을 누르면 #comment가 보이도록 만들기
+	
+	// 방법1.
+/* 	$("#btnComment").click(function(){
+		if($("#comment").hasClass("displayNone")){
+			$("#comment").removeClass("displayNone")
+		}else{
+			$("#comment").addClass("displayNone")
+		}
+	})
+ */	
+	//방법2.
+	$("#btnComment").click(function(){
+		$("#comment").toggleClass("displayNone")
+	
+	})
+	
+	
+	$("#btnShow").click(function(){
+		$("#myImg").show();//객체가 보여지도록 만들기
+		// -> style속성의 display를 기본설정으로 바꾼다
+	})
+	
+	$("#btnHide").click(function(){
+		$("#myImg").hide();//객체가 보여지지 않도록 만들기		
+		// -> style속성의 display를 none으로 바꾼다
+	})
+	
+	
+	$("#btnToggle").click(function(){
+		$("#myImg").toggle();
+		// 객체의 style display 속성을
+		// 기본설정과 none를 번갈아가면 넣어준다.		
+	})
+	
+	
+	
+})
+</script>
+<style type="text/css">
+.displayNone{display: none;}
+</style>
+</head>
+<body>
+	<form id="myForm" action="#" method="post">
+	아이디<input type= "text" name="uid" id="uid"/><br>
+	패스워드<input type= "text" name="upw" id="upw"/><br>
+	패스워드 확인<input type= "text" id="upw_chk"/><br>	
+		<button>전송</button>
+		<input type="submit" value="전송"/>
+		
+		<hr>
+		<button type="button" id="btnComment">자기소개</button><br><br>
+		<textarea rows="5" cols="40"
+		id="comment" name="comment" class="displayNone"></textarea>
+	
+		<hr>
+		<button type="button" id="btnShow">보여주기</button><br>
+		<button type="button" id="btnHide">숨기기</button><br>
+		<button type="button" id="btnToggle">보여주기/숨기기</button><br>
+	
+		<img src="/resources/image/tim.jpg" width="300" height="200"
+		id= "myImg">
+	
+	</form>	
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" ></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	//포커스주기
+	$("#uid").focus()
+	$("#uid").blur(function(){
+		console.log("#uid blur")
+
+		
+		//어떤 문자든지 8~12개
+		//var regex = /.{8,12}/ //패턴이 존재하기만 하면 성립
+		
+		//^ $를 이용
+		var regex = /^.{8,12}$/
+		
+		//알파벳 8~12글자
+		var regex = /^[A-Za-z]{8,12}$/
+		
+		//알파벳숫자 8~12글자
+		var regex = /^[A-Za-z0-9]{8,12}$/
+		var regex = /^[A-Za-z\d]{8,12}$/
+		
+		//알파벳숫자 8~12글자 + _ 포함
+		var regex = /^[\w]{8,12}$/
+		var regex = /^[A-Za-z0-9_]{8,12}$/
+		
+		//QUIZ
+		// 숫자로 시작하면 안되고
+		// 알파벳 대문자, 소문자 숫자로 구성된
+		// 4~8글자 사이의 정규식
+		var regex = /^[A-Za-z][A-Za-z0-9]{3,7}$/
+		//////////////[1글자] [3~7글자  ]////////////
+		var regex = /\b[A-Za-z][A-Za-z0-9]{3,7}$/
+		////-> \b 이거는 단어단어 비교할때 좋고
+		// 전체문장으로 할때는 쓰지말자
+		
+		
+		//[^0-9]  -> 숫자가 아닌 글자(특수문자 포함)
+		// {4,8} 에서 [^0-9]가 한 글자를 나타냄
+		// 때문에 전체 5~9글자 매칭
+		
+		
+		if(regex.test($(this).val())){
+			$("#result").html("정규식에 맞는 표현")
+			$("#result").addClass("blue")
+			$("#result").removeClass("red")
+		}else{
+			$("#result").html("정규식에 틀린 표현")
+			$("#result").addClass("red")
+			$("#result").removeClass("blue")
+			
+		}
+	
+	
+	})
+})
+
+
+</script>
+
+
+<style type="text/css">
+.blue{color: blue;}
+.red{color: red;}
+
+
+</style>
+
+</head>
+<body>
+	<input type="text" name="uid" id="uid"/>
+	<div id="result"></div>
+</body>
+</html>
