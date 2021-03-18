@@ -1,0 +1,14 @@
++ SQL 수행 객체
+
+ - Statement 객체
+	Connection 객체를 통해 createStatement()메소드를 이용해서 생성한다.
+
+	SQL쿼리를 execute할 때 매개변수로 전달한다
+
+
+ - PreparedStatment객체
+	Connection객체를 통해 prepareStatement(String)메소드를 이용해서 생성한다
+
+	SQL쿼리를 PreparedStatement객체를 생성할 때 전달한다.
+
+** execute하기전에 SQL 쿼리에서 작성한 ? 에 대한 값을 전부 채워야한다 -> setString(idx,data)같은 메소드 이용

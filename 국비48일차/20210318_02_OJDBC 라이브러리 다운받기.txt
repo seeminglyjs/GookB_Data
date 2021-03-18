@@ -1,0 +1,42 @@
+ + OJDBC 라이브러리 다운받기
+
+  - 방법1. 오라클이 설치된 컴퓨터에서 찾기
+
+	C:\oraclexe\app\oracle\product\11.2.0\server\jdbc\lib
+
+	ojdbc6.jar파일
+
+
+
+  - 방법2. 오라클 홈페이지에서 다운받기
+
+	www.oracle.com 접속
+
+	홈페이지 하단의 Resources for 클릭
+
+	서브메뉴 열리면 Developers 클릭
+
+
+	Technologies - Databases 클릭
+
+
+	Oracle Databases and Tools 섹션에서
+
+	Database Languages and Tools 클릭
+
+
+	밑에 언어들 중에서 Java 찾아서 클릭
+
+
+	JDBC DOWNLOAD 클릭
+
+	11gR2 버전 라이브러리 파일을 받으면 되지만
+	홈페이지에서 항목이 없어짐
+	-> 12cR1 다운항목에서 받으면 됨
+
+
+	ojdbc6.jar 찾아서 다운로드
+	(로그인 필요)
+
+
+	https://www.oracle.com/database/technologies/jdbc-upc-downloads.html
