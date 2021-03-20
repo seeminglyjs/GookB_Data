@@ -1,0 +1,20 @@
++JDBC, Java DataBase Connectivity
+
+ - 자바 프로그램으로 데이터베이스에 접속/관리할 수 있게 해주는 드라이버(API)
+
+ - 자바로 작성된 프로그램에서 DB와 관련된 작업을 수행할 수 있도록 제공되는 기능(코드,클래스)들을 모아놓은 것
+
+** OJDBC, Oracle JDBC
+	오라클 데이터베이스를 관리할 수 있도록 해주는 jdbc
+
+	OJDBC 버전	요구 JDK 버전	DB버전
+	
+	OJDBC 6		JDK 6이상	11gR2
+	
+	OJDBC 5		JDK 5이상
+
+	OJDBC 14	JDK 1.4이상
+	
+	OJDBC 13	JDK 1.3이상
+
+	OJDBC 12	JDK 1.2이상
