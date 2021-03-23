@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Insert title here</title>
+
+
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+
+
+	console.log($("table>#two"))	
+
+	$("table #two").click(function(){
+
+		console.log("test")
+
+		$("span").text("선택한 게시물: 1/첫 번째 게시물 입니다 / 홍길동")
+
+	})
+
+	
+
+		$("table #three").click(function(){
+
+		console.log("test")
+
+		$("span").text("선택한 게시물: 2/두 번째 게시물 입니다 / 홍길동")
+
+	})
+
+	
+
+		$("table #four").click(function(){
+
+		console.log("test")
+
+		$("span").text("선택한 게시물: 3/세 번째 게시물 입니다 / 홍길동")
+
+	})
+
+})
+
+
+
+
+
+</script>
+
+
+
+<style type="text/css">
+
+table, tr, td, th{
+
+	border: 1px solid gray;
+
+} 	
+
+
+
+
+
+
+
+</style>
+
+
+
+
+
+</head>
+
+<body>
+
+<table>
+
+	<tr id="one">
+
+		<th>번호</th><th>제목</th><th>작성자</th>
+
+	</tr>
+
+	<tr id="two">
+
+		<td>1</td><td>첫 번째 게시물 입니다</td><td>홍길동</td>
+
+	</tr>
+
+	<tr id ="three">
+
+		<td>2</td><td>두 번째 게시물 입니다</td><td>홍길동</td>
+
+	</tr>
+
+	<tr id="four">
+
+		<td>3</td><td>세 번째 게시물 입니다</td><td>홍길동</td>
+
+	</tr>
+
+</table>
+
+<div>
+
+	<span>선택한 게시물://</span>
+
+</div>
+
+
+
+</body>
+
+</html>​

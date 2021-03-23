@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	//console.log("test")
+	
+	var cloneD = $("#div1").clone()
+	
+	$(".copyB").click(function(){
+		console.log("click")
+		$("#div1").after(cloneD)
+	})
+	
+	
+	
+	$(".deleB").click(function(){
+		$("div").remove()
+	})
+	
+})
+
+
+</script>
+
+<style type="text/css">
+div{
+	width: 200px;
+	height: 200px;
+	background: orangered;
+
+}
+
+</style>
+
+
+</head>
+<body>
+<div class ="divD">
+	<button type="button" class="copyB">복사하기</button>
+	<button type="button" class="deleB">삭제하기</button>
+</div>	
+<div class ="divD" id= "div1">
+	<button type="button" class="copyB">복사하기</button>
+	<button type="button" class="deleB">삭제하기</button>
+</div>		
+</body>
+</html>​

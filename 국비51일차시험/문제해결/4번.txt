@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script type="text/javascript">
+window.onload = function(){
+	
+	btn1.onclick = function(){
+		testClicked()
+	}
+	
+}
+
+function testClicked() {
+	alert("클릭하였음")
+}
+
+</script>
+
+
+
+</head>
+<body>
+<button id="btn1">확인</button>
+
+</body>
+</html>

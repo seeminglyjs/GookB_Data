@@ -1,0 +1,32 @@
+1. text / password / file / hidden / number / submit / reset . . . .
+
+
+2. <!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+</head>
+<body>
+<input type="text"/>
+<input type="submit" value ="클릭"/>
+</body>
+</html>​
+
+
+3. div는 block 태그로서 자신의 데이터요소뿐 그 요소가 정의된 한 라인을 전부 차지하는 태그이다. 때문에 div데이터요소가 차지하는 라인은 다른 block태그들이 올 수 없다. 반면 span은 inline 태그로써 라인 전체가 아닌 자신의 데이터요소가 정의된 부분만 차지하게된다. 때문에 같은 라인내에서 동일한 span이 추가적으로 존재할 수 있게된다.
+
+4. 
+
+전체선택자: *를 통해 모든 태그선택 ex) *{}
+태그선택자: 태그 자체를 선택 ex)  div{//모든 div태그}
+클래스선택자: 태그내에 클래스 속성을 선택 ex) .class{//class가 class인 태그들}
+아이디선택자: 태그내에 아이디 속성을 선택 ex) #id{//id가 id인 태그}
+속성선택자: 태그와 함께 속성을 함께 선택 ex) div[title="hi"]{//제목이 hi인 div}
+자식선택자: 부모태그의 바로아래자식태그를 선택 ex) div>span{//div 자식태그 span} 
+자손선택자: 부모태그의 모든자손태그들을 선택 ex) div span{//div를 부모를 둔 모든 span 태그}
+인접한형제선택자: 현재태그와 동일한 레벨에 있는 바로 다음 인접태그선택 ex) #div1+div{//#div1와 인접한 div 태그 선택} 
+
+
+

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+.box {
+	width: 200px;
+	height: 200px;
+	background: orangered; 
+}
+</style>
+
+<script type="text/javascript"
+ src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$(document.body).on("click", ".btnCopy", function() {
+// 		console.log("#btnCopy clicked")
+
+// 		$("#origin").clone().appendTo( $("#copy") )
+		$(this).parent().clone().appendTo( $("#copy") )
+	})
+	
+	$(document.body).on("click", ".btnDelete", function() {
+// 		console.log("#btnDelete clicked")
+		
+// 		$("#copy").children().remove()
+		$(this).parent().remove()
+	})
+})
+</script>
+
+</head>
+<body>
+
+<div id="origin" class="box">
+<button class="btnCopy">복사하기</button>
+<button class="btnDelete">삭제하기</button>
+</div>
+
+<div id="copy"></div>
+
+</body>
+</html>
+
+
+

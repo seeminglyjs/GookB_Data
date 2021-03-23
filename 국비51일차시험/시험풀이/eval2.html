@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+
+	$("tr").click(function() {
+		console.log( $(this) )
+		
+		console.log( $(this).children().eq(0) )
+		console.log( $(this).children().eq(1) )
+		console.log( $(this).children().eq(2) )
+		
+		console.log( $(this).children().eq(0).html() )
+		console.log( $(this).children().eq(1).html() )
+		console.log( $(this).children().eq(2).html() )
+
+		$("#number").html( $(this).children().eq(0).html() )
+		$("#title").html( $(this).children().eq(1).html() )
+		$("#writer").html( $(this).children().eq(2).html() )
+		
+	})
+	
+})
+</script>
+
+</head>
+<body>
+
+<table border="1">
+	<tr>
+		<th>번호</th>
+		<th>제목</th>
+		<th>작성자</th>
+	</tr>
+
+	<tr>
+		<td>1</td>
+		<td>첫 번째 게시물 입니다</td>
+		<td>홍길동</td>
+	</tr>
+
+	<tr>
+		<td>2</td>
+		<td>두 번째 게시물 입니다</td>
+		<td>홍길동</td>
+	</tr>
+
+	<tr>
+		<td>3</td>
+		<td>세 번째 게시물 입니다</td>
+		<td>홍길동</td>
+	</tr>
+</table>
+
+<div id="result">
+	<span>선택한 게시물 : </span>
+	<span id="number"></span>
+	<span>/</span>
+	<span id="title"></span>
+	<span>/</span>
+	<span id="writer"></span>
+</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
