@@ -1,0 +1,31 @@
++ 서블릿, Servlet
+
+ - Servlet = Server + Applet
+ - 서버에서 동작하는 애플릿 프로그램이라는 뜻을 가지고 있다
+
+ ** 애플릿 Applet
+	자바언어로 개발되어 바이트코드 형태로 배포
+	JVM만 존재한다면 애플릿 프로그램을 실행할 수 있게 된다
+
+	-> JVM이 포함된 웹 서버에서 동작하게 된다(Tomcat)
+
+
+
+ - 서블릿 스펙(Servlet Spec, Servlet Specification)
+	-> 웹 어플리케이션을 개발하기 위한 자바의 기술(Spec)
+	-> 버전으로 표현한다
+	-> Tomcat 9버전에서는 서블릿 4.0스팩을 지원한다
+	-> 톰캣서버는 서블릿API를 가지고 있다
+
+ - 서블릿 클래스, Servlet Class
+	서블릿 스펙에 맞춰 개발된 자바 클래스를 뜻한다
+	서블릿 클래스를 줄여서 서블릿이라고 부르기도 한다
+	
+	MVC패턴에서 Controller 역할을 담당한다
+
+
++ Servlet 4.0 JavaDoc
+https://javaee.github.io/javaee-spec/javadocs/index.html?javax/servlet/package-summary.html
+
+ + JSP 2.3 Spec JavaDoc
+https://docs.oracle.com/javaee/7/api/index.html?javax/servlet/jsp/package-summary.html
