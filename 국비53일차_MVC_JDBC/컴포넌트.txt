@@ -1,0 +1,7 @@
+MVC를 구성하는 컴포넌트, Component
+
+ - Controller - Servlet
+
+ - View - jsp
+
+ - Model - 컨트롤러가 뷰에 전달하는 데이터
