@@ -1,0 +1,18 @@
++ request스코프 영역을 이용한 Model값 전달
+
+- 컨트롤러(Servlet)
+	//request스코프에 정보를 전달한다.
+	
+	List list = service.info();
+	
+	//List정보를 data라는 이름으로 전달함
+	req.setAttribute("data", list); 
+
+
+
+
+- 뷰(jsp)
+	request스코프에서 정보를 꺼내서 사용한다
+
+	<% List list = (List) request.getAttribute("data"); %>
+

@@ -1,0 +1,87 @@
++ jsp 액션 태그, ActionTag
+
+-jsp 의 문법 요소 중 하나
+- jsp페이지에서 수행할 특정 동작들 태그로 만들어 놓은 것
+
++ 형식
+	<jsp:수행명령 속성="속성값"></jsp:수행명령>
+
+
+<jsp:userBean id="bean속성명" class="클래스명" [scope="스코프지정"]>
+</jsp:useBean>
+
+- 자바빈(javaBean) 생성한다
+
+- jsp에서 사용한 javaBean객체를 생성하고 지정한 Scope영역의
+
+- scope를 따로 지정하지 않으면 page영역에 저장된다
+
+- scope속성값
+	page(기본값) | request | session | application
+-----------------------------------------------------------------------
+
++ <jsp:setProperty name="bean이름" property="필드명" [value="값설정"]/>
+ - JavaBean의 프로퍼티에 값을 설정한다
+ - DTO클래스의 setter를 실행하도록 되어있다
+	-> DTO 클래스에 setter가 정의되어있지 않으면 에러난다
+
+------------------------------------------------------------------
+
++ <jsp:getProperty name="bean이름" property="필드명" />
+ - JavaBean의 프로퍼티에 값을 불러온다
+ - DTO클래스의 getter를 실행하도록 되어있다
+	-> DTO 클래스에 getter가 정의되어있지 않으면 에러난다
+
+** getProperty는 userBean액션태그로 생성한 JavaBean에서만 사용할 수 있다
+
+------------------------------------------------------------------
+
++ <jsp:forward page="이동할페이지" />
+ - jsp에서 포워딩을 수행하는 태그
+
+ - 포워딩되는 페이지에 전달 파라미터를 전달할 수 있다
+	<jsp:param value="값" name="변수명" /> 을 자식 태그로 사용한다
+------------------------------------------------------------------
+
++<jsp:include page="삽입할페이지URL" />
+
++<jsp:include page="삽입할페이지URL">
+	<jsp:param name="이름: value="값" />
+</jsp:include>
+
+- jsp페이지에 다른 페이지를 내용으로 추가할 때 사용한다
+- include지시자와 비슷한 기능을 수행한다
+
+- include지시자 <%@ include file="" %>
+- include액션 <jsp:include page="" />
+
+** include지시자와 include 액션의 차이점
+	
+	include지시자: jsp코드를 하나로 합치고나서 컴파일한다
+	include액션: 각각의 jsp코드를 컴파일한 후 결과물을 합친다
+	
+	include지시자 전달 파라미터를 전달할 수 없다
+	include액션 전달 파라미터를 전달할 수 있다
+
+	
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,24 @@
++ 페이지 이동
+
+ - 서버에서 수행하는 화면(페이지 전환)
+
++ 포워드, forwarding
+ - request 스코프 영역을 유지하며 화면을 전환하는 방식
+ - 요청객체(request), 응답객체(response)가 유지된다
+ - 요청 url이 변경되지 않는다(브라우저의 주소입력창이 안바뀐다)
+	-> Controller가 request 영역에 model값을 저장하고
+	view로 fowarding을 하면 model값이 유지된다
+
+	ex) request.getRequestDispatcher("페이지url")
+		.forward(request, response);
+
+
++ 리다이렉트, redirection
+ - 새로운 요청을 발생시켜 화면에 전환하는 방식
+ - request 스코프 영역이 새롭게 만들어진다
+
+ - 요청객체(request), 응답객체(response)가 새롭게 생성된다
+ - url이 변경된다(브라우저의 주소입력창이 바뀐다)
+ - 기존의 request스코프 영역도 지워진다
+
+	ex) response.sendRedirect("페이지URL");
