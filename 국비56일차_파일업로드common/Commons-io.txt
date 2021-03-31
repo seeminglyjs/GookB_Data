@@ -1,0 +1,21 @@
++ Commons-IO 라이브러리 다운받기
+ - commons-fileupload라이브러리는 commons-io  라이브러리에 의존적이다
+	-> commons-fileupload라이브러리를 구형하기 위해 commons-io라이브러리를 사용했다
+
+
+1. http://www.apache.org/접속
+
+2. Project - > project List 들어가기
+
+3. commons 링크 찾아서 클릭
+
+4. IO 링크 찾아서 클릭
+
+5. 왼쪽 메뉴에서 Download 클릭
+
+6. Binaries 섹션에서 commons-io-2.8.0-bin.zip 다운
+
+7. 압출 풀기
+
+8. commons-io-2.8.0.jar 파일 사용
+
