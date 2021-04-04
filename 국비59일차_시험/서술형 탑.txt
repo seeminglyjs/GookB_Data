@@ -1,0 +1,34 @@
+DriverManager
+
+자바와 sql(db)을 연결시켜주기 위한 JDBC Api 클래스이다. 자바 내부에서 Connection 객체에 class를 매개값으로 주어 연결하여 사용한다.
+
+PreparedStatement
+
+기존의 Statement 클래스의 기능을 상속받은 클래스로써 sql 쿼리구문에 ? 기호를 사용할 수 있게 된다 해당 ?는 sql 내부의 value값이 들어가는 자리에 위치하게 된다. 이후 해당 ? 를 setXXX(index, ?) 를 통해서 각 속성 타입에 맞게 메소드타입과 값을 대입해주게 되면, 정상적으로 쿼리문이 PreparedStatement 객체에 저장된다.
+
+DBMS
+말그대로 데이터베이스를 효율적으로 관리하기 위한 시스템으로써 여러사용자들이 데이터를 공유하고 해당 데이터를 가공하고 관리하는 시스템이다.
+
+
+PreparedStatement ps = conn.prepareStatement(sql);
+
+		Connection conn = DriverManager.getConnection(url, user, password);
+		conn.setAutoCommit(true);
+		Connection conn = DriverManager.getConnection(url, user, password);
+		conn.setAutoCommit(false);
+
+
+테이블 구조와 내용에 변화가 일어나는 dml / ddl 등의 사용시 자동으로 commit을 시켜 변경내용을 저장하게 하는 기능이다.
+
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			}	
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+						try {
+			ifpstmt != null && !pstmt .isClosed()) pstmt .close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}

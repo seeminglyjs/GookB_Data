@@ -1,0 +1,110 @@
+DROP TABLE MEMBER CASCADE CONSTRAINTS;
+CREATE TABLE  MEMBER(
+    ID VARCHAR2(30) PRIMARY KEY
+    );
+
+DROP TABLE BOARD CASCADE CONSTRAINTS;
+CREATE TABLE BOARD(
+    NO NUMBER PRIMARY KEY 
+    ,TITLE VARCHAR2(50) NOT NULL
+    ,CONTENT VARCHAR2(500) NOT NULL
+    ,WRITER VARCHAR2(30)
+    ,STATUS VARCHAR2(1) DEFAULT 'Y' CONSTRAINT CHECK_S CHECK (STATUS = 'Y' OR STATUS ='N')
+    ,CREATE_DATE DATE DEFAULT SYSDATE
+    ,UPDATE_DATE DATE DEFAULT SYSDATE
+    ,FOREIGN KEY(WRITER) REFERENCES  MEMBER(ID)
+    );
+    
+COMMENT ON COLUMN BOARD.NO IS '글번호'; 
+COMMENT ON COLUMN BOARD.TITLE IS '제목'; 
+COMMENT ON COLUMN BOARD.CONTENT IS '내용'; 
+COMMENT ON COLUMN BOARD.WRITER IS '작성자'; 
+COMMENT ON COLUMN BOARD.STATUS IS '삭제여부'; 
+COMMENT ON COLUMN BOARD.CREATE_DATE IS '작성일'; 
+COMMENT ON COLUMN BOARD.UPDATE_DATE IS '수정일'; 
+    
+------------------------------------------------------------------
+package dto;
+
+import java.util.Date;
+
+public class Board {
+	private int no;
+	private String title;
+	private String content;
+	private String writer;
+	private String status;
+	private Date createDate;
+	private Date updateDate;
+	
+	//to String
+	@Override
+	public String toString() {
+		return "Board [no=" + no + ", title=" + title + ", content=" + content + ", writer=" + writer + ", status="
+				+ status + ", createDate=" + createDate + ", updateDate=" + updateDate + "]";
+	}
+	
+	//getter setter
+	public int getNo() {
+		return no;
+	}
+	public void setNo(int no) {
+		this.no = no;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
+	public String getWriter() {
+		return writer;
+	}
+	public void setWriter(String writer) {
+		this.writer = writer;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	public Date getCreateDate() {
+		return createDate;
+	}
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
+	public Date getUpdateDate() {
+		return updateDate;
+	}
+	public void setUpdateDate(Date updateDate) {
+		this.updateDate = updateDate;
+	}
+
+	
+}
+
+------------------------------------------------------------------
+SELECT * FROM BOARD;
+------------------------------------------------------------------
+Board board = new Board();
+board.setNo(rs.getInt("no"));
+board.setTitle(rs.getString("title"));
+board.setContent(rs.getString("content"));
+board.setWriter(rs.getString("writer"));
+board.setStatus(rs.getString("status"));
+board.setCreateDate(rs.getDate("create_date"));
+board.setUpdateDate(rs.getDate("update_date"));
+
+list.add(board);
+
+
+
+
