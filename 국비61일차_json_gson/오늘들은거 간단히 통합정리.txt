@@ -1,0 +1,93 @@
+-------------------------------------------------------------------
+// javaScript 내부에서의 json 사용하는 방법
+
+JSON.stringify(json) -> json객체 - > jsonText
+JSON.parse(jsonText) -> jsonText -> json 객체
+-------------------------------------------------------------------
+// 구글 Gson 라이브러리(java)
+
+** 따로 Gson 라이브러리 jar 파일을 받아야 사용가능하다.
+
+Gson gson = new Gson();
+
+gson.toJson("매개변수") -> json객체 - > jsonText (마샬링)
+gson.fromJson("매개변수", "매개변수타입.class") (역마샬링)
+-> jsonText -> json객체
+
+People p1 = new People();
+String jsonText = gson.toJson(p1) -> 별도의 json형태의 plainObject 변환없이 jsonText에 jsonText 저장
+
+** null 값은 자동은 없는값 취급해서 넘어간다. 보통의 패스워드 같은 민감한 정보는 json객체로 넘기지 않도록 주의해야 한다.
+
+People p2 = gson.formJson(jsonText) -> json 형태의 people 객체를 실제 자바 형테의 People 클래스 객체에 담아준다.
+
+** HashMap<String, Object> 로 DTO를 대신할 수 있다.
+
+HashMap<String, Object> map = new  HashMap<>();
+
+map.add("id", "abc");
+map.add("pw", "123");
+// 위와 같은 형식으로 데이터를 넣어주면 가능하다.
+
+-------------------------------------------------------------------
+
+// Controller 에서의 Json 활용하는 방법
+
+resp.setContentType("application/json; carset=utf-8") 
+// json의 기본 응답 방식 설정
+
+PrintWriter out = resp.getWriter(); //응답 객체 생성
+out.println("Hello World") // 단순 문자열
+
+out.println("{\"data\" : \"JSON DATA\", \"count\" : 123}"); 
+//PlainObject 형태
+
+Member m1 = new Member();
+out.println(new Gson.toJson(m1)) //객체를 전달하는 코드
+
+List<Member> list = new ArrayList<>();
+out.println(new Gson.toJson(list)) //리스트를 전달하는 코드
+
+
+//아래부터는 jsp 코드
+
+sendRequest("POST", "/ajax/test01", "callback")
+
+callback(){
+	if(httpRequest.readyState == 4){ // done
+		if(httpRequest.status == 200){
+			printData();
+		}else{
+		console.log("Callback 불러오기 실패")
+	}
+}
+
+
+function printData(){
+	var respText = httpRequest.responseText
+	var list = JSON.parse(respText)
+
+	var html=""
+	for(var i = 0; i < list.length; i++){
+	 html += <h1> + list[i].id + list[i].pw + </h1>
+	}
+
+	//result는 div 태그이다.
+	result.innertHTML = html;
+}
+
+-------------------------------------------------------------------
+
+// jQuery에서 의 load 사용하는 방법
+
+$("id").load(url)
+
+
+
+
+
+
+
+
+
+

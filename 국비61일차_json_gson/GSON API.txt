@@ -1,0 +1,11 @@
++ GSON API 라이브러리
+
+ - 구글에서 제공하는 JSON 관련 자바 라이브러리
+
+ - Java데이터 <-> JSON 변환을 도와주는 라이브러리
+
+ - 자바 언어의 데이터를 JSON으로 마샬링, 언마샬링할 수 있도록 해준다
+
+ - https://github.com/google/gson
+	(jar 파일 직접다으로드가 없음)
+	(GSON jar downloads)
