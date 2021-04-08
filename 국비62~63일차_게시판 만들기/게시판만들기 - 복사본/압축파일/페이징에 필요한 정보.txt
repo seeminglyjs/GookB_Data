@@ -1,0 +1,99 @@
+ + 페이징에 필요한 정보(데이터, 변수들)
+
+  - 현재 페이지의 번호		curPage
+	브라우저에서 선택한 페이지 번호
+	전달파라미터로 전달된다
+
+
+  - 총 게시글 수		totalCount
+	DB에서 전체 행 수를 조회한다
+
+  - 한 페이지당 보여질 게시글의 수	listCount
+	**직접 설정한다(개발자)
+
+  - 총 페이지 수		totalPage
+	**계산으로 알아낸다
+
+
+  - 한 화면에서 출력될 페이지네이션의 수	pageCount
+	**직접 설정한다(개발자)
+
+  - 화면에 보이는 페이지네이션의 시작 번호	startPage
+	**계산으로 알아낸다
+
+  - 화면에 보이는 페이지네이션의 끝 번호	endPage
+	**계산으로 알아낸다
+
+
+  - 화면에 보이는 게시글의 시작 번호		startNo
+	**계산으로 알아낸다
+
+  - 화면에 보이는 게시글의 끝 번호		endNo
+	**계산으로 알아낸다
+
+
+
+ + 1단계
+  - totalCount
+	DB에서 TABLE을 조회하여 알아낸다
+	검색어를 추가하거나 필터링처리를 했을 때도 고려해야 한다
+
+  - listCount
+	직접 설정한다
+	기본값을 설정해두고 사용한다 ( 10개 )
+
+  - totalPage
+
+	totalPage = totalCount / listCount;
+	if( totalCount % listCount > 0 )	totalPage++;
+
+  **추가작업 (보정값)
+	현재 페이지(curPage)가 총 페이지(totalPage)보다 크게 입력된 경우
+	강제로 마지막 페이지로 고정시킨다
+
+	if(totalPage < curPage)	curPage = totalPage;
+
+
+
+ + 2단계
+  - pageCount
+	직접 설정한다
+	기본값을 설정해두고 사용한다 ( 10개 )
+
+  - startPage
+  - endPage
+	둘 다 계산해서 알아낸다
+
+	**페이지네이션의 넘버링 방식
+	1. 현재 페이지를 기준으로 앞뒤 특정 페이지를 보여준다
+	ex)	pageCount가 5개, curPage가 12일 때
+
+		<< 10 11 12 13 14 >>
+		( startPage = curPage - pageCount/2; )
+		( endPage = curPage + pageCount/2; )
+		( if( pageCount%2 == 0 )  endPage--; )
+
+	2. pageCount만큼 고정된 페이지를 1번부터 보여준다
+	ex)	pageCount가 5개, curPage가 12일 때
+
+		<< 11 12 13 14 15 >>
+
+	** 우리는 2번 방식을 사용한다
+
+	startPage = ( (curPage-1)/pageCount ) * pageCount + 1;
+	endPage = startPage + pageCount - 1;
+
+ **추가작업 (보정값)
+	계산된 endPage(끝페이지번호)가 totalPage(총 페이지 수)보다 클 때
+	강제로 최종 페이지까지만 보이도록 설정
+
+	if( endPage > totalPage ) endPage = totalPage;
+
+
+
+ + 3단계
+  - startNo
+	startNo = (curPage-1) * listCount + 1;
+
+  - endNo
+	endNo = curPage * listCount;
