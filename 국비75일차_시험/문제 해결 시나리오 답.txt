@@ -1,0 +1,159 @@
+
+com.kh.test.controller.TestContoller
+
+
+ <servlet>
+        <servlet-name>TestController</servlet-name>
+        <servlet-class>com.kh.test.controller.TestContoller</servlet-class>
+ </servlet>
+
+--------------------------------------------------------------------------
+  <servlet-mapping>
+  	<servlet-name>TestController</servlet-name> 
+  	<url-pattern>/test.do</url-pattern>
+  </servlet-mapping>
+
+--------------------------------------------------------------------------
+
+package com.kh.test.model;
+
+package test;
+
+import java.util.Date;
+
+public class Test {
+	private int seq;
+	private String writer;
+	private String title;
+	private String content;
+	private Date regdate;
+	
+	
+	public Test() {
+	}
+	
+	public Test(int seq, String writer, String title, String content, Date regdate) {
+		this.seq = seq;
+		this.writer = writer;
+		this.title = title;
+		this.content = content;
+		this.regdate = regdate;
+	}
+	
+	//to String
+	@Override
+	public String toString() {
+		return "Test [seq=" + seq + ", writer=" + writer + ", title=" + title + ", content=" + content + ", regdate="
+				+ regdate + "]";
+	}
+	
+	//getter setter
+	public final int getSeq() {
+		return seq;
+	}
+	public final void setSeq(int seq) {
+		this.seq = seq;
+	}
+	public final String getWriter() {
+		return writer;
+	}
+	public final void setWriter(String writer) {
+		this.writer = writer;
+	}
+	public final String getTitle() {
+		return title;
+	}
+	public final void setTitle(String title) {
+		this.title = title;
+	}
+	public final String getContent() {
+		return content;
+	}
+	public final void setContent(String content) {
+		this.content = content;
+	}
+	public final Date getRegdate() {
+		return regdate;
+	}
+	public final void setRegdate(Date regdate) {
+		this.regdate = regdate;
+	}
+}
+------------------------------------------------------------------------
+
+package com.kh.test.model;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class TestDao {
+
+		//OJDBC 드라이버
+		private static final String DRIVER="oracle.jdbc.driver.OracleDriver";
+		
+		//DB연결 정고
+		private static final String URL = " jdbc:oracle:thin:@192.168.10.3:1521:xe";
+		private static final String USERNAME = "kh";
+		private static final String PASSWORD = "kh";
+
+		//db 연결 필요 객체
+		private static Connection conn;
+		private static PreparedStatement ps;
+		private static ResultSet rs;
+		
+		
+		public List<Test> selectList(){
+			List<Test> list = new ArrayList<>();
+			Test test = null;
+			
+			try {
+				Class.forName(DRIVER);
+				conn  =DriverManager.getConnection(URL, USERNAME, PASSWORD);
+				
+				String sql = "SELECT * FROM TEST";
+				ps = conn.prepareStatement(sql);
+				rs = ps.executeQuery();
+				
+				while(rs.next()) {
+					test = new Test();
+					
+					test.setSeq(rs.getInt("seq"));
+					test.setWriter(rs.getString("writer"));
+					test.setTitle(rs.getString("title"));
+					test.setContent(rs.getString("content"));
+					test.setRegdate(rs.getDate("regdate"));
+					
+					list.add(test);
+				}
+				
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}finally {
+				if(rs != null) {
+					try {
+						rs.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+				}	
+				if(ps != null) {
+					try {
+						rs.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+				}
+				
+			}
+
+			return list;
+		}
+
+}
