@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- 마이바티스 3 Mapper DOCTYPE -->
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--반환값이 리스트일 경우 리스트의 제네릭 타입을 적어두면 된다-->
+<mapper namespace="dao.face.DeptDao">
+  <select id="selectByDeptno" resultType="dto.Dept" parameterType="int">
+    select * from dept where deptno = #{deptno}
+  </select>
+    
+  <select id="selectAll" resultType="dto.Dept">
+    select * from dept order by deptno
+  </select>
+  
+  
+  <select id="selectByDname" resultType="dto.Dept" parameterType="String">
+    select * from dept where dname = #{dname}
+  </select>
+  
+  <select id="selectByDeptDname" resultType="dto.Dept" parameterType="dto.Dept">
+    select * from dept where dname = #{dname}
+  </select>
+  
+  <insert id="insert" parameterType="dto.Dept">
+  	insert into dept (deptno, dname, loc)
+  	VALUES (#{deptno}, #{dname}, #{loc})
+  </insert>
+  
+</mapper>

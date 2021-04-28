@@ -1,0 +1,12 @@
++ 마이바티스, MyBatis Framework
+ - 퍼시스턴스 계층 프레임워크(Persistence Layer)
+	** Persistence, 영속성 : 특정 상태가 변함없이 유지되는 속성
+	** Persistence Layer : 데이터베이스 계층
+
+ - JDBC 관련 처리(개발)를 편하게 만들어 준다
+ - JDBC 프레임워크, 데이터베이스 관리 프레임워크라고 표현하기도 한다
+ - JDBC Template class, Dao Interface, DaoImpl Class 부분을 담당한다
+
+
++ 스프링, Spring Framework
+ - MVC 패턴을 이용한 JAVA 프로그램 개발 프레임워크

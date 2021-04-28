@@ -1,0 +1,26 @@
+ + 이클립스에서 사용할 파일들의 한글 인코딩 설정
+
+  - UTF-8 로 설정한다
+
+
+  - Window메뉴의 Preferences에서 작업할 것
+
+	1. General 항목 - Workspace 메뉴
+
+		Text file encoding 항목
+
+		Other: UTF-8 선택
+
+		Apply 버튼 클릭
+
+	2. Web 항목
+		- CSS Files
+		- HTML Files
+		- JSP Files
+
+		세 가지 항목에서 Encoding설정 항목
+			ISO 10646/Unicode(UTF-8) 선택
+
+		각각 Apply 버튼 클릭
+
+	3. 모두 설정이 끝나면 Apply And Close
