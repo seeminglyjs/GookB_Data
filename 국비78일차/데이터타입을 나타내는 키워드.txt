@@ -1,0 +1,34 @@
++ 데이터타입을 나타내는 키워드
+ - 메퍼 XML에서 resultType이나 parameterType에서 특정 데이터타입을 표현할 때 사용하는 키워드
+
+ - org.apache.ibatis.type.TypeAliasRegistry 클래스에 명시되어 있다
+
+
+
+ 	키워드		/	자바타입
+	String			java.lang.String
+	date			java.util.Date
+
+	map			java.util.map
+	hashmap			java.util.Hashmap
+	list			java.util.List
+	arrayList		java.util.ArrayList
+
+	ResultSet		java.sql.ResultSet
+
+
+	int			java.lang.Integer	(Wrapper 클래스)
+	integer			java.lang.Integer
+
+	_int			int			(기본 데이터 타입)
+	_integer		int
+
+	int[]			Integer[]
+	integer[]		Integer[]
+
+
+	_int[]			Int[]
+	_int[]			Int[]
+
+
+	** byte, short, long, float, double, boolean도 int와 같은 형태

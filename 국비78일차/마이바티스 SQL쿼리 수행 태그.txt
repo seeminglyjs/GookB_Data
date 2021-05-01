@@ -1,0 +1,77 @@
++ 마이바티스 SQL 쿼리 수행 태그
+ - <select>, <insert>, <update>, <delete>
+
+ - 수행하려는 SQL 구문에 맞게 태그를 골라 작성한다
+
+ - 수행하는 SQL 구문과 맞지 않은 태그를 이용해도 실행은 된다
+
+ - 사용할 수 있는 기능에 제약이 걸리기 때문에 SQL쿼리와 같은 태그를 사용하는 것이 좋다
+
++ 공통 속성
+
+ - id
+	매퍼 파일(XML)에서 유일한 값으로 태그의 이름을 설정한다
+	네임스페이스 내에서 구분자(식별값)로 사용된다	
+
+	DAO 인터페이스의 추상메소듸 이름과 같은 값으로 설정한다
+
+ - parameterType
+	SQL 쿼리를 수행할 때 필요한 파라미터의 데이터 타입을 적는다.	
+
+	기본데이터타입을 지칭하는 키워드를 사용할 수 있다	
+	DTO 클래스는 패키지까지 포함하는 풀네임으로 사용할 수 있다
+
+ - parameterMap [사용하지 않는다]
+	
+ - flushCache
+	SQL 구문을 호출(사용)할 떄 사용될 캐시에 대한 자동 처리여부 설정
+	기본값은 false
+	
+	true로 설정하면 SQL구문이 호출될 때마다 캐시를 지우게 된다
+
+ - timeout
+	데이터베이스 처리 결과를 기다리는 최대 시간 설정
+	
+ - statementType
+	SQL 쿼리를 수행하는 방식에 대한 설정
+
+	Statement, PreparedStatement(기본값), Callable 중 골라서 설정한다
+	
+	Callable 마이바티스로 PL/SQL을 사용할 때 적용한다
+
++ <select>태그의 전용 속성
+
+ - resultType
+	Select 쿼리 수행 결과(ResultSet)를 처리할 데이터 타입을 설정한다
+	실제 존재하는 데이터타입으로 작성한다
+
+ - resultMap
+	<resultMap> 태그를 이용하여 생성한 결과를 사용한다
+	<resultMap> 태그를 설정한 id 속성의 값을 사용한다
+	
+	resultType속성 대신 사용한다
+
+ - useCache
+	SELECT구문의 조회 결과를 생성할 때 캐시를 사용할 것인지 설정한다
+	기본값은 true
+ 
+ - fetchSize
+	SELECT 구문의 조회 결과를 한번에 가져올 크기를 설정하는 속성
+	
+	기본값은 10
+	** 대용량 처리가 필요하면 1000개 정도를 설정하는 편
+
+ - resultSetType
+	조회 결과값을 읽어들이는 동작을 설정하는 속성
+	DBMS의 커서의 동작하는 방식을  설정한다
+
+	FORWARD_ONLY
+	커서가 앞쪽(다음데이터)로만 이동한다
+
+	SCROLL_INSENSITIVE
+	커서가 뒤쪽으로도 이동 가능하다
+	데이터의 변화에 민감하지 않다.
+
+	SCROLL_SENSITIVE
+	커서가 뒤쪽으로도 이동 가능하다
+	데이터의 변화에 민감하게 반응한다

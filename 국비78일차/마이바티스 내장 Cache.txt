@@ -1,0 +1,24 @@
++ 마이바티스의 내장 Cache(캐시)
+
+ - 2가지 내장 캐시를 가지고 있다
+	Local Session Cache
+	
+	Second Level Cache( 2nd Level)
+
+	
++ Local Session Cache
+ - SqlSession 객체마다 가지고 있는 캐시
+ - DBMS 연결마다 하나씩 생성된다
+
+ ** 개발자가 임의로 기능을 해제할 수 없다
+
++ Second Level Cache
+ - Mapper에 연결된 namespace 마다 존재하는 캐시
+
+ - Dao마다 하나씩 연결된다
+
+ - SQL 쿼리 구문을 수행할 때 마다 사용할 수 있다
+
+
+
+

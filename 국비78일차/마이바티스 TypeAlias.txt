@@ -1,0 +1,40 @@
++ 마이바티스 TypeAlias
+ - 매퍼의 속성으로 parameterType, resultType을 사용할 때
+ DTO클래스의 패키지명까지 포함한 풀네임으로 적용해야 한다
+
+ - 패키지 길이가 길어질 겨우 속성값이 너무 길어지는 불편함이 있다
+
+ - TypeAlias를 이용하여 클래스의 별칭을 적용해서 사용한다
+
+
+ ** 오히려 유지보수성을 떨어뜨리는 경우가 있다
+ ** 조심해서 사용할 것
+
+
++ TypeAlias 적용하는 방법 2가지
+ - 두가지 방법 모두 마이바티스 Configuration XML의 <settings>태그 밑에 작성하도록 한다
+
+ 1. 클래스단위로 별칭을 적용하는 방법
+	-클래스 마다 별칭을 부여한다
+
+ <typeAliases>
+	<typeAlias type="dto.Emp" alias="Emp"/>
+ </typeAliases>
+	
+	- type속성에 클래스의 풀네임을 적용한다
+	- alias속성에 별칭을 적용한다
+
+
+ 2. 패키지단위로 별칭을 적용하는 방법
+	- 지정된 패키지 내부의 모든 클래스에 별칭을 부여한다
+ <typeAliases>
+ 	<package name="dto"/>
+ </typeAliases>
+
+	- 등록된 패키지 내의 DTO클래스 정의코드에 @Alias("별칭")을
+	적용해 직접 별칭을 정할 수 있다
+
+	- 별칭을 별도로 적용하지 않으면 클래스명으로 적용된다
+
+
+

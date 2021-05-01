@@ -1,0 +1,45 @@
++ <resultMap> 태그
+ - 마이바티스 Mapper XML에서 사용할 수 있는 태그 중하나
+
+ - SELECT쿼리로 조회된 결과(ResultSet)의 컬럼명과
+ DTO의 멤버필드명이 다를 때 resultMap태그를 이용하여 매핑되도록 조율한다
+
+ - 조회된 컬럼명과 멤버필드명이 같으면 자동으로 매핑되므로
+ <id>, <result> 태그를 이용하여 추가 설정하지 않아도 된다
+
+ - <select>태그에서 resultType속성이 아닌 resultMap속성으로 적용해야 한다
+ -> <resultMap>태그의 id 속성값을 이용한다
+
+
++ <resultMap> 태그의 속성
+ - id: 생성된 resultMap의 이름(식별값)을 지정하는 속성
+	(주로 DTO클래스의 이름을 사용한다)
+
+ - type: resultMap과 매핑될 실제 존재하는 DTO클래스를 지정하는 속성
+	(패키지까지 포함한 풀네임으로 클래스명을 적는다)
+
++ <resultMap>태그의 자식 태그
+ - <id>태그: 기본 키(PK)에 해당하는 컬럼을 지정할 때 사용한다
+
+ - <result>태그: 기본 키가 아닌 컬럼을 지정할 때 사용한다
+	-> 둘다 column속성으로 컬럼명, property 속성으로 필드명을 명시한다
+	-> 기본 키 컬럼도 <result>태그로 적용해도 된다
+
+---------------------------------------------------------------------------
+
+	<resultMap type="dto.Emp" id="Emp">
+		//id 는 기본키를 적어주어야 한다.
+		//ex) <id column="emp_no" property="empNo"/>
+
+		<id column="empno" property="empno"/>
+		
+		<result column="ename" property="ename"/>	
+		<result column="job" property="job"/>	
+		<result column="mgr" property="mgr"/>	
+		<result column="hiredate" property="hiredate"/>	
+		<result column="sal" property="sal"/>	
+		<result column="comm" property="comm"/>	
+		<result column="deptno" property="deptno"/>	
+	</resultMap>
+
+	//이름이 모두 같으면 없어도 상관없다. id와 result모두!!
