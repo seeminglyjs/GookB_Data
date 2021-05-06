@@ -1,0 +1,18 @@
+ + 스프링 레거시 프로젝트에 적용된 스프링버전 바꾸기
+  - 프로젝트 내에서 pom.xml 파일 열기
+
+  - <properties> 태그 확인
+
+  - <org.springframework-version> 항목의 값을 변경한 후 저장한다
+
+  - 스프링프레임워크 documentation 항목에서 찾아서 입력한다
+   (https://spring.io/projects/spring-framework#learn)
+
+  - 지금 최신 GA 버전은 5.3.6
+
+
+  ** 버전 정보를 변경하고 파일을 저장하면 이클립스에서 곧바로 라이브러리를
+   다운받기 시작한다
+
+  ** 잘못된 버전, 없는 버전을 입력하고 저장하면 버그발생한다
+  ** 오타없는지 다시 한번 확인하고 저장할 것!

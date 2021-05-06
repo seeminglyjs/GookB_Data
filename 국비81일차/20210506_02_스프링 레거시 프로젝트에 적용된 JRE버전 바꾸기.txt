@@ -1,0 +1,18 @@
+ + 스프링 레거시 프로젝트에 적용된 JRE버전 바꾸기
+  - 프로젝트 폴더 우클릭
+
+  - Build Path 메뉴 - Configure build path 클릭
+
+  - Libraries 탭에서 JRE System Library 항목 선택
+
+  - 우측에 Edit... 버튼 클릭
+
+  - Alternate JRE: 항목중에서 openjdk 선택
+
+  ----------------------------------------------------
+
+  - 왼쪽 메뉴중에서 Project Facets 선택
+
+  - Java 항목에서 1.6으로 되어있는 사항을 1.8로 변경
+
+  - Apply and Close
