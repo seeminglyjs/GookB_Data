@@ -1,0 +1,9 @@
++ 이클립스에 Package Explorer 뷰(탭) 추가하기
+
+ - Window메뉴 - Show View - Other... 선택
+
+ - "package explorer" 검색
+
+ - java 폴더 항목에 있는 package Explorer 선택
+
+ ** Project Explorer 보다 자바코드(jsp포함)에 집중할 수 있다
