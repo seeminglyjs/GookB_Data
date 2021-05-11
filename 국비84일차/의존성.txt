@@ -1,0 +1,9 @@
++ 의존성, Dependency
+ - 객체가 작동하기위해서 필요한 외부 객체와의 연결
+	
+	ex)
+	public class EmpController{
+	 
+	 //EmpController객체는 EmpService객체에 의존적이다
+	 private EmpService empService = new EmpService();
+	}

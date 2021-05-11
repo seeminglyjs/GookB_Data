@@ -1,0 +1,17 @@
++ 의존성 주입, Dependency Injection, DI
+
+ - 객체가 의존성을 직접 발생시키지 않고 외부(프레임워크)의 도움을 받아 의존성이 주입되는 것
+
+
+ - 생성자 의존성 주입(constructor DI)
+
+ - Setter 의존성 주입(setter DI)
+
+
++ IoC Inversion of Control
+
+ - 제어의 역전
+
+ - 프로그램의 진행 흐름 제어권이 역전되었다는 뜻
+
+ 	-> 프로그램의 흐름 제어를 스프링 프레임워크가 담당한다

@@ -1,0 +1,36 @@
++ DI 어노테이션
+
+ 1. @Autowired
+	패키지: org.springframework.beans.factory.annotation.Autowired;
+	
+	스프링에서 제공하는 DI 어노테이션
+
+	적용가능 위치 : 멤버필드, 생성자, 파라미터가 존재하는 메소드
+	
+	byType 먼저, byName 다음
+
+ 2. @Resource
+	패키지 : javax.annotation.Resource;
+	
+	자바 표준으로 제공하는 DI 어노테이션
+	
+	적용가능 위치: 멤버필드, 파라미터가 1개인 setter
+
+	byName 먼저, byType 다음
+
+ 3. @Inject
+	패키지 : javax.inject.Inject;
+
+	자바 표준으로 제공하는 DI 어노테이션
+
+	@Autowired와 동일한 기능을 가진다
+	(스프링에서는 3.0 이상부터 사용 가능)
+
+	@Resource의 강화 버전
+	별도의 라이브러리 파일이 필요하다
+
+
+ ** @Quilifer("beanName")
+	DI 어노테이션의 보조 기능을 제공한다
+	바인딩 될 BeanName을 직접 지정할 수 있게 해준다
+	
