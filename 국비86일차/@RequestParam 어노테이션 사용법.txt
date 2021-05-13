@@ -1,0 +1,56 @@
++ @RequestParam 어노테이션 사용법
+
+ - 컨트롤러 메소드에서 요청 파라미터를 처리하는 변수를 지정할 때 사용하는 어노테이션
+
+ - value, requeired, defaultValue 등의 속성으로 설정값을 적용한다
+
+
+ - @RequestParam String name
+	name이라는 이름의 요청파라미터 값을 name변수에 저장한다
+	
+	@RequestParam 생략할 수 있다
+	@RequestParam을 생략하면 required=false로 동작한다
+
+ - @RequestParam(value="n") String name
+	n이라는 이름의 요청파라미터 값을 name변수에 저장한다
+
+	String name = req.getParameter("n"); 와 같은 동작
+
+
+ - @RequestParam(defaultValue="abc")String name
+	요청파라미터의 데이터가 없으면 "abc"를 name변수에 저장한다
+	요청파라미터 변수의 기본값을 설정한다
+
+	ex)
+	@RequestParam(defaultValue="0") int curPage
+	(int 타입 변수의 값도 문자열로 설정한다)
+
+ - @RequestParam(required=true) String name
+	
+	required=true
+	요청파라미터가 존재하지 않으면 에러발생(기본값)	
+
+	required=false
+	요청파라미터가 존재하지 않아도 동작한다
+	(@RequestParam어노테이션을 생략하면 requeired=false로 동작)
+
+
+	** true는 파라미터가 아예 존재하지 않아야 에러가 발생한다
+	** 파라미터는 존재하고 값이 없을 때는 에러가 발생하지 않는다
+
+	ex) @RequestParam(required=true) String test
+	    /param/requiredTest -> 에러 발생
+	    /param/requiredTest?test= -> 에러 아님
+	    /param/requiredTest?test=111 -> 에러 아님
+
+ - @RequestParam HashMap<String, String> map
+	전달 파라미터를 map의 key, value쌍으로 받아들이는 방식
+
+	-> DTO가 필요없다
+
+	-> 요청파라미터가 어떤 이름으로 전달됐는지 몰라도 서버에서 데이터를 받아들일 수 있게 된다
+
+	** @RequestParam 어노테이션을 생략할 수 없다
+	** @RequestParam을 생략하면 Map 객체에 파라미터가 저장되지 않는다
+
+

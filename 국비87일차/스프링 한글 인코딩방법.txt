@@ -1,0 +1,20 @@
+스프링 프로젝트 한글 인코딩 설정
+
+
+web.xml에서 아래의 코드를 넣어주면 된다. 제일 처음에 넣어주어야한다.
+
+
+	<!-- post 전달데이터의 한글 인코딩 설정 필터: utf-8 -->
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern> <!-- 모든 요청에 인코딩 적용  -->
+	</filter-mapping>

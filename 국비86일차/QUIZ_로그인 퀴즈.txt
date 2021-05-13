@@ -1,0 +1,31 @@
+ + url : "/login/~~~"
+
+ + Controller : login.controller.LoginController
+  - main() : 메인화면
+	세션상태 확인(상태에 따른 <a> 변화)
+	  1. 회원가입&로그인 - 비로그인상태
+	  2. 마이페이지&로그아웃 - 로그인상태
+
+  - join() : 회원가입폼
+  - joinProc() : 회원가입처리
+	처리후 메인화면으로
+
+  - login() : 로그인폼
+  - loginProc() : 로그인처리
+	처리후 메인화면으로
+
+  - mypage() : 회원정보 확인(회원 정보들 화면에 출력)
+
+  - logout() : 로그아웃처리
+	처리후 메인화면으로
+
+ + Service : login.service.face.LoginService
+ + Service : login.service.impl.LoginServiceImpl
+
+ + Dao : login.dao.face.LoginDao
+ + Mapper : login.dao.mapper.LoginMapper.xml
+
+ + Dto : login.dto.Login
+
+ + View
+	url에 맞게
