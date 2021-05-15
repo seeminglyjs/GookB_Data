@@ -1,0 +1,26 @@
++ 스프링 파일업로드 클래스
+
+ - CommonsMultipartResolver 클래스
+
+ - 패키지
+	org.springframework.web.multipart.commons
+
+ - Apache commons-Fileupload 라이브러리를 이용하여
+	스프링 프레임워크에서 파일업로드를 수행할 수 있도록 지원하는 클래스
+
+ - 추가 설정이 필요하다
+
+ - Commons-Fileupload 라이브러리가 필요하다
+ - Commons-Fileupload라이브러리는 Maven을 통해 추가한다
+
+
+<!-- spring commons-fileUpload 라이브러리 -->		
+
+<dependency>
+    <groupId>commons-fileupload</groupId>
+    <artifactId>commons-fileupload</artifactId>
+    <version>1.4</version>
+</dependency>
+
+
+	** Compile Dependency인 Commons-io 라이브러리는 자동으로 추가된다
