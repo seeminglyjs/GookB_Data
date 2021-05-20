@@ -1,0 +1,29 @@
++ ViewResolver
+
+ - 컨트롤러가 전달해준 viewName을 이용하여 응답결과(view)를 찾아주는 객체
+
+ - 스프링이 응답 View를 생성할 때 사용한다
+
+ - DispatcherServlet이 응답을 생성할 때 활용하는 객체이다
+
+
++ InternalResouceViewResolver
+ - 지정된 뷰네임을 통해 jsp파일을 응답으로 사용한다
+
+ - jsp와 model을 렌더링하여 html문서로 응답을 생성한다
+
+ - 응답받은 브라우저의 화면이 전환된다
+
++ BeanNameViewReolver
+
+ - 지정된 뷰네임을 통해 스프링 빈을 응답으로 사용한다
+
+ - AbstractView클래스(뷰 구현체)를 이용하여 View클래스를 구현한다
+
+ - HTTP Response Header, HTTP Response Body를 전부 개발자가 직접 자바코드로 구현할 수 있다
+
+ - jsp를 이용하지 않고 servlet으로 직접 응답메시지를 만드는 것과 비슷함
+
+
+ ** 여러 개의 ViewResolver를 구성하면 우선순위를 부여해야 한다
+ ** 우선순위 설정값이 낮은 ViewResolver부터 순서대로 viewName을 활용한다

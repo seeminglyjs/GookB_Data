@@ -1,0 +1,335 @@
+
+DOCTYPE을 HTML5 및 CARSET을 UTF-8으로 설정한다.
+시멘틱 태그로 구획을 header(nav 포함)/ section/ footer로 나눈다.  
+요구사항에 맞추 헤더 부터 작성하며, 헤더 영역에는 메인 로고와 로그인 창이 나타나야 한다. 이미지는 img 태그로 불러오고 로그인 폼은 form 태그로 만들어서 작성한다.
+또한  같은 줄에 이 두가지를 표시해야 하기 때문에 이 두가지 태그를 담고 있는 div 에 flex 설정을 주어 한 줄에 정렬되도록 표시한다. 바로 아래 nav 태그를 선택하면 각 링크가 포함된 버튼을 구현하고 패딩을 줌으로써 각 링크마다 간격을 40px로 고정 시킨다. section의 경우 브라우저에 꽉차게 나타나게 하기 위해 width 100% 를 설정하고 넓이는 400px로 고정시킨다. 이후 backgound를 이용해 색을 #ccc(회색)로 지정한다. footer이 경우 section과 마찬가지로 width 100% 로 지정하고 높이는 80px로 고정시킨다 다만 text를 가운데 정렬 시켜야 하기 때문에 div태그에 text를 담고 text-align 시켜 가운데 정렬 및 backgound를 이용해 색을 skyblue로 지정한다.
+
+-------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+
+.headerContainer{
+	display: flex;
+	
+}
+
+nav > a {
+	padding-left: 40px;
+}
+
+#content{
+	width: 100%;
+	height: 400px;
+	background-color: #ccc;
+}
+
+#footerDiv{
+	text-align: center;
+	background-color: skyblue;
+	width: 100%;
+	height: 80px;
+}
+
+</style>
+
+</head>
+<body>
+
+<header>
+<div class="headerContainer">
+	<div class="headerInDiv">
+		<img alt="회사로고" src="/resources/images/logo.gif" style="width: 100px; height: 100px;">
+	</div>
+	
+	<div class="headerInDiv">
+		<form action="/login">
+			아이디 : <input type="text"><br>
+			<br>
+			비밀번호 : <input type="text"><br>
+			<br>
+			<button>로그인</button>
+			<a href="/join"><button type="button">회원가입</button></a>
+		</form>
+			
+	</div>	
+	<div class="headerInDiv">
+	
+	</div>
+</div> 
+<hr>
+<nav>
+	<a href="#"><button>메인</button></a>
+	<a href="#"><button>공지사항</button></a>
+	<a href="#"><button>자유게시판</button></a>
+	<a href="#"><button>갤러리</button></a>
+	<a href="#"><button>회원관리</button></a>
+	<a href="#"><button>채팅하기</button></a>
+</nav>
+</header>
+<hr>
+<section id="content">
+
+</section>
+
+<footer>
+<div id="footerDiv">
+<p>Copyright © 1998-2019 KH Information Educational Institute All Right Reserved</p>
+</div>
+</footer>
+
+
+</body>
+</html>
+-----------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" ></script>
+<script type="text/javascript">
+$(document).ready(function(){
+
+	var nameRex = /^[가-힣]{2,5}$/;
+	var emailRex = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;	
+		
+	
+	$("input").blur(function(){
+		var name = $("#name").val()
+		var email = $("#email").val()
+		
+		if(!nameRex.test(name)){
+			$("#submitBtn").attr("disabled", true)
+			if(!emailRex.test(email)){
+				$("#submitBtn").attr("disabled", true)
+			}
+		}else{
+			if(emailRex.test(email)){
+				$("#submitBtn").attr("disabled", false)
+			}
+			
+		}
+	})
+
+})
+</script>
+
+
+<style type="text/css">
+
+
+
+</style>
+
+
+</head>
+<body>
+<div id="cotainer">
+<form action="/testw/product" method="post">
+ 	<fieldset style="width: 600px;">
+        <legend>step 1: 로그인 정보</legend>
+        <ol>
+        <li>
+        <label for="id">아이디 </label> <input type="text" id="id"><br>
+        <br>
+        </li>
+        <li>
+        <label for="pw">비밀번호 </label> <input type="text" id="pw"><br>
+        <br>
+        </li>
+        <li>
+        <label for="pwCheck">비밀번호 확인 </label> <input type="text"  id="pwCheck"><br>
+ 	    <br>
+    	</li>
+        <li>
+        <label for="grade">회원 등급 </label> <input type="text"  id="grade" value="준회원"><br>
+    	</li>
+    	</ol>
+    </fieldset>
+    <br>
+ 	<fieldset style="width: 600px;">
+        <legend>step 2: 개인 정보</legend>
+        <ol>
+        <li>
+        <label for="name">이름 </label> <input type="text" id="name" placeholder="5자 미만 공백없이"><br>
+        <br>
+        </li>
+        <li>
+        <label for="email">메일 주소 </label> <input type="text" id="email" placeholder="abcd@domain.com"><br>
+        <br>
+        </li>
+        <li>
+        <label for="phone">연락처 </label> <input type="text"  id="phone"><br>
+    	</li>
+    	</ol>
+    </fieldset>
+    <br>
+   	<fieldset style="width: 600px;">
+        <legend>step 3: 코딩 숙련도(상, 중, 하)</legend>
+        <ol>
+        <li>
+        <label for="master"></label><input type="range" id="master" min="1" max="3"><br>
+        <br>
+		</li>
+    	</ol>
+    </fieldset>
+   	<fieldset style="width: 600px;">
+    	<button id="submitBtn">제출</button>    
+    </fieldset>
+    
+</form>
+</div>
+
+</body>
+</html>
+----------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" ></script>
+<script type="text/javascript">
+$(document).ready(function(){
+
+	var nameRex = /^[가-힣]{2,5}$/;
+	var emailRex = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;	
+		
+	
+	$("input").blur(function(){
+		var name = $("#name").val()
+		var email = $("#email").val()
+		
+		if(!nameRex.test(name)){
+			$("#submitBtn").attr("disabled", true)
+			if(!emailRex.test(email)){
+				$("#submitBtn").attr("disabled", true)
+			}
+		}else{
+			if(emailRex.test(email)){
+				$("#submitBtn").attr("disabled", false)
+			}
+			
+		}
+	})
+
+})
+</script>
+
+
+
+
+<style type="text/css">
+#container{
+	background-color: green;
+	opacity: 0.9;
+	width: 540px;
+	height: 660px;
+	border-radius: 10px;
+	margin: 0 auto;
+}
+
+ol{
+	list-style: none;
+}
+
+li{
+	margin: 3px;
+	background-color: #A1D39E;
+	border: 1px solid white;
+	border-radius: 10px;
+	height: 40px;
+}
+legend{
+	font-weight: bolder;
+}
+
+label{
+	font-weight: bold;
+	padding-left:10px;
+}
+
+input[type="text"]{
+	margin-right: 10px;
+	margin-top: 10px;
+	float: right;
+}
+
+#submitBtn{
+	background-color: #006642;
+	color:white;
+	border-radius: 10px;
+}
+
+
+</style>
+
+
+</head>
+<body>
+<div id="container">
+<div id="formDiv">
+<form action="#" method="post">
+ 	<fieldset style="width: 500px;">
+        <legend>step 1: 로그인 정보</legend>
+        <ol>
+        <li>
+        <label for="id">아이디 </label> <input type="text" id="id"><br>
+        <br>
+        </li>
+        <li>
+        <label for="pw">비밀번호 </label> <input type="text" id="pw"><br>
+        <br>
+        </li>
+        <li>
+        <label for="pwCheck">비밀번호 확인 </label> <input type="text"  id="pwCheck"><br>
+ 	    <br>
+    	</li>
+        <li>
+        <label for="grade">회원 등급 </label> <input type="text"  id="grade" value="준회원"><br>
+    	</li>
+    	</ol>
+    </fieldset>
+    <br>
+ 	<fieldset style="width:500px;">
+        <legend>step 2: 개인 정보</legend>
+        <ol>
+        <li>
+        <label for="name">이름 </label> <input type="text" id="name" placeholder="5자 미만 공백없이"><br>
+        <br>
+        </li>
+        <li>
+        <label for="email">메일 주소 </label> <input type="text" id="email" placeholder="abcd@domain.com"><br>
+        <br>
+        </li>
+        <li>
+        <label for="phone">연락처 </label> <input type="text"  id="phone"><br>
+    	</li>
+    	</ol>
+    </fieldset>
+    <br>
+   	<fieldset style="width: 500px;">
+        <legend>step 3: 코딩 숙련도(상, 중, 하)</legend>
+        <ol>
+        <li>
+ 		<input type="range" id="master" min="1" max="3"><br>
+        <br>
+		</li>
+    	</ol>
+    </fieldset>
+   	<fieldset style="width: 500px;">
+    	<button id="submitBtn" disabled="disabled">제출</button>    
+    </fieldset>
+    
+</form>
+</div>
+</div>
+
+</body>
+</html>

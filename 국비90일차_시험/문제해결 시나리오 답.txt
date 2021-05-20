@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+
+#container{
+	
+	width: 600px;
+	border: 1px solid black;
+
+}
+
+
+</style>
+</head>
+<body>
+
+<div id="container">
+
+<header>
+	<div>
+	<h1>HTML5 &amp; CSS3</h1>
+	</div>
+</header>
+
+<nav>
+<ul>
+	<li>HTML5</li>
+	<li>CSS3</li>
+	<li>JAVASCRIPT</li>
+	<li>JQUERY</li>
+	<li>HTML5 API</li>
+</ul>
+<hr>
+
+</nav>
+
+<section>
+	이영역은 소제목과 내용으로 구성되는 영역입니다.
+	<article>
+	<img alt="꽃사진" src="/resources/images/image1.jpg" style="width: 500px;"><br>
+	section 안에 article 안에 img 태그를 사용하였습니다.
+	</article>
+</section>
+<hr>
+
+<footer>
+	이 문서는 HTML5를 기준으로 작성되었습니다.<br>
+	이 영역은 FOOTER 영역입니다.<br>
+	<br>
+	<br>
+	<br>
+</footer>
+</div>
+</body>
+</html>
+----------------------------------------------------------------------
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/resources/css/main.css">
+</head>
+<body>
+
+<div id="container">
+
+<header>
+	<h2>서브 메뉴가 펼쳐지는 네비게이션 만들기</h2>
+	<hr>
+</header>
+	<ul id="navi">
+		<li><a href="#">HOME</a></li>
+		<li><a href="#">웹개발</a>
+			<ul>
+				<li><a href="#">웹디자인</a></li>
+				<li><a href="#">HTML5 + CSS3</a></li>
+				<li><a href="#">JQUERY</a></li>
+				<li><a href="#">웹+ 모바일</a></li>
+			</ul>
+		</li>
+		<li><a href="#">게시판</a>
+			<ul>
+				<li><a href="#">Q &amp; A</a></li>
+				<li><a href="#">방명록</a></li>
+			</ul>
+		</li>
+		<li><a href="/views/test/productForm.html">상품주문서</a></li>	
+	</ul>
+</div>
+</body>
+</html>
+--------------------------------------------------------------------------
+@charset "UTF-8";
+
+
+ul{
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+	text-align: center;
+}
+
+li{
+	background-color: tomato;
+	opacity: 0.8;
+	
+}
+
+a{
+	display: block;
+	width: 110px;
+	height: 50px;
+	text-decoration: none;
+	color: white;
+	padding-top: 10px;
+}
+
+li:hover{
+	background-color: red;
+}
+
+#navi{
+	float:left;
+}
+
+#navi > li{
+	float:left;
+}
+
+#navi ul{
+	display:none;
+	position: absolute;
+}
+
+#navi li:hover > ul{
+	display: block;
+}
+---------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<form action="/testw/product" method="post">
+ 	<fieldset style="width: 400px;">
+        <legend>납품자 정보</legend>
+        <ol>
+        <li>
+        <label for="name">납품자명 :</label> <input type="text" placeholder="name" id="name" required autocomplete="on"><br>
+        <br>
+        </li>
+        <li>
+        <label for="email">email :</label> <input type="text" placeholder="answs@naver.com" id="email" required autocomplete="on"><br>
+        <br>
+        </li>
+        <li>
+        <label for="homepage">홈페이지 :</label> <input type="text" placeholder="http://" id="homepage" required autocomplete="on"><br>
+    	</li>
+    	</ol>
+    </fieldset>
+    <br>
+    <br>
+    <fieldset style="width: 400px;">
+        <legend>납품 정보</legend>
+        <ul>
+        
+        <li>
+        <label for="product">상품명 :</label> <input type="text" placeholder="상품명" id="product" required autocomplete="on"><br>
+        <br>
+        </li>
+        
+        <li>        
+        <label for="count">납품수량: </label><input type="text" placeholder="최소 10" id="count" required autocomplete="on"><br>
+        <br>
+        </li>
+  	
+        <li>
+        <label for="grade">납품 등급 : </label><input type="range" min="1" max="10" placeholder="5" id="grade" required autocomplete="on"><br>
+        <br>
+        </li>
+        
+        <li>
+         <label for="etc">기타사항 : </label><textarea rows="2" cols="20" id="etc" placeholder="없음" required autocomplete="on"></textarea>
+    	<br>
+    	</li>
+    	
+    	</ul>
+    </fieldset>
+    <br>
+    <br>
+    <button>send message</button>
+</form>
+
+
+</body>
+</html>
+
