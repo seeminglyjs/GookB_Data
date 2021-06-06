@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  
+<mapper namespace="org.mybatis.builder.dao.face.AuthoDao">
+
+
+</mapper>
+
+==================================================================================
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  
+<mapper namespace="org.mybatis.builder.dao.face.BlogDao">
+
+
+</mapper>
+
+==================================================================================
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!-- 마이바티스 3 Mapper DOCTYPE -->
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  
+<mapper namespace="org.mybatis.builder.dao.face.PostDao">
+
+
+</mapper>
+
+==================================================================================
+
+** Service
+
+	//마이바티스 연결 객체
+	private SqlSessionFactory factory = MyBatisConnectionFactory.getSqlSessionFactory();
+
+	//DAO 객체
+	private DeptDao deptDao = null;
+
+
+	@Override
+	public List<DeptDto> getList() {
+		// 마이바티스 수행 객체
+		SqlSession sqlSession = factory.openSession();
+
+		//매퍼를 이용한 DAO 연결
+		deptDao = sqlSession.getMapper(deptDao.class);
+
+		List<DeptDto> deptList = deptDao.selectList();
+
+		sqlSession.close();
+
+		return deptList;
+	}
+
+
+
+
+** Dao
+
+public List<DeptDto> selectList();
+
+
+
+** mapper
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!-- 마이바티스 3 Mapper DOCTYPE -->
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  
+<mapper namespace="deptmapper">
+
+<select id="selectList" resultType="DeptDto">
+	select deptno, dname, loc, from dept
+</select>
+
+</mapper>
+
+
+==================================================================================
+
+** Controller
+
+	@Autowired 
+	ServletContext context;
+	
+	@Autowired
+	FileService fileService;
+	
+
+	@RequestMapping(value = "/fileupload", method=RequestMethod.POST)
+	public void fileUpMethod(@RequestParam(value="file", required=false) MultipartFile fileupload){
+		
+		String filename = fileupload.getOriginalFilename());
+
+		if(fileupload.getSize() <= 0) {
+			logger.info("파일의 크기가 [ 0 byte ] 처리 중단");
+			return;
+		}
+		
+		//파일이 저장될 경로(real path)
+		String storedPath = context.getRealPath("upload");
+		logger.info("realPath upload :{}", storedPath);
+		
+		// 폴더가 만들어지지 않았으면 생성 한다
+		File stored = new File(storedPath);
+		if( !stored.exists()) {
+			stored.mkdir();
+		}
+		
+		//저장될 파일 이름 생성하기	
+		String filename =fileupload.getOriginalFilename(); // 원본파일명
+	
+		//uuid 값 생성
+		String uid = UUID.randomUUID().toString().split("-")[4];
+		logger.info(uid);
+		
+		
+		//원본파일 이름에 uuid 추가하기 (파일명이 중복되지 않도록 설정)
+		filename += uid;
+		logger.info(filename);
+		
+		//저장될 파일 정보 객체
+		File dest = new File(stored, filename);
+		
+		try {
+			//업로드된 파일을 저장한다
+			fileupload.transferTo(dest);
+		} catch (IllegalStateException | IOException e) {
+			e.printStackTrace();
+		}
+
+	
+
+		int check = fileService.writeFileName(String filename)
+
+	}
+
+** Service
+
+	public int writeFileName(String filename)
+
+
+
+
+
+
