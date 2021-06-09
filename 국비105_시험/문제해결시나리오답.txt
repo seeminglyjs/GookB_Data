@@ -1,0 +1,56 @@
+사용자가 검색창에 찾고자 하는 검색어를 검색한다.
+
+
+
+create table test_board_01(
+    bo_no number PRIMARY KEY
+    ,bo_title varchar2(30) not null
+    ,bo_writer varchar2(15) not null
+    ,bo_content varchar2(300) not null
+);
+
+insert into test_board_01 values(1, 'title1', 'user1', 'content1');
+insert into test_board_01 values(2, 'title2', 'user2', 'content2');
+insert into test_board_01 values(3, 'title3', 'user3', 'content3');
+
+select * from test_board_01 where bo_title like '%' || 't' || '%' or bo_content like '%' || 't' || '%';
+
+
+-------------------------------------------------------
+
+
+사용자가 아이디와 비밀번호 입력시 해당 정보가 데이터베이스와 테이블에서의 존재여부를 확인하고 이에 따른 로그인 가능 여부를 판단하여 회원에게 로그인 권한을 부여할 수 있는지를 확인하기 위해서 진행합니다.
+
+<script type="text/javascript">
+    var loginBtn = document.getElementById("loginBtn")
+    loginBtn.addEventListener('click', check) 
+
+    function check () {
+      var id = document.getElementById("id").value; 
+      var pw = document.getElementById("pw").value; 
+
+
+      if(id == "user01" && pw == "pass01") {
+	location.href = "/test/member/memberLogin.do"
+        alert("회원 로그인이 완료되었습니다.");
+      } else {
+        alert("회원 로그인이 실패했습니다.");
+      }
+
+
+    }
+</script>
+
+	
+
+
+	ID: <input type="text" name="id" id="id">
+	PW: <input type="text" name="pw" id="pw">
+	<button id="loginBtn">로그인</button>
+
+
+-------------------------------------------------------
+
+select에서 조인결과를 모두 가져오는 * 가 사용되어 불필요한 전체 데이터를 가져오고 있다.
+
+select MEMBER.USERID, MEMBER.PASSOWRD, MEMBER.USERNAME, MEMBERSHIP.MBS_NAME, AUTH_TBL.USER_AUTH_NAME 와 같이 필수 정보만 가져올 수 있도록 SELECT 문에 명시해주는 작업이 필요하다.
