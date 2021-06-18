@@ -1,0 +1,86 @@
+this.loginUser(){
+
+var userid = document.getElementById("userIdEdit").value;
+
+var password = document.getElementById("passwordEdit").value;
+
+$.ajax({
+	type: "get"
+	,url: "/member/testLogin.do"
+	,data:{"userid": userid},{"userpwd": password}
+	,dataType: "html"
+	,success: function(data){
+		console.log(data)
+		if(data){
+		alert("로그인성공")
+		}else{
+		alert("로그인실패")
+		}
+	}
+	,error: function(){
+		console.log("로그인통신실패")
+	}
+
+})
+
+}
+
+[서버 컨트롤러]
+
+@WebServlet("member/testLogin.do")
+
+public class LoginController extends HttpServlet (
+
+public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+
+	String userId = request.getParameter("userid");
+
+	String userPwd = request.getParameter("userpwd');
+
+	Member m = new MemberService().selectOne(userId);
+
+	//조회된 회원의 정보가 null 이 아니면 "true"를 리턴하는 코드를 구현한다.
+
+	boolean check = testLoginPassword(m);
+	request.setAttribute("check", check);
+	req.getRequestDispatcher("전달할.jsp")
+		   .forward(req, resp);	
+
+
+	}
+
+	public boolean testLoginPassword(Member m) {
+		if(m != null && !m.getUserId.eqauls("")) {
+			if(m.getUserPwd !=null && m.getUserPwd.equals(userPwd)){
+				return true;
+			}else{
+				return false;
+			}
+			
+		}else {
+			return false;
+		}
+	}
+
+}
+------------------------------------------------------------------
+로그인시 가져와야 하는 데이터는 회원 아이디(MEMBER.USERID),비밀번호(MEMBER.PASSWORD), 회원 명(MEMBER.USERNAME), 회원 멤버십 명(MEMBERSHIP.MBS_NAME),회원 권한 명(AUTH_TBL.USER_AUTH_NAME) 뿐인데, 정작 쿼리문에서는 불필요한 전체데이터를 가져오는 " * " 기호가 사용되었기 때문에 성능이 떨어지게 되었다.​
+
+
+
+SELECT MEMBER.USERID, MEMBER.PASSWORD, MEMBER.USERNAME, MEMBERSHIP.MBS_NAME
+, AUTH_TBL.USER_AUTH_NAME FROM MEMBER
+
+JOIN MEMBERSHIP ON(MEMBER.USERID = MEMBERSHIP.USERID)
+
+JOIN AUTH_TBL ON (MEMBERSHIP.USER_AUTH = AUTH_TBL.USER_AUTH)
+
+WHERE USERID = #{userId}
+
+위와같이 필요한 컬럼명만 SELECT 부분에 명시하여 필수 데이터만 가져오는 작업이 필요하다.
+
+
+
+
+
+
