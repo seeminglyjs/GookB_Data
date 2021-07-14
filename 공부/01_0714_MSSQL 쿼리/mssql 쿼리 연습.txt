@@ -1,0 +1,279 @@
+
+
+drop table person1;
+drop sequence person1_seq;
+
+drop table student1;
+drop sequence student1_seq;
+
+drop table grade1;
+
+--사람 테이블 생성문
+create table person1(
+	p_no bigint
+	,name nvarchar(100) not null
+	,gender nvarchar(1) default 'M'
+	,age numeric
+	,height numeric
+	,weight numeric
+	,constraint pk_person1_pno primary key(p_no)
+	,constraint ck_person1_gender check (gender in ('M', 'W'))
+);
+
+--학급테이블
+create table grade1(
+	g_no bigint
+	,g_name nvarchar(50)
+	,constraint pk_grade1_gno primary key(g_no)
+)
+
+--학생 테이블 생성문
+create table student1(
+	s_no bigint
+	,name nvarchar(100) not null
+	,gender nvarchar(1) default 'M'
+	,age numeric
+	,height numeric
+	,weight numeric
+	,grade bigint
+	,constraint pk_student1_pno primary key(s_no)
+	,constraint fk_student1_pno foreign key(grade) references grade1(g_no)
+	,constraint ck_student1_gender check (gender in ('M', 'W'))
+);
+
+
+
+
+--시퀀스 생성
+--사람시퀀스
+create sequence person1_seq 
+AS [bigint]     
+START WITH 0;
+--학생시퀀스
+create sequence student1_seq
+AS [bigint]     
+START WITH 0;
+
+--테이블 생성 여부 체크
+select * from person1;
+
+
+insert into grade1 values(1, 'hi');
+insert into grade1 values(2, 'hello');
+insert into grade1 values(3, 'king');
+insert into grade1 values(4, 'god');
+
+--사람 테이블 값 삽입 코드
+insert into person1 values(next value for person1_seq, '22abc', 'M', 25, 150, 55);
+insert into person1 values(next value for person1_seq, 'kaoad', 'M', 35, 130, 45);
+insert into person1 values(next value for person1_seq, 'howe', 'W', 45, 120, 35);
+insert into person1 values(next value for person1_seq, '34sda', 'W', 35, 60, 15);
+insert into person1 values(next value for person1_seq, 'hohoho', 'W', 55, 170, 95);
+insert into person1 values(next value for person1_seq, 'qwer22', 'W', 65, 166, 85);
+insert into person1 values(next value for person1_seq, 'hoewe', 'M', 15, 169, 155);
+insert into person1 values(next value for person1_seq, 'zxcqwe', 'M', 25, 188, 75);
+insert into person1 values(next value for person1_seq, 'kldsd', 'W', 75, 190, 65);
+insert into person1 values(next value for person1_seq, 'yuty', 'W', 85, 200, 77);
+insert into person1 values(next value for person1_seq, 'qwersd', 'W', 95, 180, 80);
+insert into person1 values(next value for person1_seq, 'dhbc', 'M', 23, 154, 58);
+insert into person1 values(next value for person1_seq, 'wtoad', 'M', 33, 132, 49);
+insert into person1 values(next value for person1_seq, 'hdshwe', 'W', 43, 123, 15);
+insert into person1 values(next value for person1_seq, '43sfa', 'W', 33, 61, 12);
+insert into person1 values(next value for person1_seq, 'fhdaoho', 'W', 53, 173, 96);
+insert into person1 values(next value for person1_seq, '12412r22', 'W', 63, 166, 45);
+insert into person1 values(next value for person1_seq, 'hsgsde', 'M', 13, 163, 125);
+insert into person1 values(next value for person1_seq, 'llghwe', 'M', 23, 181, 73);
+insert into person1 values(next value for person1_seq, 'qwed', 'W', 72, 199, 67);
+insert into person1 values(next value for person1_seq, 'yuytrty', 'W', 82, 220, 77);
+insert into person1 values(next value for person1_seq, 'dhsd', 'W', 92, 181, 81);
+
+
+
+insert into student1 values(next value for student1_seq, 'ss22abc', 'M', 25, 150, 55, 1);
+insert into student1 values(next value for student1_seq, 'sskaoad', 'M', 35, 130, 45, 1);
+insert into student1 values(next value for student1_seq, 'sshowe', 'W', 45, 120, 35, 1);
+insert into student1 values(next value for student1_seq, 'ss34sda', 'W', 35, 60, 15, 3);
+insert into student1 values(next value for student1_seq, 'sshohoho', 'W', 55, 170, 95, 3);
+insert into student1 values(next value for student1_seq, 'ssqwer22', 'W', 65, 166, 85, 3);
+insert into student1 values(next value for student1_seq, 'sshoewe', 'M', 15, 169, 155, 2);
+insert into student1 values(next value for student1_seq, 'sszxcqwe', 'M', 25, 188, 75, 3);
+insert into student1 values(next value for student1_seq, 'sskldsd', 'W', 75, 190, 65, 4);
+insert into student1 values(next value for student1_seq, 'ssyuty', 'W', 85, 200, 77, 2);
+insert into student1 values(next value for student1_seq, 'ssqwersd', 'W', 95, 180, 80, 2);
+insert into student1 values(next value for student1_seq, 'ssdhbc', 'M', 23, 154, 58, 2);
+insert into student1 values(next value for student1_seq, 'sswtoad', 'M', 33, 132, 49, 3);
+insert into student1 values(next value for student1_seq, 'sshdshwe', 'W', 43, 123, 15, 2);
+insert into student1 values(next value for student1_seq, 'ss43sfa', 'W', 33, 61, 12, 1);
+insert into student1 values(next value for student1_seq, 'ssfhdaoho', 'W', 53, 173, 96, 3);
+insert into student1 values(next value for student1_seq, 'ss12412r22', 'W', 63, 166, 45, 4);
+insert into student1 values(next value for student1_seq, 'sshsgsde', 'M', 13, 163, 125, 3);
+insert into student1 values(next value for student1_seq, 'ssllghwe', 'M', 23, 181, 73, 2);
+insert into student1 values(next value for student1_seq, 'ssqwed', 'W', 72, 199, 67, 3);
+insert into student1 values(next value for student1_seq, 'ssyuytrty', 'W', 82, 220, 77, 4);
+insert into student1 values(next value for student1_seq, 'ssdhsd', 'W', 92, 181, 81, 2);
+
+-- 데이터 삽입 확인 하기
+select * from student1;
+select * from person1;
+select * from grade1;
+
+-- 간단한 이너조인
+select * from student1 s
+join grade1 g
+on s.grade = g.g_no;
+
+-- 상위 10개 출력하기 [학생 나이순으로 내림 차순]
+select top(10) name, age from student1 order by age desc;
+
+-- 상위 10개 출력하기 [학생 나이순으로 내림 차순] 마지막 순위가 같은 행들이
+-- 있을 경우 모두 출력한다. 때문에 10개 이상이 될 수 있다.
+select top(10) with ties name, age from student1 order by age desc;
+
+-- rownum을 설정하는 방법 
+--ROW_NUMBER() OVER(ORDER BY 정렬 기준이 될 컬럼 정렬방법) 별명
+select ROW_NUMBER() over(order by (select 1)) rnum
+	,name
+	,age
+	from student1;
+
+
+-- rownum을 설정하는 방법 
+-- 나이 많은 순으로 정렬하고 rownum을 붙이는 방법
+select ROW_NUMBER() over(order by age desc) rnum
+	,name
+	,age
+	from student1;
+
+
+-- rownum을 설정하는 방법 
+-- 나이 많은 순으로 정렬하고 rownum을 붙이는 방법 10개 까지
+--정렬 후 순번이 매겨진다.
+select top(10) ROW_NUMBER() over(order by age desc) rnum
+	,name
+	,age
+	from student1;
+
+
+
+-- rownum을 설정하는 방법 
+-- 나이 많은 순으로 정렬하고 rownum을 붙이는 방법 10개 까지
+--정렬 후 순번이 매겨진다.
+-- 추가 조건 학년이 2학년 초과인 대상만
+select top(10) ROW_NUMBER() over(order by age desc) rnum
+	,name
+	,age
+	,grade
+	from student1
+	where grade > 2;
+
+-- 3개 이상 테이블 조인 방법 예제
+--SELECT * FROM test1 
+--INNER JOIN test2
+--ON test1.b = test2.b 
+--INNER JOIN test3 
+--ON test2.b = test3.b
+
+
+
+--전체 학생수를 카운트 하는 법
+select count(*) as 학생수 from student1;
+
+--학년별 전체 학생수를 구하는 법
+select grade, count(grade) 학생수 from student1 group by grade; 
+
+--학년별 가장 나이 많은 사람
+select grade, max(age) 최고나이 from student1 group by grade;
+
+--학년별 평균나이를 구하는 법
+select grade, avg(age) 평균나이 from student1 group by grade;
+
+--이름이 a로 끝나는 학생
+select name from student1 where name like '%a';
+--이름이 a로 시작하는 학생
+select name from student1 where name like 'a%';
+--이름에 끝자가 a, ,b, c중에 들어가는 학생
+select name from student1 where name like '%[abc]';
+select name from student1 where name like '%[a-c]';
+
+
+select *,
+	(case when age >=50 then '시니어'
+		when ( age >= 40 and age < 50 ) then '프로'
+		when( age >= 30 and age  < 40) then '고수'
+		else '별루'
+	end) as '킹'
+from student1;
+	
+
+-----------------------------------------------------20210714-------------------------------------
+--가상테이블 활용하기
+-- 오늘 날짜 출력하기
+select getdate() today;
+select SYSDATETIME() today; -- 더자세하게 나온다.
+
+--첫번째 글자 부터 2번째 글자까지 출력
+select substring('hello', 1, 2);
+
+--mssql 널값 처리
+select isnull('hello', 'hi'); -- hello가 null 이면 hi를 출력
+
+--'숫자를 문자열로 변환' as 필수로 적어두어야 한다.
+select convert(nvarchar(100), 100) '숫자를 문자열로';
+
+-- 문자열 길이를 출력하자 as 를 적어주자
+select len('hello world') as 문자열길이;
+
+-- 문자열을 연결해 보자
+select 'a' + 'bc' as 문자열연결;
+
+--월의 마지막 날 구하기(날짜)
+select dateadd(month, 1, getdate()) - day(getdate())
+
+--한달 후 구하기(날짜)
+select dateadd(month,1, getdate());
+
+--월의 첫째날 구하기(날짜)
+select dateadd(day, -(day(getdate()-1)), getdate());
+
+-- 월의 13개월전 첫째날
+select dateadd(month, -12, getdate())-(day(getdate())-1);
+
+-- 1일 빼기
+select dateadd(day , -1, getdate());
+-- 1일 더하기
+select dateadd(day , 1, getdate());
+-- 1달 빼기
+select dateadd(month, -1, getdate());
+-- 1달 더하기
+select dateadd(month, 1, getdate());  
+-- 1년 빼기
+select dateadd(year, -1, getdate());
+-- 1년 더하기
+select dateadd(year, 1, getdate());
+
+--문자열 위치 구하기 끝나는 위치로 전달 13
+select CHARINDEX('hi', 'hello world hi everyone');
+
+--문자열 공백 제거
+select ltrim('   hello world'); -- 좌측
+select rtrim('   hello world'); -- 우측
+select rtrim(' hello world  ');
+select ltrim(rtrim(' hello world  ')); -- 좌우측 모두 제거
+
+
+-- 현재 날짜와 2011/11/11날짜의 일수 차이를 계산한다.
+select datediff(dd, '2011/11/11', getdate()) as 일수차이;
+-- 현재 날짜와 2011/11/11날짜의 월수 차이를 계산한다.
+select datediff(MM, '2011/11/11', getdate()) as 월수차이;
+-- 현재 날짜와 2011/11/11날짜의 년수 차이를 계산한다.
+select datediff(yyyy, '2011/11/11', getdate()) as 년수차이;
+
+--문자열을 날짜형으로 변환
+select convert (datetime, '2010-11-07') as '문자열 날짜로 변환';
+--rank 함수를 활용한 학생의 나이별 순위 출력
+select top(10) RANK() over(order by age desc) '순위', name, age from student1;
+
+select round(100.343, 1, 1);
+
+-- 두 문자의 SUONDEX 차이를 알려준다.
+SELECT Difference('a','b');

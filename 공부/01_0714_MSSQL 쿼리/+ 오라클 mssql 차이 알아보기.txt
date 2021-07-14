@@ -1,0 +1,16 @@
++ 오라클 mssql 차이 알아보기
+
+
+	- mssql -> 자동 증가 옵션이 있음
+	MSSQL: 테이블 생성 시 자동 증가 옵션(identity(1,1)) 사용
+
+	- 날짜형
+	mssql : Smalldatetime, datetime
+	oracle: date
+
+	- 가상테이블
+	오라클 dual 사용
+	mssql 그냥 없이 사용
+	ex) select getdate() today -> as 를 today로 부여하고 오늘 날짜를 알아온다.
+
+	
