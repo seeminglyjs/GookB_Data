@@ -1,0 +1,41 @@
+//json을 통한 요청과 응답을 처리하기 위한 기초 셋팅
+
+
+----1. 
+//json을 통한 요청과 응답을 처리하기 위해서 pom.xml에 의존관게 주입
+  <!-- pom.xml -->
+  <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.9.4</version>
+  </dependency>
+  <!-- java8 date/time -->
+  <dependency>
+      <groupId>com.fasterxml.jackson.datatype</groupId>
+      <artifactId>jackson-datatype-jsr310</artifactId>
+      <version>2.9.4</version>
+  </dependency>
+
+
+
+----2. 
+//json 객체를 받아와야 할때는
+//일반 @Controller가 아닌 @RestController를 사용한다.
+@RestController
+
+
+
+----3.
+//dto 내에서의 민간함 데이터는
+//@JsonIgnore을 통해서 제외시킬수 있음
+@JasonIgnore
+private String password;
+
+
+----4.
+//json으로 날짜를 표현하기 위해
+//@JasonFormat 어노테이션을 제공한다.
+@JsonFormat(pattern='yyyyMMdd')
+private Date realtime;
+
+
