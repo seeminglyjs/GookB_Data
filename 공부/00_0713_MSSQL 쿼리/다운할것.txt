@@ -1,0 +1,8 @@
+톰캣 8.5
+sts 4.1.1
+eclipse 2019-6
+
+
+프로젝트 경로
+D:workspace/project/source_code_gitlab	eclipse경로 struts1, 2
+D:workspace/project/source_code_spring_utf8_gitlab	sts경로
