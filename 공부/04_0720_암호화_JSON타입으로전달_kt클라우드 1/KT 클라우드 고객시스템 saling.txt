@@ -1,0 +1,23 @@
+KT 클라우드 고객시스템 saling
+
+1. image를 활용한 VM 복제와 증설
+	원본 VM OS 디스크를 스냅샷 -> 이미지화 한다
+	OS 디스크가 가벼울수록 이미지 생성, 복제 VM 생성이 용이하다
+	스냅샷하기 전에, 데이터디스크 마운트 정보 등 정상적인 서버 부팅을
+	불가하게 만드는 요소는 제거해야 한다
+
+2. 시스템 부하 변동에 따른 Scaling 정책
+	극격한 변동 / 예고된 이벤트 - > 사전에 충분히 증설
+	비교적 급격한 병동 / 예측불가 이벤트  -> 예비 서버(정지상태)준비
+	규칙적인 변화 -> API 스크립트 작성으로 scale-in/out 자동화
+	완만한 변동 -> Autoscaling
+
+
+3. session clustering
+
+	다중화된 모든 서버들이 모든 session 정보를 상호 고유한다.
+	for Scaling
+	For Session stickness
+
+	Tomcat/JBOSS Session Clustering
+	Redis Session Manager

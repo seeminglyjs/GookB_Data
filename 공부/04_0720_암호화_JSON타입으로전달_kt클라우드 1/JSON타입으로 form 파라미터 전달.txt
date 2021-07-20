@@ -1,0 +1,63 @@
+<html>
+
+  <head>
+
+  <title>JQuery Ajax</title>
+
+  <script src="/js/jquery-1.11.3.min.js"></script>
+
+  <script src="/js/jquery.serializeObject.js​"></script>
+
+  <script>
+
+     function ajax_send(frm){
+
+           ​var formData = $("#form").serializeObject(); 
+
+          $.ajax({
+
+                 url:'/api/board/write', //REST API호출 
+
+                 type:'POST',
+
+                 contentType:'application/json',
+
+                 data:JSON.stringify(formData), //{"title":"JSON전송", "contents":"JSON데이타 전송 테스트"} 형태임
+
+                 success: function(data){
+
+                         document.getElementById("rtn").innerHTML = data.trim(); //호출 반환값을 디버깅용 textarea에 출력
+
+                 },error: function(xhr, status, error){
+
+                        document.getElementById("rtn").innerHTML = "[" + xhr.status + "]" + error;
+
+                 } 
+
+          }); 
+
+          return false;
+
+      }
+
+</script>
+
+</head>
+
+<body>
+
+     <form id="form">
+
+            제목<input type="text" name="title" id="title"/><br>
+
+            본문<input type="text" name="contents" id="contents"/>
+
+     </form>
+
+     Ajax Call : <input type="button" onclick="ajax_send()" value="call"><br><br>
+
+     응답데이타:<textarea id="rtn">디버그 정보</textarea>
+
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+
+1. 고객 시스템 환경에 대한 이해
+	각각의 계정에 VLAN으로 분리된 사설망이 할당된다.
+	*Virtual Local Area Network 의 약자로 물리적 배치와 상관없이 논리적으로 LAN을 구성할 수 있는 기술이다.
+
+	VR(Virtual Router) : NAT, FW, DHCP	
+	*virtual router는 방화벽의 역할을 한다.
+	*NAT : 네트워크 주소 변환은 컴퓨터 네트워킹에서 쓰이는 용어로서, 
+	
+	사설 IP 주소 : VM은 사설 IP 주소를 받는다.
+
+	계정의 자원 제한 : 고객 실수 등에 의한 자원 오남용을 방지하기 위해 계정별로 이용 가능한 자원의 한도가 있다.
+
+2. 고객 시스템 환경에 대한 기본적인 이해
+	Port forwarding : 공인망에서 vm(가상머신)을 접근하려면, 해당 포트를 NAT 구성해야 한다.
+	공용포트 번호는 사설포트 번호와 일치하지 않아도 된다.
+	방화벽 관리
+		초기 설정 : All-deny(inbound)
+		Port forwarding 구성하면 자동으로 해당 포트에 대해서 All-allow
+	
+	Static NAT : 고객VM과 공인IP 주소를 1:1 매핑해줄 수도 있다.
+
+3. VM 상품 선택
+	메모리 / cpu / 디스크 용량 / 고성능의 네트워크 I/O가 필요한 경우 /고성능의 디스크 I/O가 필요한 경우
+
+4. 데이터 저장 공간
+	VM디스크 / NAS / Zadara / ucloud storage
+	
+
+5. LB(load balancer) 사용
+	LB는 계정 외부에 proxy 형태로 존재한다.
+	
+	패킷이 LB를 통과하면서 source_IP가 LB의 SNIP로 변경되므로, 웹서버 로그 등에 Client의 IP주소를 기록하고 싶다면
+	X-Forwarded-For 헤더를 확인해야 한다.
+
+	**Session stickyness
+	LB 알고리즘을 Source IP hash(+port) 로 설정하면, client IP 주소(+포트) 별 항상 동일한 서버로 패킷을 보내준다
+	또는, 서버에서 session clustering을 구성해도 session stickyness를 구현할 수 있다.
+
+6. LB(load balancer) 사용 2
+	LB는 포트별로 별도 생성해야 하지만, 포트가 다르면
+	동일한 service IP로 묶을 수 있다.
+
+	LB 프로토콜을 HTTPS로 선택하고 인증서를 등록하면
+	HTTPS 트래픽을 복호화하여 평문 트래픽으로 서버에
+	전달할 수 있다.
+
+7. 웹 방화벽 사용
+	펜타시큐리티 WAPPLES, 모니터랩 WIWAF-VE
+	일종의 vm으로, 계정 내부에서 proxy 형태로 존재한다.
+
+	웹방화벽의 장애에 대비하여 이중화 구성하는 것이 좋다.
+
+
+8. DB 서버의 이중화
+	I-SCSI 공유 스토리지 기반의 이중화를 구성할 수 있다
+	ucloud NAS(저성능 DB), Zadara(고성능DB) 이용
+	MS-SQL은 DBMS 자체 기능만으로 clustering 구성이 가능하다
+	마켓플레이스 상품 MCCS를 활용하면 거의 모든 RDBMS를 공유 스토리지 기반으로
+	이중화 구성할 수 있다.
+
+	VM디스크로 replication / mirroring을 구성할 수 있다
+	거의 모든 DBMS가 이러한 이중화 형태를 지원한다
+	mySql replication은 ucloudDB 서비스로도 이용 가능하다
+
+	ex) Replication/Mirroring  || 공유소토리지 기반의 Clustering
+
+
+
+9. 대형 시스템 구성을 위한 그룹계정 및 CIP 기능
+	그룹계정
+	관리적 목적
+	보안을 위해서
+	대형 시스템 구성을 위해서
+	CIP(Cloud Internal Path)
+
+
