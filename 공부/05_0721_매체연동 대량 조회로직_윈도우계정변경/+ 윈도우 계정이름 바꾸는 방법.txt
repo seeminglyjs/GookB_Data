@@ -1,0 +1,7 @@
++ 윈도우 계정이름 바꾸는 방법
+
+cmd창에서
+
+control userpasswords2  입력 -> enter
+
+계정선택후 속성항목 클릭 후 이름변경
