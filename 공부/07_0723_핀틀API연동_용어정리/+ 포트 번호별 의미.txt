@@ -1,0 +1,21 @@
++ 포트 번호별 의미
+
+0번      ~  1023번  : Well-known port, 잘 알려진 포트
+
+1024번 ~  49151번 : registered port, 등록된 포트
+
+49152번 ~ 65535번 : dynamic port, 동적 포트
+
+이렇게 3가지로 분류되며 well-known port는 특정한 쓰임새를 위해서 할당한 TCP, UDP 포트 번호로 이루어져 있습니다.
+
+
+20 : FTP  : FTP 데잍 전송 포트
+21 : FTP : FTP 제어포트
+22 : SSH : Secure Shell - ssh , sftp 같은 프로토콜 및 포트 포워딩
+23 : Telnet : 텔넷 프로토콜 - 암호화 되지 않은 텍스트 통신
+25 : SMTP : Simple Mail Transfer Protocol - 이메일 전송 프로토콜
+53 : DNS : Domain Name System
+80 : HTTP : HyperText Transfer Protocol - 웹페이지 전송 프로토콜
+123 : NTP : Newwork TIme Protocol - 시간 동기화 프로토콜
+443 : HTTPS : HyperText Transfer Protocol over Secure Sokets
+514 : Syslog : 시스템 로그 전송 프로토콜

@@ -1,0 +1,17 @@
++ URL Schemes
+
+	 url Schemes를 이용하면 정의한 프로토콜을 통해 다른 앱과 통신할 수 있다.
+	이러한 체계를 구현하는 앱과 통시하려면 알맞은 형식의 url을 만들고 시스템을 열어달라고
+	요청해야 한다.
+
+
+	Sending a URL to Another App
+	custom URL scheme을 구현하는 앱에 데이터를 보내려면 적절하게 형식이 지정된 
+	URL을 만들고 앱 객체의 openURL: 메소들르 호출하면 된다.
+
+	openURL: 메소드는 등록된 체계로 앱을 시작하고 URL을 전달한다. 
+	이 시점에서 컨트롤은 새 앱으로 넘어간다.
+
+	앱이 custom URL scheme을 정의하는 경우 custom URL scheme 구현에 설명 된대로 
+	해당 스키마에 대한 핸들러를 구현해야한다. 
+	
