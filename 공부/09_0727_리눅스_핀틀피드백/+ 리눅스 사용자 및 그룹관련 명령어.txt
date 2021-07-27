@@ -1,0 +1,154 @@
++ 리눅스 사용자 및 그룹관련 명령어
+
+
+useradd newuser 
+// newuser 라는 이름으로 사용자를 생성한다.
+
+useradd -u 1234 newuser 
+// newuser 라는 이름으로 사용자를 생성하면서
+사용자 ID 는 1234로 지정한다.
+
+useradd -g newgroup newuser
+//newuser 사용자를 생성하면서 newgroup 그룹에 newuser 사용자를 추가한다.
+* 기존에 newgroup이 존재해야지 가능
+
+useradd -d /newhome newuser
+//newuser를 생성하면서 해당 유저의 홈 디렉토리를 /newhome라고 지정한다.
+
+useradd -s /bin/csh newuser
+//newuser 사용자를 생성하면서 기본 셀을 /bin/csh로 지정한다.
+------------------------------------------
+
+passwd newuser
+//newuser 사용자의 비밀번호를 생성 및 변경한다.
+-----------------------------------
+
+usermod -g oldgroup newuser
+//newuser의 그룹을 oldgroup로 변경한다.
+---------------------------------------
+
+userdel newuser
+//newuser 계정을 삭제한다.
+------------------------------------------
+
+change -l newuser
+//newuser의 설정 항목들을 확인한다.
+
+change -m 7 newuser
+//newuser가 설정한 암호는 최소 7일은 사용해야 한다.
+
+change -M 30 newuser
+//newuser가 설정한 암호를 최대 30일까지 사용할 수 있다.
+
+change -E 2021/02/01 newuser
+//newuser의 암호가 만료되는 날짜를 설정한다.
+
+change -W 14 newuser 
+//newuser 가 설정한 암호가 만료되기 전에 경고한다.(예제는 14일 부토 default는 7일이다.)
+--------------------------------------------
+
+groups
+//현재 사용자의 소속 그룹을 보여준다.
+
+groups newuser
+//newuser가 소속된 그룹을 보여준다.
+-------------------------------------------
+
+groupadd newgroup
+//newgroup이라는 새로운 그룹을 생성한다
+
+groupadd -g 1234 newgroup
+//newgroup이라는 그룹을 생성하면서 그룹 ID는 1234로 지정
+
+--------------------------------------------
+
+groundmod -n oldgroup newgroup
+//newgroup을 oldgroup으로 이름을 변경
+
+---------------------------------------
+
+groupdel oldgroup
+//oldgroup를 삭제한다. 사전에 해당 그룹에 사용자들을 제거하거나 이동시켜야 한다.
+------------------------------------
+
+gpasswd newgroup
+//newgroup의 암호를 지정
+
+gpasswd -A newuser newgroup
+//newuser를 newgroup의 관리자로 지정
+
+gpasswd -a newuser newgroup
+//newuser를 newgroup의 사용자로 추가
+
+gpasswd -d newuser newgroup
+//newuser를 newgroup에서 제거한다.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
