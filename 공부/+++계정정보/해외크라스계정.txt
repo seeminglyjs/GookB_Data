@@ -1,0 +1,3 @@
+http://dev.giftting.co.kr:28081/
+seeminglyjs
+w20210728#!$
