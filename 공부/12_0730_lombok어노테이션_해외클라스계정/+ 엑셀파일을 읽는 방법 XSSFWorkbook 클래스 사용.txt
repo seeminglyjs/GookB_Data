@@ -1,0 +1,79 @@
++ 엑셀파일을 읽는 방법 XSSFWorkbook 클래스 사용
+
+
+		int rowNum=1;
+		int cellNum = 0;
+		
+		//엑셀파일을 inputStream으로 가져온다.
+		try(XSSFWorkbook workbook = new XSSFWorkbook(excelFile.getInputStream())) {
+			//첫번째 시트를 가져온다.
+			XSSFSheet sheet = workbook.getSheetAt(0);
+			
+			//몇행인지 체크한다.
+			int rowSize = sheet.getPhysicalNumberOfRows();
+			log.info("rows="+rowSize);
+			
+			//행이 끝날때 까지 반복한다.
+			for(; rowNum<rowSize; rowNum++) {
+				XSSFRow row = sheet.getRow(rowNum);
+			cellNum = 0;
+				String goodsName = getStringCellValue(row, cellNum);	//상품명
+				String swapName = getStringCellValue(row, ++cellNum);	//교환처
+				String category = getStringCellValue(row, ++cellNum);	//카테고리
+				String modelName = getStringCellValue(row, ++cellNum);	//모델명
+				String goodsStus = getStringCellValue(row, ++cellNum);	//판매 상태
+				Double supplierDiscountRate = getNumericCellValue(row, ++cellNum);	//할인율
+				Double fee = getNumericCellValue(row, ++cellNum);	//수수료
+				String saleStartDateTime = getStringCellValue(row, ++cellNum);	//판매 시작
+				String saleEndDateTime = getStringCellValue(row, ++cellNum);	//판매 종료	
+				String validType = getStringCellValue(row, ++cellNum);	//유효기간 타입
+				String validDate = getStringCellValue(row, ++cellNum);	//유효기간
+				String supplierClaimType = getStringCellValue(row, ++cellNum);	//공급사 인증 타입	
+				String supplierClaimBarcodeType = getStringCellValue(row, ++cellNum);	//공급사 바코드 타입	
+				String supplierPriceType = getStringCellValue(row, ++cellNum);	//가격 타입	
+				String supplierPrices = getStringCellValue(row, ++cellNum);	//가격
+				String redemptionType = getStringCellValue(row, ++cellNum);	//사용 타입
+				String img1 = getStringCellValue(row, ++cellNum);	//상품 이미지
+				String goodsDesc = getStringCellValue(row, ++cellNum);	//상품 설명	
+				String redemptionInstructions = getStringCellValue(row, ++cellNum);	//사용 방법	
+				String terms = getStringCellValue(row, ++cellNum);	//용어
+				
+				GoodsInfoBulkDto goodsInfoBulkDto = new GoodsInfoBulkDto(
+						goodsName, swapName
+						, category, modelName, goodsStus
+						, supplierDiscountRate, fee
+						, saleStartDateTime, saleEndDateTime
+						, validType, validDate
+						, redemptionType
+						, supplierClaimBarcodeType, supplierPriceType, supplierPrices, supplierClaimType
+						, img1
+						, goodsDesc, redemptionInstructions, terms
+						, null);
+				
+				log.info(goodsInfoBulkDto.toString());
+				
+				GoodsInfoBulkValidDto goodsInfoBulkValidDto = validGoodsInfo(goodsInfoBulkDto);
+				if( ! goodsInfoBulkValidDto.isCheckResult()) {
+					checkResult = false;
+				}
+				
+				GoodsInfoBulkValidResultDto goodsInfoBulkValidResultDto = new GoodsInfoBulkValidResultDto();
+				
+				goodsInfoBulkValidResultDto.setGoodsInfoBulkDto(goodsInfoBulkDto);
+				goodsInfoBulkValidResultDto.setGoodsInfoBulkValidDto(goodsInfoBulkValidDto);
+				
+				arrGoodsInfoBulkValidResultDto.add(goodsInfoBulkValidResultDto);
+			}
+			
+		} catch (Exception e) {
+			String error = "exception (rowNum="+rowNum+", cellNum="+cellNum+")";
+			log.info(error, e);
+			throw new Exception(error);
+		}
+		
+		CheckBulkGoodsInfoDtoResponse checkBulkGoodsInfoDtoResponse = new CheckBulkGoodsInfoDtoResponse();
+		checkBulkGoodsInfoDtoResponse.setArrGoodsInfoBulkValidResultDto(arrGoodsInfoBulkValidResultDto);
+		checkBulkGoodsInfoDtoResponse.setCheckResult(checkResult);
+		
+		return checkBulkGoodsInfoDtoResponse;
+	}

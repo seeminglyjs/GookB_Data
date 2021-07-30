@@ -1,0 +1,10 @@
++ FilenameUtils.getExtension("파일명")
+
+ 파일의 확장자 정보를 확인할 수 있다.
+
+확장자가 있으면 ex) jpg / png / excel / . . . . 을 리턴
+**점은 포함되지 않는다.
+
+확장자가 없으면 빈문자열 리턴
+
+null갑시면 null을 리턴
