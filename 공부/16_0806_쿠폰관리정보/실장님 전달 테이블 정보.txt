@@ -1,0 +1,9 @@
+쿠폰 주문내역 관련해서는 아래정보를 참고하도록!!!
+
+[dbo].[TB_CPN_PURCHHIST]
+[dbo].[TB_CPN_PURCHSENDHIST]
+
+TB_CPN_TRDHIST
+
+
+TB_MDU 쪽도 살펴봐야 한다!!!!

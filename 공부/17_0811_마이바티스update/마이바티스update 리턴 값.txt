@@ -1,0 +1,51 @@
+mapper에서 쓰인
+
+ 
+
+<update id="appTest">
+
+update ~ set ~ 이 구문이
+
+</update>
+
+ 
+
+controller에 와서
+
+int a = service.appTest(~)
+
+a.put("success", (a==1));
+
+ 
+
+ 
+
+이런식으로 오는 것을 발견했다.
+
+아니, 리턴값이 없는데 갑자기 int...?
+
+찍어보니 1을 리턴하는 걸 보고 읭했다.
+
+ 
+
+찾아보니 insert, update, delete에는 resultType이 없고
+
+row의 개수를 반환한다고 한다.
+
+ 
+
+insert의 경우는 삽입된 행의 개수를 반환
+
+update의 경우는 수정에 성공한 행의 개수를 반환(실패시 0 반환)
+
+delete의 경우는 삭제한 행의 개수를 반환
+
+ 
+
+즉, 저 구문은 update 성공시에 웬만하면 1을 반환하고
+
+실패시는 0이므로 put에 success를 넣은 것
+
+
+
+출처: https://yulfsong.tistory.com/44 [Code Writer]

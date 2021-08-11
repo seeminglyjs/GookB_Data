@@ -1,0 +1,6 @@
+mssql 날짜에 like 로 검색하는 방법 mssql 문자로 날짜 검색하는 방법
+
+SELECT * FROM 테이블이름   WHERE CONVERT(NVARCHAR(50),컬럼명,126)LIKE '2011-11%'
+
+
+ex) where 1=1 AND CONVERT(NVARCHAR(50),CRE_DATE,126)LIKE  #{searchB2bOrder.creDate} + '%'

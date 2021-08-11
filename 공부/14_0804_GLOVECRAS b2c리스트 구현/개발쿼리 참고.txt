@@ -1,0 +1,35 @@
+	
+
+
+-------------------b2c 카테고리 URL 조회 쿼리문---------------------------
+
+
+SELECT
+				MM.MENU_CD AS menuCode,
+				MM.UPPER_MENU_CD AS upperMenuCode,
+				MM.MENU_NAME  AS menuName,
+				MM.URL_PATH_INFO AS urlPathInfo,
+				MM.MENU_DEPT_CNT AS menuDepthCount,
+				MM.MENU_ORD_NO AS menuOrderNo
+			FROM TB_ADM_MENUMGMTINFO(NOLOCK) AS MM
+			WHERE MM.MENU_DEPT_CNT NOT IN(0)
+				AND MM.USE_YN='Y'
+				--AND MM.MENU_DEPT_CNT=1
+					AND MM.UPPER_MENU_CD=00004
+					OR MM.MENU_CD=00004
+
+-------------------b2b 카테고리 URL 조회 쿼리문---------------------------
+
+SELECT
+				MM.MENU_CD AS menuCode,
+				MM.UPPER_MENU_CD AS upperMenuCode,
+				MM.MENU_NAME  AS menuName,
+				MM.URL_PATH_INFO AS urlPathInfo,
+				MM.MENU_DEPT_CNT AS menuDepthCount,
+				MM.MENU_ORD_NO AS menuOrderNo
+			FROM TB_ADM_MENUMGMTINFO(NOLOCK) AS MM
+			WHERE MM.MENU_DEPT_CNT NOT IN(0)
+				AND MM.USE_YN='Y'
+				--AND MM.MENU_DEPT_CNT=1
+					AND MM.UPPER_MENU_CD=00008
+					OR MM.MENU_CD=00008
