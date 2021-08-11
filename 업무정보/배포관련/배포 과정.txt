@@ -1,0 +1,48 @@
+크라스 개발기 URL : http://dev.giftting.co.kr:28081/ 
+
+작업내용 dev에 체리픽 후 이상여부 체크
+
+이상없을 시 gitlab dev 브랜치에 push
+
+ci/cd 확인후  passed 성공한것이며  원격 서버에 등록이 overwrite 된것이다.
+
+깃랩에서 푸쉬 잘 끝났는지 확인하고 개발서버 securecrt로 원격접속
+1.->	DEVn_v2 접속
+
+1.5->	su
+
+2 ->	root 계정로그인 -> Test0012gift!@#
+
+3 ->	./clear_deploy_status_GLOEV_CRAS.sh 
+	(스크립트 초기화 명령어)
+
+4 ->	./deploy_GLOEV_CRAS.sh
+	(개발기 배포 명령어)
+
+5 ->	cd ~/tomcat-GLOEV_CRAS/bin/
+	(톰캣 디렉토리로 이동)
+
+6 ->	ps -ef | grep GLOEV_CRAS
+	(톰캣 실행상태 확인하기)
+	(여려줄 나오면 현재 톰캣 실행중)
+	(한줄이면 shupdown 상태)
+
+7 ->	./shutdown.sh 
+	(톰캣서버를 종료한다.)
+	(ps -ef | grep GLOEV_CRAS 명령어로 다시 한번 확인)
+
+8 ->	./startup.sh 
+	(톰캣서버를 킨다.)
+	(ps -ef | grep GLOEV_CRAS 명령어로 다시 한번 확인)
+
+9 ->	개발서버URL로 가서 확인한다.
+
+
+
+14.63.199.193
+13122
+13222
+
+이렇게 두개포트로 하시면 됩니다
+
+자주 들어갈거니까 세션 만들어지면 폴더에 넣고 이름 바꿔두세요 ㅎㅎ

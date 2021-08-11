@@ -1,0 +1,6 @@
+
+C:\Windows\System32\drivers\etc
+
+hosts파일 설정에 아래 등록
+
+14.49.41.214 cmsin.giftting.co.kr
