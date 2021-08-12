@@ -1,0 +1,28 @@
++ KeyPairGenerator 
+
+	클래스는 공개키와 비공개키의 페어를 생성하기 위해서 사용합니다. 
+	키 페어 제네레이터는 getInstance 팩토리 메서드 (지정된 클래스의 인스턴스를 돌려주는 static 메서드)를 사용해 구축됩니다.
+
+	특정의 알고리즘에 대응하는 키 페어 제네레이터는 
+	이 알고리즘으로 사용되는 공개키 및 비공개키의 페어를 작성합니다. 
+	또, 알고리즘에 특정의 파라미터를, 생성된 양쪽 모두의 키에 관련짓습니다.
+
+	키 페어를 생성하려면 2 방법의 방법, 
+	즉, 알고리즘에 존하지 않는 방법과 알고리즘에 특정의 방법이 있습니다. 이 2개의 방법은 객체의 초기화만이 다릅니다.
+
+	getInstance (String  algorithm)
+          	지정된 다이제스트 알고리즘을 구현하는 KeyPairGenerator 객체를 작성합니다.
+
+	initialize (AlgorithmParameterSpec  params)
+          	지정된 파라미터세트와 난수의 발생원으로서 가장 높은 우선 순위로 인스톨 되고 있는 프로바이더의 
+	SecureRandom 구현을 사용해, 키 페어 제네레이터를 초기화합니다.
+----------------------------------------------------------
+
+			KeyPair keyPair = generator.genKeyPair();
+			KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+			
+			PublicKey publicKey = keyPair.getPublic();
+			PrivateKey privateKey = keyPair.getPrivate();
+			System.out.println("### PrivateKey : " + privateKey.toString());
+
+

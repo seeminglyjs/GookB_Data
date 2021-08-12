@@ -1,0 +1,23 @@
+
+--------------날짜 기간을 검색했을때 쿼리문
+					SELECT 
+			PURCH_NO
+			,MEDIUM_ID
+			,SEND_METHOD
+			,SEND_TIME_TYPE
+			,RES_DT
+			,GOODS_SEQ
+			,SEND_CNT
+			,SALE_PRICE
+			,SUPPLY_PRICE
+		FROM
+			TB_CPN_PURCHHIST (nolock)
+		WHERE
+			1=1
+			AND RES_DT BETWEEN CONVERT(date,'20210609' ,120)
+			AND CONVERT(date,'20210830',120)
+
+
+
+--------------날짜 일부만 검색해도 검색 되게끔 쿼리문
+	AND CONVERT(NVARCHAR(50),RES_DT ,126)LIKE  #{searchCpnPurchHist.resDt} + '%'
